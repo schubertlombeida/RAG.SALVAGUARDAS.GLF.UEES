@@ -1,12 +1,102 @@
 {
-  "portal_commit": "382526ecd7b3d8cc250bbe8770e346ee79a83528",
+  "portal_commit": "a5a7e5a3ec8703990c2f62ce559536ac0a1eba94",
   "source_repository": "https://github.com/soulkernel/Prototipo.Postulacion.Salvaguardas",
-  "snapshot_date": "2026-10-23",
+  "snapshot_date": "2026-10-24",
   "files": [
     {
-      "path": "integration/portal/web/src/lib/rag.ts",
-      "upstream_path": "web/src/lib/rag.ts",
-      "sha256": "d8844130824569f4ea45f7250ea183c86f3b68ac215f56bd67b8c0fbe48a6f25"
+      "path": "integration/e5-inference/Dockerfile",
+      "upstream_path": "inference/Dockerfile",
+      "sha256": "057ae3b49178dedf0f1e4288a683935a6dbefbf2097a30cc407a1726bc0c3f5e"
+    },
+    {
+      "path": "integration/e5-inference/README.md",
+      "upstream_path": "inference/README.md",
+      "sha256": "b2a5467bbefaf1a013fb919a011a18fdf1c7bf5f868a77aabacfba887736ad9f"
+    },
+    {
+      "path": "integration/e5-inference/app.py",
+      "upstream_path": "inference/app.py",
+      "sha256": "f561fde267e88e3e3e015d05573048b495d931778254262ef558d427acd39e18"
+    },
+    {
+      "path": "integration/e5-inference/requirements.txt",
+      "upstream_path": "inference/requirements.txt",
+      "sha256": "033f0fdfa562fe40b80aae823292ac664277faeaa1df7bdb2722da8e7d272c0f"
+    },
+    {
+      "path": "integration/portal/.github/workflows/web-checks.yml",
+      "upstream_path": ".github/workflows/web-checks.yml",
+      "sha256": "c72707b3ddded900bc7abc13479c79e708642e31c632fc740b1b99b0c3af8b70"
+    },
+    {
+      "path": "integration/portal/docs/RAG-UX-2026-10-24.md",
+      "upstream_path": "docs/RAG-UX-2026-10-24.md",
+      "sha256": "3bf1bbc91af2bbe056c22fc4828ead8e047ead552834972ec06619deb6e26476"
+    },
+    {
+      "path": "integration/portal/web/AGENTS.md",
+      "upstream_path": "web/AGENTS.md",
+      "sha256": "da99ce1bd6f1719e92e854e77cbf786dd49a0cd8ff51224a4c943b5726f14487"
+    },
+    {
+      "path": "integration/portal/web/package-lock.json",
+      "upstream_path": "web/package-lock.json",
+      "sha256": "c5498d000ea72614e943e011d9f36090b93d008d62b82250ac9d25d6bf42dec0"
+    },
+    {
+      "path": "integration/portal/web/package.json",
+      "upstream_path": "web/package.json",
+      "sha256": "3464521c71da3b2feefcd43b4a86efa53f1d3dbb57798ae0992f3a49d08d77ae"
+    },
+    {
+      "path": "integration/portal/web/src/app/api/corpus/route.ts",
+      "upstream_path": "web/src/app/api/corpus/route.ts",
+      "sha256": "621b401ee53797e992584c738934f91ea3105fd1a37413cdc69a95133e7c1b3a"
+    },
+    {
+      "path": "integration/portal/web/src/app/api/rag/query/route.ts",
+      "upstream_path": "web/src/app/api/rag/query/route.ts",
+      "sha256": "c0079fb794782046737ae2817d108b4b729b9c7c513ccedf7f7929a8e7ea7e4b"
+    },
+    {
+      "path": "integration/portal/web/src/app/globals.css",
+      "upstream_path": "web/src/app/globals.css",
+      "sha256": "73b04c5ff69ee97d752f71fcddfe46405fed6076c367fa894615be1aec19448a"
+    },
+    {
+      "path": "integration/portal/web/src/app/internal/evidence/actions.ts",
+      "upstream_path": "web/src/app/internal/evidence/actions.ts",
+      "sha256": "1468e3595ba064111bb09262f90aba7de471c63133a3fb74432e5a22e7e7038e"
+    },
+    {
+      "path": "integration/portal/web/src/app/internal/evidence/page.tsx",
+      "upstream_path": "web/src/app/internal/evidence/page.tsx",
+      "sha256": "27fc61474d7da38a2e67ae166a398f9df648405487a14364d2cccd52edc9d738"
+    },
+    {
+      "path": "integration/portal/web/src/components/rag-console.css",
+      "upstream_path": "web/src/components/rag-console.css",
+      "sha256": "b05f1c094b953fbb7ca35dacd5bd87a1bba860ab34dd7faf1dfb681f7fd184d5"
+    },
+    {
+      "path": "integration/portal/web/src/components/rag-console.tsx",
+      "upstream_path": "web/src/components/rag-console.tsx",
+      "sha256": "ad87146b859d56517371eb01386827f5b3047edc5b754234a06523180ce9eed6"
+    },
+    {
+      "path": "integration/portal/web/src/components/rag-methods.tsx",
+      "upstream_path": "web/src/components/rag-methods.tsx",
+      "sha256": "aee674cba5344eb8ed45e6955df93d3502351756328a7fe42dd254b49e6d9c0b"
+    },
+    {
+      "path": "integration/portal/web/src/components/rag-workspace.tsx",
+      "upstream_path": "web/src/components/rag-workspace.tsx",
+      "sha256": "ce22a4b30c434be8b8657e232a2f622c24c8d0a48967d558eaead28f75ea4b6f"
+    },
+    {
+      "path": "integration/portal/web/src/components/use-rag-query.ts",
+      "upstream_path": "web/src/components/use-rag-query.ts",
+      "sha256": "d7dd31eb8acc89a54f247ea90e5216d271259c43ce9669c7ef4d23a8283daa10"
     },
     {
       "path": "integration/portal/web/src/lib/embedding.ts",
@@ -16,7 +106,12 @@
     {
       "path": "integration/portal/web/src/lib/qwen-contract.ts",
       "upstream_path": "web/src/lib/qwen-contract.ts",
-      "sha256": "56b36d1296917962352fdbe50cf6e3b881f0ca7159b12b0786b2b579caba5d35"
+      "sha256": "2c0161215f22206a1732b97f65e6364cac8ba719ed09c677993b1c51587ac52c"
+    },
+    {
+      "path": "integration/portal/web/src/lib/qwen.ts",
+      "upstream_path": "web/src/lib/qwen.ts",
+      "sha256": "6f59a1378ce2ca27c689b639273e0471a2843a886b6bcd9741f4805ca60e72c1"
     },
     {
       "path": "integration/portal/web/src/lib/rag-context.ts",
@@ -29,29 +124,44 @@
       "sha256": "d6846e8aea596f634e582fc4f2629c524404535f35f5909eef4c41641489a514"
     },
     {
-      "path": "integration/portal/web/src/components/rag-workspace.tsx",
-      "upstream_path": "web/src/components/rag-workspace.tsx",
-      "sha256": "15b41e44261bb0fc0536441afec44a4049dbeeea77bf7dece11653dc51343ef2"
+      "path": "integration/portal/web/src/lib/rag-session.ts",
+      "upstream_path": "web/src/lib/rag-session.ts",
+      "sha256": "75a5aa7b6d438ad0509316063f4d85ad030b78ef5ba95efd702968b7619699ed"
     },
     {
-      "path": "integration/portal/web/src/app/api/corpus/route.ts",
-      "upstream_path": "web/src/app/api/corpus/route.ts",
-      "sha256": "621b401ee53797e992584c738934f91ea3105fd1a37413cdc69a95133e7c1b3a"
+      "path": "integration/portal/web/src/lib/rag.ts",
+      "upstream_path": "web/src/lib/rag.ts",
+      "sha256": "d8844130824569f4ea45f7250ea183c86f3b68ac215f56bd67b8c0fbe48a6f25"
     },
     {
-      "path": "integration/portal/web/package.json",
-      "upstream_path": "web/package.json",
-      "sha256": "13ecafa3be43520ff923f4a84de9d403ed4cd5a62d02609cfc31501d200f7330"
+      "path": "integration/portal/web/tests/qwen.test.ts",
+      "upstream_path": "web/tests/qwen.test.ts",
+      "sha256": "60df58e7164fa8662601ae263885973a3fe637e684dc520d100acfe517b07650"
     },
     {
-      "path": "integration/portal/web/package-lock.json",
-      "upstream_path": "web/package-lock.json",
-      "sha256": "5730ecbab4d1b36c2ee55ce6eebeb0c65ec221803b0dad3f840152cea3bbfbb6"
+      "path": "integration/portal/web/tests/rag-session.test.ts",
+      "upstream_path": "web/tests/rag-session.test.ts",
+      "sha256": "0a296fcd6d4d3341591fd27f4c509e941a28d61b714fd99df4da1634f785f8b8"
     },
     {
-      "path": "integration/portal/web/AGENTS.md",
-      "upstream_path": "web/AGENTS.md",
-      "sha256": "da99ce1bd6f1719e92e854e77cbf786dd49a0cd8ff51224a4c943b5726f14487"
+      "path": "integration/rag-service/Dockerfile",
+      "upstream_path": "rag-service/Dockerfile",
+      "sha256": "160008f9f762a1c829dd5d9adc9a977914406bebbab86152400336c6ea37899d"
+    },
+    {
+      "path": "integration/rag-service/README.md",
+      "upstream_path": "rag-service/README.md",
+      "sha256": "130731149daf32798cffdf2a584d643f3398f064abd4cf43ab75f92cd95de21c"
+    },
+    {
+      "path": "integration/rag-service/UPSTREAM.json",
+      "upstream_path": "rag-service/UPSTREAM.json",
+      "sha256": "bfde11519b66df8de2fa0a016bebd00119394bad255ef8825d1870c870b370ab"
+    },
+    {
+      "path": "integration/rag-service/answer_policy.py",
+      "upstream_path": "rag-service/answer_policy.py",
+      "sha256": "66b6677eeefdada45d4779806e6998708008989a9c24ffa9557c2b196e330e94"
     },
     {
       "path": "integration/rag-service/prepare_space.py",
@@ -59,24 +169,9 @@
       "sha256": "729eb9360ca13b946619a7e27ac3bac14fb346f39469f8eeae485f3971f363f8"
     },
     {
-      "path": "integration/rag-service/README.md",
-      "upstream_path": "rag-service/README.md",
-      "sha256": "1f79890fe8e5532213f95540c59637160ccb5724835ce7f8ad79237cf3b24f58"
-    },
-    {
-      "path": "integration/rag-service/runtime.py",
-      "upstream_path": "rag-service/runtime.py",
-      "sha256": "8ea75c71962074bbdef56359b7dc7f22b2475b50fdd4a8e17650aeff291ef2c1"
-    },
-    {
-      "path": "integration/rag-service/test_runtime.py",
-      "upstream_path": "rag-service/test_runtime.py",
-      "sha256": "aa443a2c3d4578523d943a47dff1badee450a86ccc31edc243db9c0d1a772718"
-    },
-    {
-      "path": "integration/rag-service/UPSTREAM.json",
-      "upstream_path": "rag-service/UPSTREAM.json",
-      "sha256": "bfde11519b66df8de2fa0a016bebd00119394bad255ef8825d1870c870b370ab"
+      "path": "integration/rag-service/public_demo/__init__.py",
+      "upstream_path": "rag-service/public_demo/__init__.py",
+      "sha256": "68926eb764d3994b28a648bd429e11f6554d113db3eeab0cb9430d04fd499494"
     },
     {
       "path": "integration/rag-service/public_demo/app.py",
@@ -94,9 +189,14 @@
       "sha256": "1759ff7cb8c807b8c9af8c0b55a0e06911fb0e8ede313213f6006c875fba0d62"
     },
     {
-      "path": "integration/rag-service/public_demo/__init__.py",
-      "upstream_path": "rag-service/public_demo/__init__.py",
-      "sha256": "68926eb764d3994b28a648bd429e11f6554d113db3eeab0cb9430d04fd499494"
+      "path": "integration/rag-service/runtime.py",
+      "upstream_path": "rag-service/runtime.py",
+      "sha256": "5b23a559a006d4dc76219885b3a77fafcc3e7b0f40b6bce4e877e9abed470414"
+    },
+    {
+      "path": "integration/rag-service/src/__init__.py",
+      "upstream_path": "rag-service/src/__init__.py",
+      "sha256": "62c320fd14d3bbcd0b69a84a75bae3a90b0efc4df6b6679fa08178a6226da51d"
     },
     {
       "path": "integration/rag-service/src/eda.py",
@@ -109,29 +209,21 @@
       "sha256": "820c5163789765d8a5d54586fd94684518d7683c0ebf7a72547331fed5f515f4"
     },
     {
-      "path": "integration/rag-service/src/__init__.py",
-      "upstream_path": "rag-service/src/__init__.py",
-      "sha256": "62c320fd14d3bbcd0b69a84a75bae3a90b0efc4df6b6679fa08178a6226da51d"
+      "path": "integration/rag-service/test_answer_policy.py",
+      "upstream_path": "rag-service/test_answer_policy.py",
+      "sha256": "4e4b42768ded70ee1e9d8d62d1f096866f039c6d1eccf8fd4da2373610d6a5f2"
     },
     {
-      "path": "integration/e5-inference/app.py",
-      "upstream_path": "inference/app.py",
-      "sha256": "f561fde267e88e3e3e015d05573048b495d931778254262ef558d427acd39e18"
+      "path": "integration/rag-service/test_progress.py",
+      "upstream_path": "rag-service/test_progress.py",
+      "sha256": "fc562f31813981665e63669a76e30ff3bb873d36f760767a6fceca90062a3d80"
     },
     {
-      "path": "integration/e5-inference/README.md",
-      "upstream_path": "inference/README.md",
-      "sha256": "b2a5467bbefaf1a013fb919a011a18fdf1c7bf5f868a77aabacfba887736ad9f"
-    },
-    {
-      "path": "integration/e5-inference/requirements.txt",
-      "upstream_path": "inference/requirements.txt",
-      "sha256": "033f0fdfa562fe40b80aae823292ac664277faeaa1df7bdb2722da8e7d272c0f"
-    },
-    {
-      "path": "integration/e5-inference/Dockerfile",
-      "upstream_path": "inference/Dockerfile",
-      "sha256": "057ae3b49178dedf0f1e4288a683935a6dbefbf2097a30cc407a1726bc0c3f5e"
+      "path": "integration/rag-service/test_runtime.py",
+      "upstream_path": "rag-service/test_runtime.py",
+      "sha256": "aa443a2c3d4578523d943a47dff1badee450a86ccc31edc243db9c0d1a772718"
     }
-  ]
+  ],
+  "portal_version": "0.7.62",
+  "hf_runtime_commit": "ac3789aa1300a94b4689299562eaf63649474976"
 }

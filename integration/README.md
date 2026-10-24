@@ -2,7 +2,7 @@
 
 Portal: https://glf-postulaciones.vercel.app/
 Repositorio de origen: https://github.com/soulkernel/Prototipo.Postulacion.Salvaguardas
-Commit de la instantánea: 382526ecd7b3d8cc250bbe8770e346ee79a83528, versión 0.7.59.
+Commit de la instantánea: a5a7e5a3ec8703990c2f62ce559536ac0a1eba94, versión 0.7.62.
 
 `source_manifest.json` permite verificar cada archivo copiado. `portal/web` contiene la
 selección de componentes, contratos y rutas API que intervienen en RAG, no todo el sistema.
@@ -23,5 +23,5 @@ Su README es una instantánea original con anotaciones históricas; consulte
 - E5: https://huggingface.co/spaces/Schubertlm/glf-e5-inference
 - BM25 y Qwen: https://huggingface.co/spaces/Schubertlm/glf-rag-bm25-qwen
 
-Las comprobaciones nuevas están en `results/reports/services_check.json`.
+Las comprobaciones del 24 de octubre están en `results/reports/ux_verificacion_20261024.json` y `results/reports/quality_verificacion_20261024.json`; `services_check.json` conserva la revisión anterior. El progreso se transmite por `/api/rag/query` en el portal y `/api/ask-stream` en el servicio; `/api/ask` sigue disponible.
 Una consulta funcional no acredita calidad en preguntas independientes.
