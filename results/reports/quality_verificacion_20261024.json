@@ -1,0 +1,149 @@
+{
+  "date": "2026-10-24",
+  "scope": "RAG only; applicant forms, auth, roles, database schema and hardware tier unchanged",
+  "publication": {
+    "portal": "https://glf-postulaciones.vercel.app/internal/evidence",
+    "verified_portal_version": "0.7.62",
+    "portal_commit": "a5a7e5a3ec8703990c2f62ce559536ac0a1eba94",
+    "source_repository": "https://github.com/soulkernel/Prototipo.Postulacion.Salvaguardas",
+    "vercel_status": "success",
+    "vercel_deployment": "https://vercel.com/schubert1-3992s-projects/glf-postulaciones/23NE9BwX16YiBsLxTYEvi3VJgPnW",
+    "github_checks": "success",
+    "github_runs": [
+      40135333850,
+      40135330775
+    ],
+    "hf_space": "https://huggingface.co/spaces/Schubertlm/glf-rag-bm25-qwen",
+    "hf_status": "Running",
+    "hf_commit": "ac3789aa1300a94b4689299562eaf63649474976",
+    "service_version": "1.7",
+    "academic_repository_pushed": false
+  },
+  "automated_checks": {
+    "academic_pytest": 33,
+    "portal_typescript": 187,
+    "database_and_functions": 81,
+    "service_unittest": 25,
+    "total": 326,
+    "service_smoke": "passed",
+    "lint": "passed",
+    "typescript": "passed",
+    "production_build": "passed",
+    "optimization_cli_integration": "passed on temporary synthetic fixture; no formal metrics produced"
+  },
+  "functional_checks": [
+    {
+      "scenario": "brief answer",
+      "result": "generated with references and reported usage; see exports"
+    },
+    {
+      "scenario": "expanded answer",
+      "result": "generated with references; latest PGAS query 35.2 seconds, 2374 input / 1001 output tokens, 1 provider attempt"
+    },
+    {
+      "scenario": "E5 and Supabase",
+      "result": "6 passages returned in 1.2 seconds; retrieval only"
+    },
+    {
+      "scenario": "out-of-corpus query",
+      "query": "quásares extraterrestres",
+      "result": "no passages, no cited references; insufficient-evidence message"
+    },
+    {
+      "scenario": "provider availability",
+      "result": "three expanded queries and the last brief query failed during verification; other brief and expanded queries completed successfully; input was retained and retry was available"
+    },
+    {
+      "scenario": "local controlled UI fixtures",
+      "result": "pending stages and disabled controls, truncated answer withheld, errors, history and narrow English layout checked; not live model evaluation"
+    }
+  ],
+  "exports": [
+    {
+      "path": "results/live_v0762/fallo_proveedor_final.txt",
+      "sha256": "9e6f47892d9675da009ef07d225c20a013d1f6ba8ffee41352cc664e1d2478c7",
+      "request_id": null,
+      "displayed_seconds": null,
+      "reported_tokens": null
+    },
+    {
+      "path": "results/live_v0762/PGAS_ampliado_acotado.txt",
+      "sha256": "cfd490aa224a040eee17c1ddbbf12c7ca73093653c0687455f385b136e44bcbc",
+      "request_id": "0416a157-7b1a-4714-b20a-ed52e02b5a26",
+      "displayed_seconds": 24.6,
+      "reported_tokens": [
+        2337,
+        787
+      ]
+    },
+    {
+      "path": "results/live_v0762/PGAS_ampliado_final.txt",
+      "sha256": "73b81bcd192c5b507f11f57ab2a70d81b27f7d57c083371ab9c57df3d6af820e",
+      "request_id": "d709c594-ea49-4984-aebe-5c6bf888bf25",
+      "displayed_seconds": 35.2,
+      "reported_tokens": [
+        2374,
+        1001
+      ]
+    },
+    {
+      "path": "results/live_v0762/PGAS_breve.txt",
+      "sha256": "77ada787bf358b1df6e377d27573731619e844a39cf7b7e81653e074ab301e5c",
+      "request_id": "1bc23dcf-5fca-4d36-b39e-8d037c1206d0",
+      "displayed_seconds": 14.2,
+      "reported_tokens": [
+        2282,
+        258
+      ]
+    },
+    {
+      "path": "results/live_v0762/PGAS_E5.txt",
+      "sha256": "60244d618d6154f5768b3b5c665556ca98b43f60cf85dfb190d7b90e712d18b7",
+      "request_id": "2a2851ab-bb68-499e-98b2-16bcd58c76e3",
+      "displayed_seconds": 1.2,
+      "reported_tokens": null
+    },
+    {
+      "path": "results/live_v0762/sin_evidencia.txt",
+      "sha256": "d238be457ac967b9217aca5453d4118d3459ad79af4937262738289e14ca99a1",
+      "request_id": "f289225d-1f53-4bab-95a1-549fdac65629",
+      "displayed_seconds": 0.0,
+      "reported_tokens": null
+    }
+  ],
+  "known_limits": [
+    "No independent FAQ gold or specialist passage annotations were available. No new accuracy, recall improvement or rubric score is claimed.",
+    "The model can still vary terminology: the final expanded PGAS example used Gestión although the cited manual heading says Manejo. Citation identifier checks do not establish semantic correctness.",
+    "The model may add unnecessary verification items or exceed the indicative word count. Hard token and time limits remain enforced; incomplete provider output is withheld.",
+    "Provider latency and transient failures were observed. Single-query timings are functional observations, not a benchmark or availability guarantee.",
+    "Production keeps BM25 and E5 separate. Hybrid RRF is experimental academic code, not activated in production.",
+    "Daily and hourly service quotas are in-memory and reset with the process; they are not a persistent financial spending cap.",
+    "Longer answers can consume more paid inference; no server, provider or subscription upgrade was purchased."
+  ],
+  "word_qa": {
+    "documents": [
+      "03_Arquitectura_RAG_GLF.docx",
+      "04_Optimizacion_RAG_GLF.docx",
+      "06_Manual_de_usuario_RAG_GLF.docx",
+      "07_Guia_de_entrega_y_videos_RAG_GLF.docx"
+    ],
+    "font": "Arial",
+    "body_pt": 11,
+    "heading_pt": 12,
+    "color": "black",
+    "tables": "grayscale",
+    "charts": "color",
+    "footer": "Página N de M",
+    "pages": [
+      5,
+      5,
+      4,
+      3
+    ],
+    "visual_review": "All final pages inspected; unchanged architecture pages compared by hash"
+  },
+  "remaining_academic_inputs": [
+    "independently reviewed questions and correct passages",
+    "recorded pitch and technical-answer videos"
+  ]
+}

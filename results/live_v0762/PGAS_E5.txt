@@ -1,0 +1,113 @@
+GLF · Consulta de salvaguardas
+Consulta libre
+¿Qué es el PGAS?
+
+Búsqueda documental; no genera una respuesta.
+
+Evidencia recuperada
+[3389] GLF_ANEXO_G_PLANTILLA_PGAS_ES · corpus-ba170b1580ab9b1a · GLF_ANEXO_G_PLANTILLA_PGAS_ES::0002 / part 1 / chars 0-800
+- Priorizar la prevención y evitación de impactos ambientales y sociales negativos.
+- Aplicar la jerarquía de mitigación: minimizar, mitigar o compensar los impactos negativos inevitables.
+
+### Potenciación de impactos positivos
+
+Maximizar las posibles contribuciones ambientales y sociales positivas del Proyecto.
+
+### Sostenibilidad
+
+Integrar principios de sostenibilidad ambiental y social en el diseño y la implementación.
+
+### Seguimiento y evaluación
+
+Proporcionar un marco para las futuras actividades de seguimiento y evaluación.
+
+## El PGAS como instrumento general de salvaguarda
+
+El PGAS abarca todos los riesgos e impactos ambientales y sociales identificados y permite su gestión adaptativa y seguimiento, incluidos aquellos que puedan surgir posteriormente. Integra los resultados de to
+
+[3384] GLF_ANEXO_G_PLANTILLA_PGAS_ES · corpus-ba170b1580ab9b1a · GLF_ANEXO_G_PLANTILLA_PGAS_ES::0001 / part 3 / chars 1400-2200
+|
+| SUIA | Sistema Único de Información Ambiental |
+
+## Introducción al PGAS
+
+### Descripción general
+
+El beneficiario incluirá una introducción breve al Plan de Gestión Ambiental y Social (PGAS) y una descripción general del Proyecto. El Manual del SGAS del Galápagos Life Fund contiene más detalles sobre el PGAS y su relación con el SGAS. Esta sección deberá abordar:
+
+- Introducción al Proyecto.
+- Antecedentes de los instrumentos de salvaguarda.
+- Proceso de elaboración del PGAS.
+- PGAS como instrumento general de salvaguarda.
+
+### Texto sugerido
+
+Este documento constituye el Plan de Gestión Ambiental y Social (PGAS) del proyecto `<Título del proyecto>`, denominado en adelante “el Proyecto”. Describe los compromisos de gestión ambiental y social que `<Beneficiario>` implementará para ges
+
+[3399] GLF_ANEXO_G_PLANTILLA_PGAS_ES · corpus-ba170b1580ab9b1a · GLF_ANEXO_G_PLANTILLA_PGAS_ES::0003 / part 4 / chars 2100-2900
+iano de Seguridad Social.
+
+### Normas internacionales y buenas prácticas
+
+El beneficiario presentará las normas aplicables y considerará el Anexo C. El PGAS se ajustará a:
+
+- ND1 Evaluación y gestión de riesgos e impactos ambientales y sociales.
+- ND2 Trabajo y condiciones laborales.
+- ND3 Eficiencia del uso de los recursos y prevención de la contaminación.
+- ND4 Salud y seguridad de la comunidad.
+- ND5 Adquisición de tierras y reasentamiento involuntario.
+- ND6 Conservación de la biodiversidad y gestión sostenible de recursos naturales vivos.
+- ND7 Pueblos indígenas.
+- ND8 Patrimonio cultural.
+
+Algunos proyectos activarán las ND3 a ND8 y requerirán salvaguardas específicas.
+
+Los beneficiarios utilizarán las Guías MASS 2.0 del Grupo Banco Mundial para informar sobre salud y seguridad comun
+
+[3386] GLF_ANEXO_G_PLANTILLA_PGAS_ES · corpus-ba170b1580ab9b1a · GLF_ANEXO_G_PLANTILLA_PGAS_ES::0001 / part 5 / chars 2800-3600
+vidades, y recibirán recursos adecuados. Durante la fase inicial del Proyecto, correspondiente a los primeros seis meses de implementación, el PGAS se desarrollará con mayor detalle y se finalizará.
+
+El PGAS funciona como instrumento general de salvaguarda. Su sección de seguimiento, evaluación e informes se utilizará para informar anualmente los datos pertinentes recopilados mediante todos los instrumentos de salvaguarda.
+
+## Propósito y objetivos
+
+### Texto sugerido
+
+Este PGAS sirve como hoja de ruta para gestionar los riesgos e impactos ambientales y sociales del Proyecto de conformidad con el SGAS del GLF. Es un documento dinámico que `<Beneficiario>` revisará y actualizará periódicamente en respuesta, entre otros, a los siguientes factores:
+
+- Cambios en el diseño del Proyecto o en el
+
+[3405] GLF_ANEXO_G_PLANTILLA_PGAS_ES · corpus-ba170b1580ab9b1a · GLF_ANEXO_G_PLANTILLA_PGAS_ES::0004 / part 4 / chars 2100-2900
+eguimiento y evaluación:** `<indicar cargo>` desarrollará y supervisará el programa para medir la eficacia de las medidas y los impactos.
+- **Especialistas ambientales y sociales externos:** cuando corresponda, proporcionarán conocimientos técnicos y apoyo.
+
+Las funciones específicas se finalizarán durante los primeros seis meses.
+
+### Colaboración con socios
+
+Describa las responsabilidades específicas de cada socio. Ejemplos:
+
+- `<Subbeneficiario>`: `<cargo>` elaborará e implementará `<medida, por ejemplo trazabilidad de capturas y reducción de captura incidental>`.
+- `<Subcontratista externo>` apoyará específicamente a `<cargo>` en el seguimiento y evaluación del PGAS.
+
+## Capacitación y sensibilización
+
+`<Beneficiario>` desarrollará un programa de capacitación, fortalecimiento de capaci
+
+[3532] GLF_MANUAL_SGAS_ES · corpus-c8bee784df55b2a6 · GLF_MANUAL_SGAS_ES::0005 / part 5 / chars 2800-3600
+en ESSA.
+2. Revisión del PGAS y los instrumentos preliminares.
+3. Estudios adicionales que el GLF considere indispensables, incluida mayor consulta.
+4. Identificación de estudios y planes requeridos durante la ejecución.
+
+El GLF puede recategorizar, solicitar información, inspeccionar sitios y relacionarse directamente con personas afectadas y grupos vulnerables. El informe define estudios, alcance y calendario, y señala si el proyecto y las medidas propuestas cumplen el SGAS o qué brechas deben resolverse. Si el riesgo o la mitigación son inaceptables o poco realistas, el solicitante no será elegible.
+
+### 6.1.6 Paso 6: versiones finales del PGAS e instrumentos
+
+El PGAS:
+
+- Describe el proyecto y analiza riesgos de contaminación, biodiversidad, trabajo, derechos humanos, género, patrimoni
+
+intfloat/multilingual-e5-small · 1.2 s · v0.7.62
+ID: 2a2851ab-bb68-499e-98b2-16bcd58c76e3
+Compruebe las fuentes y su aplicabilidad. La decisión corresponde al GLF.

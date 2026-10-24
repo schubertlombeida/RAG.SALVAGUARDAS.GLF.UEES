@@ -1,0 +1,136 @@
+GLF · Consulta de salvaguardas
+Consulta libre
+¿Qué es el PGAS?
+
+Respuesta a su consulta
+
+El PGAS (Plan de Gestión Ambiental y Social) es el principal instrumento de salvaguarda para las organizaciones beneficiarias financiadas por el Galápagos Life Fund (GLF). Este plan integra las medidas de manejo ambiental y social que se aplicarán durante el ciclo de vida del proyecto. [GLF_MANUAL_SGAS_PUBLIC::P25C03]
+
+Detalle sustentado
+
+- Definición y Propósito:
+  - El PGAS es un documento que detalla las medidas de manejo ambiental y social necesarias para mitigar los riesgos e impactos potenciales del proyecto. [GLF_MANUAL_SGAS_PUBLIC::P25C03]
+  - Sirve como punto de referencia para supervisar el avance en la implementación de las medidas de mitigación y asegurar su eficacia. [GLF_MANUAL_SGAS_PUBLIC::P22C01]
+
+- Contenido y Complejidad:
+  - El contenido y la complejidad del PGAS varían según el nivel y la naturaleza de los riesgos de cada proyecto. [GLF_MANUAL_SGAS_PUBLIC::P22C02]
+  - Para proyectos de categoría C, el PGAS será simple, mientras que para proyectos de categoría B, será más detallado. [GLF_MANUAL_SGAS_PUBLIC::P22C02]
+
+- Estructura y Componentes:
+  - Un PGAS simplificado incluye al menos un Plan de Participación de las Partes Interesadas (PPPI) y los Mecanismos de Gestión de Quejas. También puede incluir la Declaración de Cumplimiento de las Condiciones Laborales y de Trabajo, el Compromiso de Integración de la Perspectiva de Género, y el Instrumento de Notificación de Accidentes e Incidentes Graves. [GLF_MANUAL_SGAS_PUBLIC::P26C01]
+  - Un PGAS más complejo aborda los mismos componentes de un PGAS simplificado y, adicionalmente, otros instrumentos de salvaguarda, procedimientos, planes y protocolos necesarios para hacer frente a los riesgos e impactos ambientales y sociales específicos del proyecto. [GLF_MANUAL_SGAS_PUBLIC::P26C01]
+
+- Proceso de Desarrollo y Aprobación:
+  - La versión final del PGAS, que incluirá todos los instrumentos de salvaguarda adicionales, se elaborará durante la fase inicial del proyecto (los primeros tres a seis meses tras su inicio). [GLF_MANUAL_SGAS_PUBLIC::P22C02]
+  - Para la recomendación de aprobación del proyecto por parte del Comité Asesor Técnico, se requiere un PGAS preliminar y unos instrumentos de salvaguarda iniciales, y su presupuesto de ejecución debe incluirse en el presupuesto total del proyecto para ser aprobado por el GLF. [GLF_MANUAL_SGAS_PUBLIC::P22C02]
+
+- Monitoreo y Evaluación:
+  - El PGAS sirve como punto de referencia a lo largo de la ejecución del proyecto, permitiendo supervisar el avance en la implementación de las medidas de mitigación. [GLF_MANUAL_SGAS_PUBLIC::P22C01]
+  - Los proyectos pueden ser auditados por terceras partes, a solicitud del GLF, para determinar el desempeño ambiental y social y el nivel de cumplimiento de sus PGAS. [GLF_MANUAL_SGAS_PUBLIC::P23C03]
+
+- Cierre del PGAS:
+  - El cierre del PGAS marca la finalización del proyecto y de la ejecución del PGAS. La organización beneficiaria es responsable de preparar un informe de cierre de la ejecución del PGAS, destacando los resultados alcanzados, los desafíos presentados, los aprendizajes, y los riesgos o impactos restantes que excedan la vida del proyecto. [GLF_MANUAL_SGAS_PUBLIC::P23C03]
+
+Qué falta verificar
+
+- Especificaciones Detalladas de Cada Componente:
+  - Aunque se mencionan los componentes generales del PGAS, no se proporcionan detalles específicos sobre cómo se deben desarrollar y aplicar cada uno de estos componentes. [GLF_MANUAL_SGAS_PUBLIC::P26C01]
+
+Evidencia recuperada
+[GLF_MANUAL_SGAS_PUBLIC::P22C02] Manual SGAS, página 22
+https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf#page=22
+ontenido y la complejidad de los PGAS varían en función del nivel y la 
+naturaleza de los riesgos de cada proyecto. En este sentido, los PGAS de los proyectos de categoría C 
+serán simples, mientras que los de categoría B requerirán PGAS más detallados. La sección 7.1 ofrece 
+más información sobre el PGAS. 
+Para la recomendación de aprobación del proyecto por parte del Comité Asesor Técnico se requiere 
+un PGAS preliminar y unos instrumentos de salvaguarda iniciales, y su presupuesto de ejecución debe 
+incluirse en el presupuesto total del proyecto para ser aprobado por el GLF 
+Por último, cuando se apruebe el proyecto, el GLF incorporará las Cláusulas Estándar del SGAS (véase 
+el Anexo F) en los respectivos acuerdos de subvención, los también incluir án el calen dario de 
+ejecución, los plazos y los entregables previstos necesarios para satisfacer los requerimientos del SGAS 
+del GLF. 
+6.1.7 PASO 7: EJECUCIÓN Y MONITOREO DEL PGAS 
+La versión final del PGAS, que incluirá todos los instrumentos de salvaguarda adicionales, se 
+elaborará durante la fase inicial del proyecto (los primeros tres a seis meses tras su inicio). Una vez 
+aprobadas las versiones finales del PGAS y de los
+
+[GLF_MANUAL_SGAS_PUBLIC::P23C03] Manual SGAS, página 23
+https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf#page=23
+é cuenta de 
+estos cambios y presentarla al GLF para su evaluación. En esos casos, el GLF y las organizaciones 
+beneficiarias acordarán los ajustes al PGAS que resulten necesarios, sin necesidad de someter el 
+proyecto a un nuevo proceso de aprobación. 
+Los proyectos de las organizaciones beneficiarias pueden ser auditados por terceras partes, a solicitud 
+del GLF, para determinar el desempeño ambiental y social y el nivel de cumplimiento de sus PGAS. 
+6.1.8 PASO 8: CIERRE DEL PGAS 
+El último paso es el cierre del PGAS, que marca la finalización del proyecto y de la ejecución del PGAS. 
+La organización beneficiaria es responsable de preparar un informe de cierre de la ejecución del PGAS 
+destacando los resultados alcanzados, los desafíos que se presentaron e n la ejecución, l os 
+aprendizajes, así como los riesgos o impacto s restantes que excedan la vida del proyecto. El GLF 
+revisará este informe y evaluará si la ejecución del PGAS cumplió con los requisitos del SGAS. 
+Si en el futuro la organización beneficiaria presenta una nueva propuesta de proyecto, el GLF tendrá 
+en cuenta este informe de cierre de ejecución del PGAS durante el proceso de evaluación. 
+6.1.9 OTROS PROYECTOS
+
+[GLF_MANUAL_SGAS_PUBLIC::P25C03] Manual SGAS, página 25
+https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf#page=25
+gos e impactos identificados en el proyecto. En el anexo G se incluyen plantillas para el PGAS y 
+los instrumentos de salvaguarda. 
+7.1 PLAN DE MANEJO AMBIENTAL Y SOCIAL (PGAS) 
+El principal instrumento de salvaguarda para las organizaciones beneficiarias es el PGAS, que integra 
+las medidas de manejo ambiental y social que se aplicarán durante el ciclo de vida del proyecto. Todos 
+los proyectos financiados por el GLF deben desarrollar e implementar un PGAS de acuerdo con las 
+características del proyecto . Dependiendo de esas características, así como de los riesgos y los 
+impactos potenciales, será necesario un PGAS simplificado (para la mayoría de los proyectos de 
+Categoría C) o un PGAS más detallado (para la mayoría de los proyectos de Categoría B). Ambos tipos 
+de PGAS comprenden plazos concretos, funciones, responsabilidades y un presupuesto indicativo, 
+pero difieren en el número y la complejidad de las medidas que incluyen.
+
+[GLF_MANUAL_SGAS_PUBLIC::P26C01] Manual SGAS, página 26
+https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf#page=26
+MANUAL DEL SISTEMA DE GESTIÓN AMBIENTAL Y SOCIAL (SGAS) GLF 
+ 
+Versión: 0 Página 25 
+Un PGAS simplificado incluye al menos un Plan de Participación de las partes interesadas (PPPI) y los 
+Mecanismos de gestión de quejas, y también puede incluir la Declaración de Cumplimiento de las 
+condiciones laborales y de trabajo, el Compromiso de Integración de la perspectiva de género y el 
+instrumento de notificación de accidentes e incidentes graves. 
+Un PGAS más complejo aborda los mismos componentes de un PGAS simplificado y, adicionalmente, 
+otros instrumentos de salvaguarda, procedimientos, planes y protocolos necesarios para hacer frente 
+a los riesgos e impactos ambientales y sociales específicos del proyecto. 
+El GLF determina la naturaleza y el alcance del PGAS requerido durante la evaluación ambiental y 
+social, en la fase de propuesta del proyecto. 
+7.2 INSTRUMENTOS DE SALVAGUARDA ESTÁNDAR INCLUIDOS EN TODOS LOS PGAS 
+En esta sección se describen los instrumentos de salvaguarda estándar de los PGAS de todos los 
+proyectos. Estos instrumentos se presentan en detalle en el anexo G. 
+7.2.1 PLAN DE PARTICIPACIÓN DE LAS PARTES INTERESADAS 
+El GLF requiere que todos los proyectos
+
+[GLF_MANUAL_SGAS_PUBLIC::P22C01] Manual SGAS, página 22
+https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf#page=22
+MANUAL DEL SISTEMA DE GESTIÓN AMBIENTAL Y SOCIAL (SGAS) GLF 
+ 
+Versión: 0 Página 21 
+• Seguimiento de la ejecución: El PGAS sirve como punto de referencia a lo largo de la ejecución 
+del proyecto. Permite supervisar el avance en la implementación de las medidas de mitigación 
+y asegurar su eficacia. 
+• Integración de los instrumentos de salvaguarda: El PGAS actúa como eje central de los demás 
+instrumentos de salvaguarda que sean pertinentes al proyecto, integrándolos en el cuerpo del 
+plan o como anexos, con lo cual se facilita su consulta y uso por parte de las organizaciones 
+beneficiarias y otros interesados (por ejemplo, el PPPI, el Mecanismos de gestión quejas, etc.). 
+La versión final del PGAS, incluidos los instrumentos de salvaguarda adicionales, se elaborará tras la 
+aprobación del proyecto durante los tres y seis primeros meses de la fase de ejecución. En el anexo G 
+se presenta una plantilla para que las organizaciones beneficiarias produzcan sus PGAS. 
+Debe tenerse en cuenta que el contenido y la complejidad de los PGAS varían en función del nivel y la 
+naturaleza de los riesgos de cada proyecto. En este sentido, los PGAS de los proyectos de categoría C 
+serán
+
+Modalidad: expanded · glf-grounded-v1
+Corpus (SHA-256): f49838e0e569730360585fc15bf05749c6c4633843a3414f71db94579e055f0c
+Intentos de proveedor: 1
+Tokens entrada/salida reportados: 2374 / 1001 (completo)
+
+Qwen/Qwen2.5-72B-Instruct:deepinfra · 35.2 s · v0.7.62
+ID: d709c594-ea49-4984-aebe-5c6bf888bf25
+Compruebe las fuentes y su aplicabilidad. La decisión corresponde al GLF.

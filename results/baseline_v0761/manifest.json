@@ -1,0 +1,9 @@
+{
+  "portal_version": "0.7.61",
+  "portal_commit": "78f7dcb5cbe1764c328a82ca30be20383e6d151f",
+  "hf_runtime_commit": "f2707b4752025e7199a31478ee9afb0c684fb7ab",
+  "purpose": "Una referencia funcional, no benchmark independiente ni evidencia de mejora estadística",
+  "files": {
+    "PGAS_consulta_funcional.txt": "564207d0ce777330261b974e3207adce47a332196363836be7c459777627d052"
+  }
+}

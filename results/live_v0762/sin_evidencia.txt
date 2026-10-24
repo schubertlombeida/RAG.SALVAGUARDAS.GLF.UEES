@@ -1,0 +1,17 @@
+GLF · Consulta de salvaguardas
+Consulta libre
+quásares extraterrestres
+
+Sin respuesta fundamentada; consulte los pasajes recuperados.
+
+Evidencia recuperada
+
+
+Modalidad: expanded · glf-grounded-v1
+Corpus (SHA-256): f49838e0e569730360585fc15bf05749c6c4633843a3414f71db94579e055f0c
+Intentos de proveedor: 0
+Tokens entrada/salida reportados: N/D / N/D (parcial o no informado)
+
+Qwen/Qwen2.5-72B-Instruct:deepinfra · 0.0 s · v0.7.62
+ID: f289225d-1f53-4bab-95a1-549fdac65629
+Compruebe las fuentes y su aplicabilidad. La decisión corresponde al GLF.

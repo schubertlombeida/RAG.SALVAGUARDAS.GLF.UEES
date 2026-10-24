@@ -1,0 +1,136 @@
+GLF · Consulta de salvaguardas
+Consulta libre
+¿Qué es el PGAS y cómo se utiliza? Resume en 200 palabras.
+
+### Respuesta a su consulta
+
+El PGAS (Plan de Gestión Ambiental y Social) es el documento básico de salvaguarda del proyecto financiado por el Galápagos Life Fund (GLF). Su propósito es establecer las medidas y acciones necesarias para mitigar los impactos ambientales y sociales durante la ejecución del proyecto. El PGAS se elabora durante la fase inicial del proyecto, generalmente en los primeros tres a seis meses tras su inicio, y debe ser aprobado por el GLF antes de que comience su ejecución [GLF_MANUAL_SGAS_PUBLIC::P22C03].
+
+### Qué establece la documentación
+
+- Definición y Propósito: El PGAS es el documento principal que detalla las medidas y acciones para mitigar los impactos ambientales y sociales del proyecto. Se elabora durante la fase inicial y debe ser aprobado por el GLF [GLF_MANUAL_SGAS_PUBLIC::P22C03].
+- Responsabilidades: La organización beneficiaria es responsable de implementar y monitorear el PGAS, asignando funciones, responsabilidades, y recursos necesarios para cumplir con los requisitos ambientales y sociales [GLF_MANUAL_SGAS_PUBLIC::P22C03].
+- Monitoreo y Reportes: El monitoreo primario y la presentación de informes son responsabilidad de la organización beneficiaria, utilizando formatos de la herramienta MONAS y actualizando los instrumentos de salvaguarda del proyecto [GLF_MANUAL_SGAS_PUBLIC::P22C03].
+- Evaluación Ambiental y Social: Antes de la aprobación del PGAS, se realiza una evaluación ambiental y social siguiendo el formato de la herramienta VEAS. Este informe debe indicar si el proyecto cumple con los requisitos del SGAS y señalar cualquier deficiencia que deba subsanarse [GLF_MANUAL_SGAS_PUBLIC::P21C02].
+- Aprobación y Ejecución: Una vez aprobadas las versiones finales del PGAS y los instrumentos de salvaguarda, comienza la ejecución del proyecto, junto con el monitoreo y la presentación de informes [GLF_MANUAL_SGAS_PUBLIC::P22C03].
+
+### Cómo aplica al caso
+
+La documentación proporcionada establece claramente el proceso y los requisitos para la elaboración, aprobación y ejecución del PGAS. Cualquier organización beneficiaria debe seguir estos pasos para asegurar que su proyecto cumpla con los estándares ambientales y sociales del GLF. La implementación efectiva del PGAS es crucial para mitigar los impactos negativos y garantizar la sostenibilidad del proyecto.
+
+### Qué falta verificar
+
+- Especificaciones Detalladas: Aunque se menciona que el PGAS debe incluir medidas de mitigación, no se proporcionan detalles específicos sobre qué medidas deben incluirse en cada caso particular.
+- Ejemplos Prácticos: No se incluyen ejemplos de PGAS aprobados o rechazados, lo que podría ayudar a entender mejor cómo se aplican los criterios en la práctica.
+- Actualizaciones y Revisión: No se menciona con qué frecuencia debe actualizarse el PGAS durante la ejecución del proyecto ni quién es responsable de estas actualizaciones.
+
+Cualquier aplicación a un proyecto particular requiere revisar su contexto específico, incluyendo los estudios y planes ambientales y sociales necesarios, su alcance y calendario de ejecución.
+
+Evidencia recuperada
+[GLF_MANUAL_SGAS_PUBLIC::P22C03] Manual SGAS, página 22
+https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf#page=22
+vaguarda adicionales, se 
+elaborará durante la fase inicial del proyecto (los primeros tres a seis meses tras su inicio). Una vez 
+aprobadas las versiones finales del PGAS y de los instrumentos de salvaguarda por el GLF, comenzará 
+su ejecución, así como el monitoreo y la presentación de informes. 
+La organización beneficiaria será responsable de implementar y monitorear el PGAS, asignando 
+claramente funciones y responsabilidades, y destinando el presupuesto y los recursos necesarios 
+para cumplir con los requisitos ambientales y sociales en los plazos establecidos. 
+GLF utiliza un sistema diferenciado para el monitoreo de la ejecución del SGAS y la presentación de los 
+informes pertinentes: 
+• El monitoreo primario y la presentación de informes son responsabilidad de la organización 
+beneficiaria y se llevarán a cabo mediante i) el uso de los formatos pertinentes que se 
+encuentran en la herramienta de Monitoreo ambiental y social (MONAS) y; ii) la actualización 
+de los instrumentos de salvaguarda del proyecto, como el PPPI, el Marco de Proceso, etc. La 
+herramienta MONAS se presenta en el Anexo I con instrucciones y orientación para su uso. 
+• El monitoreo secundario es
+
+[GLF_MANUAL_SGAS_PUBLIC::P21C02] Manual SGAS, página 21
+https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf#page=21
+n los estudios y planes ambientales y sociales 
+necesarios durante la ejecución del proyecto, su alcance y su calendario de ejecución más probable , 
+teniendo en cuenta que ciertos estudios serán necesarios antes del inicio de determinadas actividades. 
+Los resultados de la evaluación se consignan en el informe de evaluación ambiental y social, siguiendo 
+el formato indicado de la herramienta VEAS. Este informe debe indicar claramente si el proyecto 
+propuesto, junto con las medidas de mitigación identificadas, cumple con los requisitos del SGAS. En 
+caso contrario, el informe debe señalar las deficiencias que deben subsanarse y si es posible hacerlo. 
+El Comité Asesor Técnico utiliza este informe para determinar si recomienda o no una subvención para 
+el proyecto. Si el nivel de riesgo asociado a las actividades del proyecto y a las medidas de mitigación 
+propuestas se considera inaceptable o poco realista, la organización beneficiaria potencial no podrá 
+recibir una subvención para el proyecto. 
+6.1.6 PASO 6: VERSIONES FINALES DEL PLAN DE MANEJO AMBIENTAL Y SOCIAL 
+(PGAS ) Y LOS INSTRUMENTOS DE SALVAGUARDA 
+El PGAS es el documento básico de salvaguarda del proyecto y como tal
+
+[GLF_ANEXO_D_PUBLIC::P20C02] Anexo D - Marco Legal y Estrategia de Autorización, página 20
+https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/ANEXO-D-Marco-Legal-y-Estrategia-de-Autorizacion_Web-Oct-2024.pdf#page=20
+versión social para las comunidades afectadas. Las autoridades medioambientales 
+suelen coordinar estas acciones con otras entidades gubernamentales y organizaciones de la sociedad 
+civil. Sin embargo, si alguien quisiera comparar las medidas de compensación establecidas para los 
+casos de reposición de bienes o tierras afectadas por medidas administrativas, se encontrarían 
+diferencias entre los estándares nacionales e internacionales. 
+Una de las principales diferencias entre las normas nacionales e internacionales es la forma en que 
+evalúan el valor de un bien. La norma nacional utiliza el valor catastral, mientras que la norma 
+internacional utiliza el valor comercial sin deducciones y a valor actual. Además, la norma nacional 
+sólo considera elegibles para la ayuda a los grupos de población con títulos de propiedad legales o en 
+proceso de adquirirlos. Esto deja fuera a los que carecen de títulos de propiedad pero siguen sie ndo 
+considerados afectados y necesitados de ayuda. Por el contrario, la norma internacional reconoce la 
+compensación para las tres categorías de personas. 
+PUEBLOS INDÍGENAS Y CONSULTA PREVIA , LIBRE E INFORMAD A 
+Ecuador ha ratificado la Convención
+
+[GLF_MANUAL_SGAS_PUBLIC::P12C02] Manual SGAS, página 12
+https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf#page=12
+la Constitución de la República del 
+Ecuador, el Régimen Especial de la Provincia de Galápagos, y todas las leyes y reglamentos del país 
+aplicables a su operación . Entre ellos se incluyen los requisitos ambientales, sociales, de salud y 
+seguridad en el trabajo , las leyes laborales, así como los requisitos relativos a la divulgación 
+participación públicas. Las operaciones y proyectos del GLF también deben estar en conformidad con 
+los acuerdos internacionales, convenios, tratados y otros instrumentos suscritos por Ecuador. Anexo D 
+resume el marco legal y las regulaciones relevantes para las actividades y proyectos del GLF. 
+5.2 NORMAS INTERNACIONALES Y BUENAS PRÁCTICAS 
+Las operaciones y proyectos de l GLF cumplirán con las normas y mejores prácticas ambientales y 
+sociales reconocidas internacionalmente, incluidas las siguientes: 
+• Normas de desempeño ambiental y social (ND) de la IFC sobre sostenibilidad ambiental y 
+social7 . 
+• Guías sobre medio ambiente, salud y seguridad (Guías MASS) del Banco Mundial y buenas 
+prácticas industriales internacionales pertinentes (2007). 
+• Política ambiental y social y Procedimientos de DFC (2020). 
+• Convenios fundamentales de la
+
+[GLF_ANEXO_J_PUBLIC::P05C01] Anexo J - Definiciones, página 5
+https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2025/02/ANEXO-J-Definiciones_Web-Oct-2024.pdf#page=5
+ANEXO J - DEFINICIONES SGAS DEL GLF 
+ 
+ Page 5 
+abarcando aspectos como la demografía, la economía y los medios de vida, 
+género, salud, los derechos de las partes interesadas (comunidades locales, 
+pueblos indígenas y otros grupos), el patrimonio cultural, etc. 
+Hábitat Es una unidad geográfica terrestre, fluvial o marina o una vía aérea que 
+sostiene la vida de conjuntos de organismos vivos y sus interacciones con el 
+entorno inerte12. 
+Herramienta de 
+Monitoreo ambiental y 
+social MONAS 
+Es una herramienta integrada basada en Excel que se utiliza para supervisar la 
+ejecución y el cierre del plan de gestión ambiental y social (PGAS) de los 
+proyectos financiados por el GLF. Esta herramienta funciona junto con la 
+herramienta VEAS para gestionar los aspectos medioambientales y sociales de 
+los proyectos financiados por el GLF a lo largo de sus fases de desarrollo, 
+aprobación, ejecución y cierre. 
+Herramienta de Valoración 
+y evaluación ambiental y 
+social (VEAS) 
+Es una herramienta integrada basada en Excel que apoya la aplicación del SGAS 
+a los proyectos financiados por el GLF durante las fases de preparación, 
+evaluación y aprobación de conceptos y propuestas. 
+Investigación
+
+Modalidad: expanded · glf-grounded-v1
+Corpus (SHA-256): f49838e0e569730360585fc15bf05749c6c4633843a3414f71db94579e055f0c
+Intentos de proveedor: 1
+Tokens entrada/salida reportados: 2337 / 787 (completo)
+
+Qwen/Qwen2.5-72B-Instruct:deepinfra · 24.6 s · v0.7.62
+ID: 0416a157-7b1a-4714-b20a-ed52e02b5a26
+Compruebe las fuentes y su aplicabilidad. La decisión corresponde al GLF.

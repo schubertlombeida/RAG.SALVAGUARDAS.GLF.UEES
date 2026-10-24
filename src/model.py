@@ -80,3 +80,62 @@ class E5Endpoint:
         scores = self.vectors @ vector
         order = np.argsort(-scores, kind="stable")[:limit]
         return [dict(self.records[i], score=float(scores[i])) for i in order]
+
+
+class HeadingBM25:
+    """Configurable corpus-only variant; no rules for particular evaluation questions."""
+    name = "BM25-body-headings"
+
+    def __init__(self, records, k1=1.5, b=.75, heading_weight=0.0):
+        if not 0 <= heading_weight <= 1:
+            raise ValueError("Peso de encabezados inválido")
+        self.records = validate_records(records)
+        self.body = BM25(records, k1, b)
+        self.heading_weight = heading_weight
+        headings = [dict(r, text=r["source_name"] + " " + " ".join(
+            re.findall(r"(?m)^#{1,6}\s+(.+)$", r["text"]))) for r in records]
+        self.headings = BM25(headings, k1, b)
+
+    def search(self, query, limit=5):
+        body = self.body.search(query, len(self.records))
+        headings = self.headings.search(query, len(self.records))
+        top_body = max([r["score"] for r in body], default=1)
+        top_heading = max([r["score"] for r in headings], default=1)
+        scores = {r["chunk_id"]: r["score"] / top_body for r in body}
+        for r in headings:
+            scores[r["chunk_id"]] = scores.get(r["chunk_id"], 0) + self.heading_weight * r["score"] / top_heading
+        order = {r["chunk_id"]: i for i,r in enumerate(self.records)}
+        ranked = sorted((cid for cid in scores if scores[cid] > 0), key=lambda cid: (-scores[cid], order[cid]))[:limit]
+        return [dict(self.records[order[cid]], score=scores[cid]) for cid in ranked]
+
+
+class HybridRRF:
+    """Reciprocal rank fusion for two retrievers using exactly the same evidence."""
+    name = "BM25-E5-RRF-experimental"
+
+    def __init__(self, lexical, semantic, rank_constant=60, candidate_limit=20):
+        if rank_constant <= 0 or candidate_limit < 5:
+            raise ValueError("Parámetros de fusión inválidos")
+        fields = ("chunk_id", "document_id", "text", "source_name", "source_url", "page")
+        def contents(index):
+            return {r["chunk_id"]: tuple(r.get(k) for k in fields) for r in index.records}
+        if contents(lexical) != contents(semantic):
+            raise ValueError("La fusión requiere el mismo corpus, contenido y procedencia")
+        self.records = lexical.records
+        self.lexical, self.semantic = lexical, semantic
+        self.rank_constant, self.candidate_limit = rank_constant, candidate_limit
+
+    def search(self, query, limit=5):
+        if limit < 1: raise ValueError("Top k inválido")
+        scores = {}
+        for index in (self.lexical, self.semantic):
+            seen = set()
+            for rank, row in enumerate(index.search(query, self.candidate_limit), 1):
+                cid = row["chunk_id"]
+                if cid not in {r["chunk_id"] for r in self.records}: raise ValueError("Pasaje ajeno al corpus")
+                if cid not in seen:
+                    scores[cid] = scores.get(cid, 0) + 1 / (self.rank_constant + rank)
+                    seen.add(cid)
+        order = {r["chunk_id"]: i for i,r in enumerate(self.records)}
+        ranked = sorted(scores, key=lambda cid: (-scores[cid], order[cid]))[:limit]
+        return [dict(self.records[order[cid]],score=scores[cid]) for cid in ranked]

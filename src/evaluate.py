@@ -2,9 +2,10 @@
 import argparse
 import math
 import os
+import json
 from collections import defaultdict
 from .utils import ROOT, digest, read_jsonl, save_json
-from .model import BM25, E5Endpoint
+from .model import BM25, E5Endpoint, HybridRRF, HeadingBM25
 
 def wilson(successes, n, z=1.96):
     if not 0 <= successes <= n or n <= 0:
@@ -79,17 +80,25 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--labels", required=True)
     parser.add_argument("--split", choices=["development", "validation", "test"], default="test")
-    parser.add_argument("--method", choices=["bm25", "e5"], default="bm25")
+    parser.add_argument("--method", choices=["bm25", "bm25-heading", "e5", "hybrid"], default="bm25")
+    parser.add_argument("--configuration", help="optimization.json selected only on development/validation")
     args = parser.parse_args()
     corpus = ROOT / "data/processed/chunks.jsonl"
     records, labels, corpus_hash = read_jsonl(corpus), read_jsonl(args.labels), digest(corpus)
     # Validate annotations before making any paid or authenticated inference request.
     validate_gold(labels, {r["chunk_id"] for r in records}, corpus_hash, args.split)
-    if args.method == "e5":
+    if args.method in ("e5", "hybrid"):
         endpoint, key = os.getenv("GLF_E5_ENDPOINT"), os.getenv("GLF_E5_API_KEY")
         if not endpoint or not key:
             parser.error("Configure GLF_E5_ENDPOINT y GLF_E5_API_KEY en el servidor")
         index = E5Endpoint(records, endpoint, key)
+        if args.method == "hybrid": index = HybridRRF(BM25(records), index)
+    elif args.method == "bm25-heading":
+        if not args.configuration: parser.error("Indique --configuration con la selección de validación")
+        with open(args.configuration, encoding="utf-8") as stream: config=json.load(stream)
+        if config.get("corpus_sha256") != corpus_hash or config.get("test_used") is not False:
+            parser.error("Configuración incompatible o seleccionada usando test")
+        index=HeadingBM25(records, **config["selected_parameters"])
     else:
         index = BM25(records)
     report = evaluate(index, labels, corpus_hash, args.split)

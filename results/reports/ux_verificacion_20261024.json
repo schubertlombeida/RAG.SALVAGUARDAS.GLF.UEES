@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-24",
+  "portal_version": "0.7.61",
+  "portal_commit": "78f7dcb5cbe1764c328a82ca30be20383e6d151f",
+  "hf_runtime_commit": "f2707b4752025e7199a31478ee9afb0c684fb7ab",
+  "scope": "RAG interface, streaming contracts and dependency security fixes; applicant forms and database schema unchanged",
+  "automated_tests": {
+    "academic": 28,
+    "portal_typescript": 185,
+    "portal_database_functions": 81,
+    "service_python": 15,
+    "failures": 0
+  },
+  "browser_checks": [
+    "Portal local harness: Qwen/E5 result, invalid input, quota, unavailable, malformed response, abstention, cancellation, history, English mobile layout",
+    "Academic actual app: local retrieval, examples, validation, missing remote configuration, history restore, clipboard with references, mobile 390x844 without horizontal overflow"
+  ],
+  "live_checks": [
+    {
+      "method": "E5",
+      "query": "Criterios ambientales para actividades que afectan la biodiversidad",
+      "passages": 6,
+      "portal_seconds": 2.7
+    },
+    {
+      "method": "Qwen",
+      "query": "¿Qué es el PGAS?",
+      "model": "Qwen/Qwen2.5-72B-Instruct:deepinfra",
+      "passages": 5,
+      "cited_references": 2,
+      "portal_seconds": 6.76,
+      "request_id": "c1d2e4b6-f239-4215-8410-4794024ff27a"
+    }
+  ],
+  "observed_transient_failure": "First Qwen query received provider connection_or_response failure. UI displayed unavailable and preserved query; subsequent PGAS query succeeded.",
+  "limitations": [
+    "Single successful queries are not a latency benchmark or independent semantic quality evaluation",
+    "FAQ gold annotation and recorded videos remain separate delivery work",
+    "Academic remote UI was tested with controlled transport; live remote generation was verified in the authenticated portal"
+  ],
+  "dependencies": {
+    "next": "16.4.3",
+    "zod": "4.6.6",
+    "install_audit_vulnerabilities": 0
+  },
+  "publication": {
+    "portal": "https://glf-postulaciones.vercel.app/internal/evidence",
+    "vercel_status": "success",
+    "github_checks": "success",
+    "github_runs": [
+      40129837634,
+      40129834244
+    ],
+    "verified_portal_version": "0.7.61",
+    "final_qwen_check": {
+      "query": "¿Qué es el PGAS?",
+      "passages": 5,
+      "cited_references": 2,
+      "displayed_seconds": 9.5
+    }
+  },
+  "word_qa": {
+    "documents": [
+      "03_Arquitectura_RAG_GLF",
+      "04_Optimizacion_RAG_GLF",
+      "06_Manual_de_usuario_RAG_GLF"
+    ],
+    "font": "Arial",
+    "body_pt": 11,
+    "headings_pt": 12,
+    "text_color": "000000",
+    "tables": "grayscale",
+    "charts": "color",
+    "page_number": "Página N de M",
+    "visual_review": "Rendered pages inspected; architecture 5 pages, optimization 4 pages, manual 4 pages"
+  }
+}
