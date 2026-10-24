@@ -1,0 +1,2 @@
+# Preserve audited bytes and SHA256 provenance on every platform.
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
