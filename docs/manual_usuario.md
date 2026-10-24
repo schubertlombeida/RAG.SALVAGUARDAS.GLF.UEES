@@ -1,6 +1,6 @@
 # Manual del asistente documental de salvaguardas GLF
 
-Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Corte documental 23 de octubre de 2026
+Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Actualización 24 de octubre de 2026
 
 ## Para qué sirve
 
@@ -10,9 +10,10 @@ Este manual explica cómo consultar evidencia normativa mediante el portal GLF y
 
 1. Abra https://glf-postulaciones.vercel.app/ con el acceso de evaluación habilitado por el equipo.
 2. Inicie sesión y entre al módulo del asistente RAG o al espacio de revisión permitido por su rol.
-3. Abra la consulta de corpus y escriba una pregunta concreta sobre el requisito, riesgo o medida que necesita revisar.
-4. Ejecute la consulta y espere la indicación de progreso. No repita clics mientras esté procesando.
-5. Revise la respuesta, los pasajes y la página original. Mantenga separada la evidencia encontrada de la decisión técnica.
+3. Elija Consulta libre o Desde un proyecto. En este último caso seleccione el expediente y riesgo correspondiente; las notas siguen vinculadas al riesgo seleccionado.
+4. Seleccione Obtener una respuesta con fuentes para BM25 y Qwen, o Buscar fragmentos en los documentos para E5. Qwen admite de 3 a 600 caracteres; E5, de 10 a 1500. Escriba una pregunta concreta.
+5. En Qwen, elija Respuesta breve para una consulta puntual o Análisis ampliado para distinguir disposición, aplicación sustentada y aspectos por verificar. El modo ampliado puede tardar más y consumir más inferencia. Pulse Consultar y observe la etapa, el modelo y el reloj. El sistema evita envíos duplicados mientras procesa.
+6. Revise la respuesta, las referencias numeradas y la página original. Mantenga separada la evidencia encontrada de la decisión técnica.
 
 La cuenta y contraseña para la profesora se comparten fuera del repositorio público. Este manual no publica credenciales ni instruye usar una cuenta administrativa personal. La disponibilidad del módulo depende de los permisos asignados a esa cuenta.
 
@@ -39,6 +40,12 @@ La pantalla presenta la caja de pregunta, el modo de consulta, el botón Consult
 
 El modo Búsqueda local de pasajes funciona sin claves y utiliza BM25. Devuelve texto recuperado para revisión y lo identifica explícitamente como búsqueda sin generación. El modo Respuesta con IA del servicio del portal necesita que el equipo configure GLF_RAG_URL y GLF_RAG_KEY en el servidor. No escriba claves en el navegador ni las agregue a un cuaderno.
 
+## Durante el procesamiento
+
+El reloj informa el tiempo transcurrido. El nombre del método o modelo y las etapas se reciben del servidor: búsqueda de documentos, preparación de evidencia, generación de Qwen y comprobación de referencias, según la ruta elegida. En E5 se informa también la transformación de la consulta en un vector. El reloj no representa un porcentaje de avance ni una medida de calidad.
+
+Detener espera libera la pantalla y conserva la pregunta. Una solicitud ya recibida podría continuar y contabilizarse en el servicio externo. Espere antes de repetir una consulta larga. Si se agota el tiempo, la pantalla explica lo sucedido y ofrece reintentar cuando corresponda.
+
 ## Interpretar la evidencia
 
 ![Resultados y fuentes](../results/figures/ui_results.png)
@@ -46,6 +53,14 @@ El modo Búsqueda local de pasajes funciona sin claves y utiliza BM25. Devuelve 
 Cada resultado incluye documento, página e identificador de pasaje. Abra la fuente original para comprobar contexto, excepciones y vigencia. El puntaje de recuperación, cuando se consulte por API, ordena pasajes y no indica certeza. El tiempo mostrado corresponde a esa consulta, no a una evaluación estadística del sistema.
 
 Si el servicio se abstiene, significa que no pudo producir una respuesta con evidencia suficiente bajo sus controles. No interprete esa abstención como inexistencia del requisito. Consulte el documento original o al especialista. Si aparecen pasajes en una abstención, son material de apoyo y no citas de una afirmación generada.
+
+## Conservar y revisar una consulta
+
+Copiar con referencias y Descargar consulta conservan la pregunta, respuesta, pasajes, fuentes, páginas, modelo e identificador de ejecución. La descarga es un archivo de texto. Ajustar pregunta vuelve al campo para reformularla; el resultado anterior no se atribuye a la nueva pregunta.
+
+Consultas de esta sesión permite recuperar las últimas cinco respuestas sin volver a invocar el servicio. Se conserva únicamente en la página actual y se elimina al recargar, salir o cambiar de contexto. Vaciar historial lo borra de la pantalla. Este historial es independiente de las notas de revisión que un usuario autorizado guarda por riesgo.
+
+Detalles de esta ejecución muestra el modelo, modo elegido, tiempo, versión e identificador disponibles. Cuando el servicio los reporta, incluye política, huella del corpus, intentos, tokens de entrada y salida y límite de generación. Los tokens no son un precio ni un porcentaje de precisión; el aviso parcial indica que falta información de alguna llamada. Se usa para comprender la ejecución y reportar un problema; no son métricas de precisión.
 
 ## Consultas recomendadas
 
@@ -57,20 +72,19 @@ Una pregunta sobre la aprobación de un proyecto particular o información que n
 
 | Mensaje o síntoma | Qué hacer |
 |---|---|
-| Texto demasiado corto o largo | Escriba una consulta entre 3 y 600 caracteres |
+| Texto demasiado corto o largo | Consulte el contador: Qwen y demostración local admiten 3 a 600 caracteres; E5 del portal, 10 a 1500 |
+| Sin conexión o tiempo agotado | La pregunta se conserva; vuelva a consultar cuando haya conexión o transcurra un momento |
+| Sesión vencida o acceso restringido | Inicie sesión de nuevo o solicite al administrador el acceso correspondiente |
 | Corpus no preparado | Ejecute python -m src.data_processing y vuelva a abrir la aplicación |
 | Servicio RAG sin configurar | Utilice búsqueda local o solicite configuración al equipo |
-| Servicio remoto sin evidencia válida | Espere y consulte las fuentes; no tome la falta de respuesta como una decisión |
+| Respuesta inválida o citas no verificadas | El resultado no se presenta como evidencia validada; ajuste la pregunta o consulte las fuentes |
+| La generación quedó incompleta | La salida parcial se retira. Revise los pasajes y formule una pregunta más concreta o cambie la extensión antes de intentar de nuevo |
 | Cuota o límite temporal | Espere el plazo indicado y evite repetir solicitudes |
 | Cita que no respalda la afirmación | Registre pregunta, pasaje y discrepancia para revisión técnica |
 | Fuente cambia o no abre | Revise el enlace oficial y regenere el corpus con una versión nueva |
 
-## Preguntas frecuentes y soporte
+## Soporte y límites
 
-¿La búsqueda local es el mismo generador del portal? No. Es una reproducción autónoma de recuperación sobre fuentes públicas; la generación remota requiere configuración. La integración original del portal y del servicio se conserva en integration para inspección.
+La recuperación local no genera respuestas; Qwen requiere la conexión remota configurada. La calidad con FAQ se medirá cuando existan pasajes revisados por un especialista. No publique expedientes ni claves en el repositorio.
 
-¿Se ha medido ya la calidad con el nuevo archivo FAQ? No. Se preparó el procedimiento y se calcularán las métricas después de recibir preguntas y pasajes revisados independientemente. Los resultados históricos están identificados por separado.
-
-¿Puedo subir expedientes al repositorio para probar? No utilice datos privados en esta entrega pública. Los datos reales permanecen en el sistema autorizado y sus permisos.
-
-Para reportar un problema de la demostración utilice la sección Issues del repositorio académico, sin incluir credenciales ni datos personales. Indique versión, modo, síntoma y fuente pública. La consulta normativa sustantiva corresponde al especialista del GLF; el equipo académico atiende la reproducción del software.
+Copiar datos del problema conserva método, código e identificador, sin la pregunta ni credenciales. Para solicitar soporte, adjunte esos datos en Issues del repositorio académico. La aplicación no envía reportes automáticamente. Las consultas normativas corresponden al especialista del GLF.

@@ -1,12 +1,12 @@
 # Arquitectura e integración del asistente RAG GLF
 
-Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Corte documental 23 de octubre de 2026
+Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Actualización 24 de octubre de 2026
 
 ## Sistema entregado y límites
 
 La solución combina un portal web, almacenamiento y recuperación en Supabase y dos rutas de inferencia documental. El portal es la interfaz funcional del proyecto y está publicado en https://glf-postulaciones.vercel.app/. Este repositorio académico copia los componentes RAG necesarios para explicar la integración y conserva su procedencia. No es una réplica de todos los módulos administrativos del sistema de subvenciones.
 
-La referencia del portal revisada es el commit 382526ecd7b3d8cc250bbe8770e346ee79a83528, versión 0.7.59. El manifiesto integration/source_manifest.json relaciona cada copia con su ruta y SHA256. La copia no incluye secretos, bases de datos, expedientes ni archivos de entorno reales. Los archivos de integración se conservan como instantánea de evidencia; la ejecución autónoma documentada corresponde a app/app.py.
+La referencia del portal revisada es el commit a5a7e5a3ec8703990c2f62ce559536ac0a1eba94, versión 0.7.62. El manifiesto integration/source_manifest.json relaciona cada copia con su ruta y SHA256. La copia no incluye secretos, bases de datos, expedientes ni archivos de entorno reales. Los archivos de integración se conservan como instantánea de evidencia; la ejecución autónoma documentada corresponde a app/app.py.
 
 ## Flujo real de la consulta
 
@@ -27,11 +27,11 @@ El Space E5 es https://huggingface.co/spaces/Schubertlm/glf-e5-inference y su AP
 
 El servidor E5, copiado en integration/e5-inference, carga SentenceTransformer en CPU. Recibe de uno a ocho textos por solicitud, añade query: o passage: y genera vectores normalizados. Limita la consulta a 1500 caracteres y el pasaje a 12000. El modelo admite una longitud máxima de tokens que puede truncar textos largos; el límite de caracteres no demuestra que no haya truncamiento. Fijar la revisión de los pesos y comprobar tokens son medidas de reproducibilidad pendientes, no cambios aplicados al servicio.
 
-El Space generativo es https://huggingface.co/spaces/Schubertlm/glf-rag-bm25-qwen y la consulta usa https://schubertlm-glf-rag-bm25-qwen.hf.space/api/ask. También apareció Running. Una consulta pública sobre PGAS devolvió HTTP 200, respuesta generada, cinco pasajes y dos fuentes; pasó el contrato de citas. El tiempo total informado por el servicio fue 7.331 segundos para esa única consulta. Es una comprobación funcional, no un benchmark ni una evaluación de exactitud semántica.
+El Space generativo es https://huggingface.co/spaces/Schubertlm/glf-rag-bm25-qwen y la consulta con progreso usa https://schubertlm-glf-rag-bm25-qwen.hf.space/api/ask-stream; /api/ask se conserva para clientes anteriores. También apareció Running. Una consulta pública sobre PGAS devolvió HTTP 200, respuesta generada, cinco pasajes y dos fuentes; pasó el contrato de citas. El tiempo total informado por el servicio fue 7.331 segundos para esa única consulta. Es una comprobación funcional, no un benchmark ni una evaluación de exactitud semántica.
 
-Las lecturas de salud en esta última prueba encontraron un error de certificado desde el cliente Python. No se desactivó la verificación TLS. Una lectura anterior de healthz sí confirmó siete documentos y 271 fragmentos; la consulta autenticada posterior funcionó. El registro services_check.json conserva tanto los errores como la respuesta correcta. No se realizó una nueva inferencia E5 ni se midió su calidad porque no se configuró su clave en el entorno académico.
+Las lecturas de salud en la prueba del 23 de octubre encontraron un error de certificado desde el cliente Python. No se desactivó la verificación TLS. Una lectura anterior de healthz sí confirmó siete documentos y 271 fragmentos; la consulta autenticada posterior funcionó. El registro services_check.json conserva tanto los errores como la respuesta correcta. En esa revisión no se realizó una nueva inferencia E5 porque no se configuró su clave en el entorno académico. El 24 de octubre sí se comprobó E5 desde el portal autorizado: recuperó seis pasajes de Supabase en 2,7 segundos. Qwen respondió a «¿Qué es el PGAS?» con cinco pasajes y dos referencias citadas en 6,76 segundos medidos en el portal. Un primer fallo transitorio del proveedor mostró un aviso y conservó la pregunta. Son ensayos funcionales, no mediciones independientes de calidad ni un benchmark de latencia.
 
-El README original de inference conserva notas antiguas de trabajo pendiente. Se mantiene íntegro como evidencia de procedencia, pero no se interpreta como estado actual del despliegue. Este informe diferencia esas notas, el código copiado y las comprobaciones actuales. El portal GLF no se modificó.
+El README original de inference conserva notas antiguas de trabajo pendiente. Se mantiene íntegro como evidencia de procedencia, pero no se interpreta como estado actual del despliegue. Este informe diferencia esas notas, el código copiado y las comprobaciones actuales. La actualización del 24 de octubre modifica exclusivamente la experiencia RAG y sus contratos de progreso, junto con dependencias corregidas por el control de seguridad. No modifica los formularios de postulación ni requiere cambios de esquema en Supabase.
 
 ## Modelos y funciones
 
@@ -51,9 +51,19 @@ En la configuración documentada de despliegue, Qwen se invoca a través del rou
 
 El recuperador histórico normaliza acentos, tokeniza y calcula BM25 para cuerpo y encabezados. La configuración congelada combina cuerpo con k1 igual a 0.8 y b igual a 0.2, encabezados con k1 igual a 1.2 y b igual a 0.3, peso 0.30 de encabezados y 0.15 de prioridad GLF. Es una prioridad editorial limitada, no una medida de certeza. Una priorización puede recuperar fuentes aun con coincidencia escasa; la abstención debe medirse de extremo a extremo.
 
-El generador upstream usa hasta cuatro pasajes del conjunto recuperado, temperatura cero y una respuesta corta con CHUNK_ID entre corchetes. Si detecta insuficiencia o citas ajenas al contexto, el servicio se abstiene. El adaptador del portal permite un reintento por cita inválida dentro de un presupuesto total de tiempo, sin inventar ni agregar una cita automáticamente.
+El código upstream se conserva como procedencia. El adaptador 1.7 aplica glf-grounded-v1: selecciona hasta cinco pasajes sin volver a recortar su texto, elimina duplicados y conserva identificador, página y fuente. No altera la fragmentación original. La pregunta y los documentos se delimitan como datos; el prompt distingue requisitos, definiciones, condiciones, fases y aspectos sin evidencia. Cada afirmación documental debe citar un identificador del contexto. La comprobación formal de citas no prueba su soporte semántico.
 
 E5 y Qwen son rutas independientes en la integración revisada. El documento de arquitectura propuesto en una semana anterior incluía fusión y reranker, pero no se presenta esa propuesta como una característica ya desplegada. Los resultados del corpus normativo de 585 fragmentos tampoco se transfieren al corpus público de siete PDF.
+
+## Respuesta breve y análisis ampliado
+
+El modo breve usa un límite de 700 tokens de salida y una orientación de 200 palabras. El ampliado usa 1500 tokens y una orientación de 450 palabras. Son límites de generación, no compromisos de longitud ni medidas de exactitud. El contexto admite hasta 12000 o 18000 caracteres, respectivamente; no son tokens exactos y puede contener menos de cinco pasajes.
+
+Los reintentos de transporte y corrección de citas comparten un máximo total de dos solicitudes al proveedor y un presupuesto de 50 segundos. Si el proveedor informa fin por longitud o salida incompleta, la respuesta parcial no se publica como resultado válido. Se conservan los pasajes para revisión. Cuando no hay evidencia suficiente se mantiene la abstención.
+
+El detalle de ejecución registra modo, política, modelo efectivo, IDs del contexto, huella SHA-256 del corpus público, intentos, tiempos y tokens que realmente reporta el proveedor. Un consumo ausente se identifica como no reportado; uno parcial no se transforma en costo cero. Los registros del servidor contienen metadatos operativos, sin guardar la pregunta ni el texto de los documentos.
+
+El Space continúa como coordinador en CPU Basic; los pesos de Qwen se ejecutan en DeepInfra mediante Hugging Face. No se solicita ampliar servidor, cambiar proveedor ni aumentar cuotas. Una respuesta más larga puede consumir más inferencia. La consulta extendida es optativa y el modo breve es el inicial.
 
 ## Contratos y controles técnicos
 
@@ -61,7 +71,13 @@ El servidor E5 recibe JSON con inputs y kind. Debe responder model y embeddings.
 
 La consulta Qwen acepta entre 3 y 600 caracteres. El contrato exige generated, answer, sources, results y tiempos. Cada fuente debe ser HTTPS del dominio oficial, tener página positiva y corresponder al pasaje devuelto. Las referencias no pueden duplicarse. Una abstención mantiene sources vacío; los resultados pueden mostrarse como material para revisión, sin atribuirles una afirmación generada.
 
-El portal establece un tiempo máximo de 55 segundos para la respuesta remota. El adaptador limita su presupuesto de generación y reintento a 43 segundos. El servicio aplica límites temporales por dirección IP y una cuota global diaria en memoria. Estos controles reducen abuso, pero se reinician con el proceso y no equivalen a un límite persistente de gasto. El presupuesto del proveedor debe administrarse por separado.
+El portal limita a 60 segundos la comunicación remota y el navegador a 80 segundos de espera. La ruta de Vercel admite hasta 90 segundos. Detener espera cancela la recepción del navegador, pero no garantiza detener un trabajo ya recibido por el proveedor. El adaptador limita su presupuesto de generación y reintento a 50 segundos. El servicio aplica límites temporales por dirección IP y una cuota global diaria en memoria. Estos controles reducen abuso, pero se reinician con el proceso y no equivalen a un límite persistente de gasto. El presupuesto del proveedor debe administrarse por separado.
+
+## Progreso y recuperación ante errores
+
+El servidor del portal transmite eventos NDJSON, es decir, objetos JSON separados por saltos de línea. E5 informa transformación de la consulta y búsqueda en Supabase. El servicio generativo informa recuperación BM25, preparación de evidencia, generación Qwen y comprobación de referencias desde el código que realiza cada operación. El nombre completo del modelo procede de la configuración efectiva; el reloj del navegador mide espera y no simula un porcentaje de avance.
+
+Los contratos validan tamaño, eventos, resultados e identificadores de fuente. Los mensajes distinguen entrada inválida, desconexión, espera agotada, cuota, configuración, indisponibilidad, permisos y respuesta inválida. Los errores conservan la pregunta y ofrecen reintento únicamente cuando corresponde. El historial mantiene cinco resultados en memoria de la pantalla y se vacía al salir o cambiar de contexto. Las notas asociadas a riesgos conservan sus permisos y su almacenamiento habitual.
 
 ## Reproducción y versiones
 

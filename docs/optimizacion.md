@@ -1,6 +1,6 @@
 # Optimización y evaluación del asistente RAG GLF
 
-Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Corte documental 23 de octubre de 2026
+Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Actualización 24 de octubre de 2026
 
 ## Qué se optimizó y qué puede concluirse
 
@@ -72,6 +72,26 @@ python -m src.evaluate --labels evaluation/gold_test.jsonl --method e5
 ```
 
 Los reportes se escriben por método para evitar sobrescribir el resultado comparador. Las plantillas no son datos de prueba completos; deben llenarse con las fuentes, páginas, identificadores y revisión independiente reales.
+
+## Mejoras de interfaz y pruebas funcionales
+
+La actualización del 24 de octubre incorpora orientación por tarea, ejemplos editables, límites de entrada, avance real por etapas, modelo ejecutado, reloj, cancelación de espera, referencias numeradas, exportación con fuentes e historial temporal. Los fallos de conexión, cuota, configuración, formato y citas tienen mensajes distintos. La interfaz no transforma similitud en confianza ni presenta una abstención como aprobación del proyecto.
+
+La actualización de calidad supera 33 pruebas de la aplicación académica, 187 pruebas TypeScript y 81 de base de datos y funciones del portal, y 25 pruebas Python del servicio más su smoke test. Se verificaron resultados, error, cancelación, historial y adaptación móvil en navegador, y ambas rutas publicadas con consultas reales. Los archivos results/reports/ux_verificacion_20261024.json y quality_verificacion_20261024.json delimitan la evidencia de cada revisión. Estas pruebas verifican contratos y comportamiento del software; no sustituyen la revisión independiente de respuestas.
+
+## Optimización reproducible de esta entrega
+
+src/optimize.py implementa una rejilla de doce combinaciones: k1 en 0.8, 1.2 y 1.5; b en 0.2 y 0.75; peso de encabezados en 0.0 y 0.3. Exige desarrollo y validación con anotaciones aprobadas, rechaza preguntas o grupos de intención compartidos y no recibe test. Selecciona por Recall@5 de validación, desempata con MRR@5 y después con menor peso de encabezados. Conserva todas las ejecuciones por pregunta y genera gráficas a color de sensibilidad, importancia marginal e interacción. Sus pruebas usan datos sintéticos identificados como tales; no son nuevos resultados GLF.
+
+src/evaluate.py permite evaluar BM25, BM25 ajustado, E5 y fusión RRF sobre los mismos registros y metadatos. RRF significa Reciprocal Rank Fusion, fusión mediante el inverso del rango; evita sumar puntajes de escalas distintas. La fusión está disponible para el experimento académico y no se activa en el portal hasta demostrar una ventaja con anotaciones revisadas.
+
+src/answer_evaluation.py resume revisión humana de afirmaciones y utilidad, abstenciones con denominadores separados e intervalos Wilson del 95 %, y tiempos manuales y asistidos pareados. No usa Qwen como juez de sus propias respuestas. La fracción de afirmaciones sustentadas no recibe un intervalo binomial que ignore la correlación dentro de cada respuesta.
+
+El protocolo ejecutable, campos y comandos están en evaluation/README.md. La referencia anterior del portal se conserva en results/baseline_v0761. Una consulta de ejemplo permite observar el cambio de formato, pero no cuantificar una mejora general. Los resultados nuevos deben completarse con las preguntas frecuentes y la revisión independiente de pasajes.
+
+## Aporte a la rúbrica
+
+La implementación aporta evidencia verificable a funcionamiento, usabilidad, código, documentación, optimización, evaluación y ética: modos de respuesta acotados, contratos y errores probados, trazabilidad del contexto y experimentos reproducibles con separación de particiones. El puntaje académico no se anticipa. La calidad final depende de las mediciones independientes y de que los videos muestren esta misma versión.
 
 ## Decisión técnica
 

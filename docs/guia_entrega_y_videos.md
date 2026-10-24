@@ -1,6 +1,6 @@
 # Guía de entrega y presentación final del proyecto RAG
 
-Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Corte documental 23 de octubre de 2026
+Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Actualización 24 de octubre de 2026
 
 ## Qué contiene el paquete
 
@@ -14,7 +14,7 @@ La entrega organiza el proyecto RAG de salvaguardas en un repositorio público y
 | Planificación | docs/planificacion.md | Problema, alcance, objetivos, cronograma y riesgos |
 | Análisis de datos | docs/analisis_datos.md | Conjuntos separados y seis figuras reproducibles |
 | Arquitectura | docs/arquitectura.md e integration | Portal, Supabase, E5, BM25, Qwen y contratos |
-| Optimización | docs/optimizacion.md y cuaderno 04 | Análisis de resultados históricos con procedencia |
+| Optimización | docs/optimizacion.md, src/optimize.py y cuaderno 04 | Antecedentes separados y rejilla reproducible con validación |
 | Ética | docs/consideraciones_eticas.md | Ocho ejes, mitigaciones y estado de mecanismos |
 | Manual | docs/manual_usuario.md | Instalación, uso, fuentes y solución de errores |
 | Cinco cuadernos | notebooks/01 a 05 | Exploración, preparación, modelado, optimización y evaluación |
@@ -22,8 +22,8 @@ La entrega organiza el proyecto RAG de salvaguardas en un repositorio público y
 | Datos y modelos | data y models | Manifiestos y configuración, sin datos privados |
 | Interfaz funcional | Portal Vercel y app local | Portal real e interfaz reproducible limitada al RAG |
 | Evaluación independiente | evaluation y src/evaluate.py | Requiere preguntas y pasajes revisados |
-| Video pitch | Guion de esta guía | Grabación y enlace aún no aportados |
-| Video de preguntas | Sección de esta guía | Requiere preguntas oficiales de la profesora |
+| Video pitch | Materiales de GUIONES_VIDEOS_20261024 | Guion preparado; grabación y enlace por incorporar |
+| Video de preguntas | Materiales de GUIONES_VIDEOS_20261024 | Diez preguntas oficiales recibidas; grabación por incorporar |
 
 La tabla es un control de completitud y no declara como terminados componentes que dependen de evidencia todavía no recibida. Un resultado no ejecutado no se marca aprobado.
 
@@ -38,7 +38,7 @@ La tabla es un control de completitud y no declara como terminados componentes q
 7. Revisar entre 20 y 30 respuestas, abstenciones y tiempos manuales frente a asistidos, incluyendo verificación de citas.
 8. Actualizar informes y README con resultados reales, sin sustituir los antecedentes históricos.
 
-Los formatos JSONL y CSV preparados son propios de este paquete. No se presentan como las dos plantillas Excel mencionadas por la profesora, que no estaban entre los materiales recibidos.
+Los formatos JSONL y CSV preparados son propios de este paquete. Las dos plantillas Excel de la profesora fueron recibidas y se conservan en la carpeta local INSTRUCCIONES_Y_RUBRICA/PLANTILLAS_METRICAS_PROFESORA, sin confundir el archivo de ejemplo con resultados del equipo.
 
 ## Guion del video pitch de cinco minutos
 
@@ -56,17 +56,11 @@ El video debe mostrar el sistema real, resolución mínima de 720p, voz comprens
 | 240 a 285 s | 8 Ética y continuidad | Privacidad, sesgo, responsabilidad y medición siguiente |
 | 285 a 300 s | Cierre en diapositiva 8 | Repositorio y portal visibles, conclusión proporcionada |
 
-Texto de apertura sugerido: Somos Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno, Grupo 10. Desarrollamos un asistente documental para apoyar la revisión de salvaguardas del GLF. Nuestro objetivo es localizar evidencia con fuentes comprobables, manteniendo la interpretación y la decisión en el especialista.
-
-Texto de método sugerido: El portal dispone de una ruta semántica con E5 y otra de respuesta con BM25 y Qwen. Cada una utiliza una preparación documental que debemos declarar. Por eso separamos las pruebas funcionales de la comparación de calidad y no trasladamos métricas entre corpus o modelos distintos.
-
-Texto de cierre sugerido: Entregamos código, documentación y una aplicación operativa con evidencia consultable. Conservamos los resultados históricos con sus límites y un protocolo reproducible para la evaluación independiente. La IA apoya la búsqueda; las decisiones siguen siendo humanas.
-
-Al incorporar resultados nuevos, reemplazar las referencias a evaluación pendiente por los resultados realmente medidos, con sus denominadores y límites. No leer como cumplido algo que no se ejecutó.
+Los textos completos e intervenciones de cada integrante se encuentran en los guiones separados de GUIONES_VIDEOS_20261024. Durante la grabación se mostrarán las consultas, fuentes y modos de la versión efectivamente publicada. Reemplace cualquier resultado pendiente solo después de medirlo; no presente las métricas históricas como evaluación independiente.
 
 ## Video de preguntas de la profesora
 
-No se recibió aún el listado oficial. Cuando esté disponible, conservar su orden y numeración, responder cada pregunta y mostrar una evidencia del repositorio, experimento o interfaz. Confirmar duración y fecha con esas instrucciones. No inventar las preguntas ni reemplazar el video requerido por el pitch.
+Se recibieron las diez preguntas oficiales y se prepararon prompts y guiones separados para ambos videos. Schubert responde las impares y Niko las pares. Cada respuesta debe mostrar evidencia del repositorio o interfaz y corresponder a la versión que se entrega. El pitch utiliza el portal GLF publicado. Las grabaciones se realizarán antes del envío final; sus enlaces se incorporarán al README. Las credenciales de la profesora están preparadas y se remitirán por un canal separado.
 
 ## Acceso de evaluación y publicación
 
