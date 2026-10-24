@@ -1,0 +1,35 @@
+{
+  "documents": 7,
+  "pages": 98,
+  "chunks": 271,
+  "chunks_by_document": {
+    "GLF_MANUAL_SGAS_PUBLIC": 111,
+    "GLF_ANEXO_A_PUBLIC": 17,
+    "GLF_ANEXO_B_PUBLIC": 11,
+    "GLF_ANEXO_D_PUBLIC": 81,
+    "GLF_ANEXO_F_PUBLIC": 14,
+    "GLF_ANEXO_H_PUBLIC": 12,
+    "GLF_ANEXO_J_PUBLIC": 25
+  },
+  "empty_pages": 0,
+  "exact_duplicate_texts": 0,
+  "characters_min_median_max": [
+    42,
+    1192.0,
+    1199
+  ],
+  "words_min_median_max": [
+    7,
+    174.0,
+    200
+  ],
+  "complete_metadata": {
+    "chunk_id": 271,
+    "document_id": 271,
+    "page": 271,
+    "source_name": 271,
+    "source_url": 271,
+    "text": 271
+  },
+  "scope": "Corpus público reconstruido; sin etiquetas de relevancia"
+}

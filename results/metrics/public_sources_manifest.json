@@ -1,0 +1,58 @@
+[
+  {
+    "document_id": "GLF_MANUAL_SGAS_PUBLIC",
+    "name": "Manual SGAS",
+    "url": "https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf",
+    "sha256": "672d9c8e8061d3652169fe303305e5720293feb7ef2f150ae5ab6a8acb770606",
+    "bytes": 1138686,
+    "pages": 44
+  },
+  {
+    "document_id": "GLF_ANEXO_A_PUBLIC",
+    "name": "Anexo A - Política Ambiental y Social",
+    "url": "https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2025/02/ANEXO-A-Politica-Ambiental-y-Social_Web-Oct-2024.pdf",
+    "sha256": "dc3d0b5d91c11b6595cd5f7bb12b1181e1b7ecd4bc69f6b36a0784debabc3ded",
+    "bytes": 275581,
+    "pages": 6
+  },
+  {
+    "document_id": "GLF_ANEXO_B_PUBLIC",
+    "name": "Anexo B - Lista de Exclusión",
+    "url": "https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2025/02/ANEXO-B-Lista-de-Exclusion_Web-Oct-2024.pdf",
+    "sha256": "db376093916a60f1b712846c5b3f04f700d99f60f7659c2202843cb036e23613",
+    "bytes": 242184,
+    "pages": 4
+  },
+  {
+    "document_id": "GLF_ANEXO_D_PUBLIC",
+    "name": "Anexo D - Marco Legal y Estrategia de Autorización",
+    "url": "https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/ANEXO-D-Marco-Legal-y-Estrategia-de-Autorizacion_Web-Oct-2024.pdf",
+    "sha256": "ae836a006b2aa87e3d5d9b24e3434c3fa236c7695d5f08fb1b59bde0337c8970",
+    "bytes": 479448,
+    "pages": 24
+  },
+  {
+    "document_id": "GLF_ANEXO_F_PUBLIC",
+    "name": "Anexo F - Cláusulas estándar",
+    "url": "https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2025/02/ANEXO-F-Clausulas-Estandar_Web-Oct-2024.pdf",
+    "sha256": "e6653aedf3819813422499333765e3ce46139d700a1125e5fb3e933e32621b09",
+    "bytes": 339735,
+    "pages": 7
+  },
+  {
+    "document_id": "GLF_ANEXO_H_PUBLIC",
+    "name": "Anexo H - Roles y Responsabilidades",
+    "url": "https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2025/02/ANEXO-H-Roles-Responsabilidades_Web-Oct-2024.pdf",
+    "sha256": "5941c0f52032f1e4d2b8b3594c9597911e8b3d80a3ab1ac13d928d864a32725f",
+    "bytes": 220774,
+    "pages": 5
+  },
+  {
+    "document_id": "GLF_ANEXO_J_PUBLIC",
+    "name": "Anexo J - Definiciones",
+    "url": "https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2025/02/ANEXO-J-Definiciones_Web-Oct-2024.pdf",
+    "sha256": "d5d89a25cfbd27d3386aed489c25397dc7600cfda4e2a9a977d5c81609eb2a84",
+    "bytes": 253612,
+    "pages": 8
+  }
+]

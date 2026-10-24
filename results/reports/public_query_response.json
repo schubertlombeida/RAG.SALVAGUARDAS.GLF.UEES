@@ -1,0 +1,71 @@
+{
+  "generated": true,
+  "reason": "answered",
+  "review_support_version": "1.5",
+  "sources": [
+    {
+      "chunk_id": "GLF_MANUAL_SGAS_PUBLIC::P25C03",
+      "document_id": "GLF_MANUAL_SGAS_PUBLIC",
+      "page": 25,
+      "source_name": "Manual SGAS",
+      "source_url": "https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf"
+    },
+    {
+      "chunk_id": "GLF_MANUAL_SGAS_PUBLIC::P26C01",
+      "document_id": "GLF_MANUAL_SGAS_PUBLIC",
+      "page": 26,
+      "source_name": "Manual SGAS",
+      "source_url": "https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf"
+    }
+  ],
+  "timings": {
+    "generation_seconds": 7.325696036990848,
+    "retrieval_seconds": 0.00537490400893148,
+    "total_seconds": 7.331084103992907
+  },
+  "query": "¿Qué es el PGAS?",
+  "evidence_scope": "Functional query metadata; not an independent quality benchmark",
+  "answer_sha256": "bd8371993872964ccbe9477933af095f21378a5217a97584ccf93e112d04568f",
+  "results": [
+    {
+      "chunk_id": "GLF_MANUAL_SGAS_PUBLIC::P22C02",
+      "document_id": "GLF_MANUAL_SGAS_PUBLIC",
+      "page": 22,
+      "score": 1.15,
+      "source_name": "Manual SGAS",
+      "source_url": "https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf"
+    },
+    {
+      "chunk_id": "GLF_MANUAL_SGAS_PUBLIC::P23C03",
+      "document_id": "GLF_MANUAL_SGAS_PUBLIC",
+      "page": 23,
+      "score": 1.15,
+      "source_name": "Manual SGAS",
+      "source_url": "https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf"
+    },
+    {
+      "chunk_id": "GLF_MANUAL_SGAS_PUBLIC::P25C03",
+      "document_id": "GLF_MANUAL_SGAS_PUBLIC",
+      "page": 25,
+      "score": 1.143959,
+      "source_name": "Manual SGAS",
+      "source_url": "https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf"
+    },
+    {
+      "chunk_id": "GLF_MANUAL_SGAS_PUBLIC::P26C01",
+      "document_id": "GLF_MANUAL_SGAS_PUBLIC",
+      "page": 26,
+      "score": 1.120427,
+      "source_name": "Manual SGAS",
+      "source_url": "https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf"
+    },
+    {
+      "chunk_id": "GLF_MANUAL_SGAS_PUBLIC::P22C01",
+      "document_id": "GLF_MANUAL_SGAS_PUBLIC",
+      "page": 22,
+      "score": 1.119352,
+      "source_name": "Manual SGAS",
+      "source_url": "https://galapagoslifefund.org.ec/es/wp-content/uploads/sites/2/2026/04/A-GLF-Manual-SGAS-sin-Anexos-Oct-2024-final-.pdf"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "checked_at_utc": "2026-10-24T04:24:43.230145+00:00",
+  "scope": "Academic repository only; no changes or deployment to production GLF portal",
+  "tests": {
+    "tests": "16",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "0.388",
+    "timestamp": "2026-10-23T22:23:49.454801-06:00"
+  },
+  "notebooks": [
+    {
+      "file": "notebooks/01_exploracion.ipynb",
+      "code_cells": 3,
+      "errors": 0,
+      "sha256": "de1635c08b5558deca0c918a0c652473c2106d27b8227915b5cdfe92116b81e5"
+    },
+    {
+      "file": "notebooks/02_preprocesamiento.ipynb",
+      "code_cells": 4,
+      "errors": 0,
+      "sha256": "7258b194bfd2ea08144961390d495dfc12791ef42c04095f5f99de5dddef43c3"
+    },
+    {
+      "file": "notebooks/03_modelado.ipynb",
+      "code_cells": 4,
+      "errors": 0,
+      "sha256": "c9dcd6eb86241daf72b88fb2a585cb21a57216b8d5383d2441923a35e60a2a73"
+    },
+    {
+      "file": "notebooks/04_optimizacion.ipynb",
+      "code_cells": 4,
+      "errors": 0,
+      "sha256": "857ceb72334ce34443f610cc1ceaa9286a8712d74b2eee494c125e0855d866b5"
+    },
+    {
+      "file": "notebooks/05_evaluacion.ipynb",
+      "code_cells": 3,
+      "errors": 0,
+      "sha256": "dffe7e568f9f41ecd149497e38ea8283403cc466d8285e270b0b6fce60f072c7"
+    }
+  ],
+  "documents": [
+    {
+      "file": "entregables/01_Planificacion_RAG_GLF.docx",
+      "pages": 3,
+      "sha256": "e327ac69b3420c307970dc96a2374c3b07abd7286d9381067d5b5adda6e39fdf",
+      "font": "Arial",
+      "body_pt": 11,
+      "heading_pt": 12,
+      "table_fills": "grayscale",
+      "footer": "Página X de Y"
+    },
+    {
+      "file": "entregables/02_Analisis_de_datos_RAG_GLF.docx",
+      "pages": 5,
+      "sha256": "7e85e5144d11eab26e4e80caf2cb283dae5c03d5b06df462d58c802eea5c63f3",
+      "font": "Arial",
+      "body_pt": 11,
+      "heading_pt": 12,
+      "table_fills": "grayscale",
+      "footer": "Página X de Y"
+    },
+    {
+      "file": "entregables/03_Arquitectura_RAG_GLF.docx",
+      "pages": 4,
+      "sha256": "c31ff560512f490a4f5efb2eeac39b9b32e9dcce895534ffb179740024aa0f18",
+      "font": "Arial",
+      "body_pt": 11,
+      "heading_pt": 12,
+      "table_fills": "grayscale",
+      "footer": "Página X de Y"
+    },
+    {
+      "file": "entregables/04_Optimizacion_RAG_GLF.docx",
+      "pages": 4,
+      "sha256": "cdc4bdc573ee788f702749858970dba1d888dbb7fc61940b8d47fd09b951517e",
+      "font": "Arial",
+      "body_pt": 11,
+      "heading_pt": 12,
+      "table_fills": "grayscale",
+      "footer": "Página X de Y"
+    },
+    {
+      "file": "entregables/05_Consideraciones_eticas_RAG_GLF.docx",
+      "pages": 4,
+      "sha256": "dab4ddb5cb7a14caa840494348cb182ef90f9145e8cc56c93d677b041d685c13",
+      "font": "Arial",
+      "body_pt": 11,
+      "heading_pt": 12,
+      "table_fills": "grayscale",
+      "footer": "Página X de Y"
+    },
+    {
+      "file": "entregables/06_Manual_de_usuario_RAG_GLF.docx",
+      "pages": 4,
+      "sha256": "8f52c463565ed85187931590bf06c52b72d646e674d9887b759efd6fd3bb3603",
+      "font": "Arial",
+      "body_pt": 11,
+      "heading_pt": 12,
+      "table_fills": "grayscale",
+      "footer": "Página X de Y"
+    },
+    {
+      "file": "entregables/07_Guia_de_entrega_y_videos_RAG_GLF.docx",
+      "pages": 3,
+      "sha256": "a08efc8612aed3296ec401f881050ceb536e3604a247991f00f4902f3491b402",
+      "font": "Arial",
+      "body_pt": 11,
+      "heading_pt": 12,
+      "table_fills": "grayscale",
+      "footer": "Página X de Y"
+    }
+  ],
+  "original_documents": {
+    "checked": 32,
+    "changed": 0,
+    "method": "SHA256 compared with initial inventory"
+  },
+  "integration_snapshot": {
+    "files_checked": 26,
+    "hash_mismatches": 0,
+    "portal_commit": "382526ecd7b3d8cc250bbe8770e346ee79a83528"
+  },
+  "portal": {
+    "branch": "feat/full-grants-platform",
+    "head": "382526ecd7b3d8cc250bbe8770e346ee79a83528",
+    "tracked_changes": [
+      "scratch/desktop.ini (pre-existing)"
+    ],
+    "deployment_performed": false
+  },
+  "publication_checks": {
+    "files_scanned": 118,
+    "secret_pattern_findings": 0,
+    "known_secret_matches": 0,
+    "broken_local_document_links": 0
+  },
+  "browser_checks": {
+    "interface": "Academic Flask demonstration",
+    "browser": "Chrome",
+    "execution": "CUA UI and DOM inspection",
+    "viewports": [
+      {
+        "width": 1366,
+        "height": 900,
+        "client_width": 1351,
+        "scroll_width": 1351
+      },
+      {
+        "width": 768,
+        "height": 1024,
+        "client_width": 753,
+        "scroll_width": 753
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "client_width": 375,
+        "scroll_width": 375
+      }
+    ],
+    "passed": [
+      "Example fills question",
+      "Local query returns five passages and official links",
+      "Progress and disabled button while querying",
+      "Two-character query rejected by server",
+      "Unconfigured remote mode shows configuration message"
+    ],
+    "not_tested": [
+      "Authenticated remote mode through this local UI",
+      "Comprehensive accessibility audit",
+      "Professor account permissions"
+    ]
+  },
+  "services_evidence": "services_check.json",
+  "independent_quality_evaluation": {
+    "executed": false,
+    "metrics": null,
+    "reason": "Questions and correct passages reviewed by an independent specialist not received"
+  },
+  "pending_inputs": [
+    "Independent FAQ annotations",
+    "Two professor Excel metric templates",
+    "Official questions for second video",
+    "Recorded videos and their links",
+    "Actual individual contribution breakdown",
+    "Professor access verification"
+  ]
+}

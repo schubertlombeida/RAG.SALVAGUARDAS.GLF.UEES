@@ -1,0 +1,84 @@
+{
+  "checked_at_utc": "2026-10-24T04:24:42.605298+00:00",
+  "scope": "Academic graphics only",
+  "figures": [
+    {
+      "file": "results/figures/01_chunks_by_document.png",
+      "colored_pixels": 134992,
+      "sha256": "143e17764f7d91dd33d667358e1e968d2011fb8aea52e503c466d3d925b2cca1"
+    },
+    {
+      "file": "results/figures/02_pages_by_document.png",
+      "colored_pixels": 123133,
+      "sha256": "6b3b6df5199a85738fd2fd14a05725c3fe83905c3035c31500784d2e407bf7cb"
+    },
+    {
+      "file": "results/figures/03_chunk_lengths.png",
+      "colored_pixels": 31340,
+      "sha256": "c80c7e26e41fd3a406e1b9b10fd2192ff93fa3fe8d85b148b18adacfb2d4799b"
+    },
+    {
+      "file": "results/figures/04_words_by_document.png",
+      "colored_pixels": 86797,
+      "sha256": "e7ef8d1711e210c42e5dda93765364c24aa2f55550e76ed0aa17f772b6855553"
+    },
+    {
+      "file": "results/figures/05_page_text_lengths.png",
+      "colored_pixels": 116154,
+      "sha256": "307e2de2fdef1bacabdf6e9ce251cab02ad97a44103c9cb6b8e3ef2f5103473d"
+    },
+    {
+      "file": "results/figures/06_metadata_completeness.png",
+      "colored_pixels": 374920,
+      "sha256": "20f295c6a5aceddfc07e1c83e616a8ceb2741cae9c85b6daabc8933b0f5ca44c"
+    },
+    {
+      "file": "results/figures/07_historical_partial_dependence.png",
+      "colored_pixels": 14328,
+      "sha256": "5db997519611932945527ccb337734886c1cf73715e16f011ecff6abceadd11f"
+    },
+    {
+      "file": "results/figures/08_historical_importance.png",
+      "colored_pixels": 116768,
+      "sha256": "75b8f1be387a9dae5659f8ce0ecb08717ffbf919b44e60aee17fbfd971882fc2"
+    },
+    {
+      "file": "results/figures/09_historical_interactions.png",
+      "colored_pixels": 550935,
+      "sha256": "ce7d2d4d806f5511b7cbe5ff56fc307532e2a4bd2e93814f4d7e0caa40a141fa"
+    },
+    {
+      "file": "results/figures/10_architecture.png",
+      "colored_pixels": 198850,
+      "sha256": "c63a48ccb9082f4307f542cffae597ac75a6be68f7359303f2bee4038abe39a7"
+    }
+  ],
+  "embedded_figures": [
+    {
+      "document": "entregables/02_Analisis_de_datos_RAG_GLF.docx",
+      "matching_figures": 6
+    },
+    {
+      "document": "entregables/03_Arquitectura_RAG_GLF.docx",
+      "matching_figures": 1
+    },
+    {
+      "document": "entregables/04_Optimizacion_RAG_GLF.docx",
+      "matching_figures": 3
+    }
+  ],
+  "numeric_evidence_files_unchanged": 13,
+  "rendered_pages_visually_rechecked": [
+    "02/page-2.png",
+    "02/page-3.png",
+    "02/page-4.png",
+    "02/page-5.png",
+    "03/page-2.png",
+    "04/page-2.png",
+    "04/page-3.png"
+  ],
+  "other_rendered_pages_byte_identical": 20,
+  "text_color": "black",
+  "table_fills": "grayscale",
+  "portal_modified": false
+}

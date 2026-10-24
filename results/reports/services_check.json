@@ -1,0 +1,31 @@
+{
+  "timestamp_utc": "2026-10-24T02:53:56.289199+00:00",
+  "scope": "Read-only health checks and one public documentary question; no production changes",
+  "checks": [
+    {
+      "name": "e5_health",
+      "url": "https://schubertlm-glf-e5-inference.hf.space/health",
+      "error_type": "SSLError"
+    },
+    {
+      "name": "rag_health",
+      "url": "https://schubertlm-glf-rag-bm25-qwen.hf.space/healthz",
+      "error_type": "SSLError"
+    },
+    {
+      "name": "rag_public_question",
+      "query": "¿Qué es el PGAS?",
+      "quality_benchmark": false,
+      "http_status": 200,
+      "contract_valid": true,
+      "generated": true,
+      "source_count": 2,
+      "result_count": 5,
+      "timings": {
+        "generation_seconds": 7.325696036990848,
+        "retrieval_seconds": 0.00537490400893148,
+        "total_seconds": 7.331084103992907
+      }
+    }
+  ]
+}
