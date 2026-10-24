@@ -1,0 +1,9 @@
+{
+  "method": "BM25",
+  "k1": 1.5,
+  "b": 0.75,
+  "top_k": 5,
+  "corpus_sha256": "7ebe3bf6a4f97c1b8ebba4dd5bde3845220e28ce6f619dab413327584756e9a0",
+  "chunks": 271,
+  "fit_llm": false
+}
