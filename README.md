@@ -56,7 +56,9 @@ Corresponden a otro corpus y anotación; **no son la validación independiente f
 El benchmark anterior de Qwen 7B local no se transfiere al runtime 72B remoto.
 Los originales numéricos y sus límites se conservan en [históricos](results/metrics/historical/PROVENANCE.md).
 
-Las pruebas nuevas se registran en [verificacion.json](results/reports/verificacion.json).
+La actualización 0.7.62 añade respuestas breves y ampliadas, contexto sin recortes adicionales, control de salidas incompletas y diagnóstico de consumo reportado. El protocolo de comparación está en [evaluación](evaluation/README.md), con rejilla reproducible y revisión humana. La fusión BM25/E5 es experimental y no está activada en producción.
+
+Las pruebas de la interfaz del 24 de octubre se registran en [ux_verificacion_20261024.json](results/reports/ux_verificacion_20261024.json). La revisión previa permanece en [verificacion.json](results/reports/verificacion.json).
 El nuevo conjunto FAQ y sus pasajes revisados no se han recibido. La evaluación de calidad
 se ejecutará con corpus común y anotación independiente; no se rellenan métricas faltantes con ceros.
 
@@ -85,7 +87,7 @@ GLF_RAG_KEY según .env.example. No se cargan archivos .env automáticamente ni 
 
 Escriba una pregunta o pulse un ejemplo, seleccione modo y consulte. Abra la fuente y
 revise la página. Entrada inválida, corpus ausente y servicio no disponible tienen mensajes
-propios. [Manual completo](docs/manual_usuario.md).
+propios. El progreso muestra etapas confirmadas por el servidor, modelo efectivo y reloj; permite detener la espera, recuperar las últimas cinco consultas de la sesión y copiar o descargar las referencias. [Manual completo](docs/manual_usuario.md).
 
 ## Estructura
 
