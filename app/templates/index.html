@@ -1,0 +1,11 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Asistente RAG GLF · Grupo 10</title><link rel="stylesheet" href="/assets/style.css"><script src="/assets/app.js" defer></script></head><body><main>
+<h1>Asistente documental de salvaguardas GLF</h1><p>Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno</p>
+<p>Apoyo a la búsqueda de evidencia. La decisión corresponde al especialista.</p>
+<nav><a href="https://glf-postulaciones.vercel.app/" target="_blank" rel="noopener">Abrir portal GLF</a> · <a href="https://github.com/schubertlombeida/RAG.SALVAGUARDAS.GLF.UEES" target="_blank" rel="noopener">Código y documentación</a></nav>
+<section><h2>Consultar documentos</h2><form id="form"><label for="query">Su pregunta</label><textarea id="query" name="query" minlength="3" maxlength="600" required rows="4" placeholder="Escriba aquí su pregunta sobre las salvaguardas del GLF"></textarea>
+<div class="row"><label for="mode">Modo de consulta</label><select id="mode"><option value="local">Búsqueda local de pasajes</option><option value="rag">Respuesta con IA del servicio del portal</option></select></div>
+<button id="submit" type="submit">Consultar</button><p id="status" role="status" aria-live="polite"></p></form>
+<h3>Probar un ejemplo</h3><div class="examples">{% for example in examples %}<button type="button" data-example="{{ example }}">{{ example }}</button>{% endfor %}</div></section>
+<section id="output" hidden><h2>Resultado</h2><p id="answer"></p><p id="timing"></p><div id="results"></div></section>
+<section><h2>Acerca del sistema</h2><p>La búsqueda local usa BM25 sobre los siete documentos públicos del GLF. El modo RAG necesita un servicio autenticado configurado por el equipo. Los puntajes ordenan pasajes y no representan una probabilidad de verdad.</p><p>La comparación BM25 y E5 requiere el mismo corpus y preguntas revisadas. Las métricas con la nueva batería independiente todavía no se han calculado. Una cita formalmente válida no garantiza que la afirmación esté respaldada: abra siempre la página original.</p><p>No ingrese cédulas, claves, expedientes privados ni datos sensibles.</p></section>
+</main></body></html>
