@@ -1,6 +1,6 @@
 # Análisis de datos del asistente RAG de salvaguardas GLF
 
-Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Corte documental 23 de octubre de 2026
+Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Edición 24 de octubre de 2026
 
 ## Unidades de análisis y conclusión
 
@@ -12,7 +12,6 @@ La documentación del proyecto contiene varios conjuntos con funciones distintas
 | Fragmentos de expedientes | Aproximadamente 250 en el EDA histórico | Análisis de longitudes y particiones | Solo agregados históricos |
 | Corpus normativo español | 585 fragmentos de 36 documentos | Ruta E5 y experimentos históricos | No se redistribuye el ZIP |
 | Corpus público del servicio Qwen | Siete PDF oficiales | Recuperación lexical y generación | Manifiesto, enlaces y descarga local |
-| Conjunto independiente FAQ | Todavía no recibido | Evaluación final solicitada por la profesora | Solo versión revisada y sin datos personales |
 
 ## Procedencia y consistencia
 
@@ -68,10 +67,10 @@ La fragmentación pequeña facilita citas legibles, pero puede separar una excep
 
 ## Muestreo de evaluación y prevención de fugas
 
-El protocolo propone entre 40 y 60 preguntas sobre un corpus congelado, equilibradas por tema, con 10 a 15 no contestables. Los pasajes correctos deben anotarlos especialistas ajenos a la generación de las preguntas. El archivo FAQ prometido es una fuente de preguntas; una respuesta frecuente sin páginas no constituye por sí sola un gold independiente.
+El protocolo propone entre 40 y 60 preguntas sobre un corpus congelado, equilibradas por tema, con 10 a 15 no contestables. Los pasajes correctos deben anotarlos especialistas ajenos a la generación de las preguntas. Las preguntas frecuentes pueden utilizarse como insumo de muestreo. Una respuesta sin páginas y sin revisión especializada no constituye por sí sola un conjunto de referencia independiente.
 
 Se separan desarrollo, validación y test por intención de pregunta. Reformulaciones cercanas pertenecen a la misma partición. Las decisiones de parámetros se toman antes del test. BM25 y E5 reciben los mismos pasajes, identificadores y preguntas. Si cambian los PDF, se genera una nueva huella y se revisan las anotaciones afectadas.
 
 ## Derechos y limitaciones
 
-Los PDF públicos mantienen los derechos de sus titulares. El repositorio enlaza las fuentes y permite descargarlas localmente; no aplica MIT a documentos ajenos. Los expedientes, nombres de proponentes y credenciales quedan excluidos. La ausencia de licencias explícitas de redistribución y la falta del gold independiente limitan lo que puede publicarse y concluirse.
+Los PDF públicos mantienen los derechos de sus titulares. El repositorio enlaza las fuentes y permite descargarlas localmente; no aplica MIT a documentos ajenos. Los expedientes, nombres de proponentes y credenciales quedan excluidos. La publicación se limita a fuentes enlazadas, código y agregados documentados. La evaluación incluida caracteriza la preparación del corpus y los experimentos de desarrollo; no aporta una estimación de calidad sobre preguntas anotadas de forma independiente.

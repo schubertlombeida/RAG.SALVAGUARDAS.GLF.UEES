@@ -1,6 +1,6 @@
 # Manual del asistente documental de salvaguardas GLF
 
-Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Actualización 24 de octubre de 2026
+Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Edición 24 de octubre de 2026
 
 ## Para qué sirve
 
@@ -8,37 +8,16 @@ Este manual explica cómo consultar evidencia normativa mediante el portal GLF y
 
 ## Acceso al portal publicado
 
-1. Abra https://glf-postulaciones.vercel.app/ con el acceso de evaluación habilitado por el equipo.
+1. Desde index.html elija Portal GLF y Abrir el asistente. También puede acceder a https://glf-postulaciones.vercel.app/internal/evidence con la cuenta de evaluación facilitada por el equipo.
 2. Inicie sesión y entre al módulo del asistente RAG o al espacio de revisión permitido por su rol.
 3. Elija Consulta libre o Desde un proyecto. En este último caso seleccione el expediente y riesgo correspondiente; las notas siguen vinculadas al riesgo seleccionado.
 4. Seleccione Obtener una respuesta con fuentes para BM25 y Qwen, o Buscar fragmentos en los documentos para E5. Qwen admite de 3 a 600 caracteres; E5, de 10 a 1500. Escriba una pregunta concreta.
 5. En Qwen, elija Respuesta breve para una consulta puntual o Análisis ampliado para distinguir disposición, aplicación sustentada y aspectos por verificar. El modo ampliado puede tardar más y consumir más inferencia. Pulse Consultar y observe la etapa, el modelo y el reloj. El sistema evita envíos duplicados mientras procesa.
 6. Revise la respuesta, las referencias numeradas y la página original. Mantenga separada la evidencia encontrada de la decisión técnica.
 
-La cuenta y contraseña para la profesora se comparten fuera del repositorio público. Este manual no publica credenciales ni instruye usar una cuenta administrativa personal. La disponibilidad del módulo depende de los permisos asignados a esa cuenta.
+La cuenta y contraseña para la profesora se comparten por el portal de la universidad, fuera del repositorio público. Este manual no publica credenciales ni instruye usar una cuenta administrativa personal. La disponibilidad del módulo depende de los permisos asignados a esa cuenta.
 
-## Instalar la demostración reproducible
-
-Abra una terminal en la raíz del repositorio. Utilice Python 3.12 y cree un entorno virtual antes de instalar dependencias.
-
-```text
-python -m venv .venv
-.venv\Scripts\activate
-python -m pip install -r requirements.txt
-python -m src.data_processing
-python -m src.train
-python -m app.app
-```
-
-En Linux o macOS active el entorno con source .venv/bin/activate. Abra http://127.0.0.1:8766. La preparación inicial requiere Internet para descargar los PDF oficiales. Si una URL cambia, el proceso falla de forma visible y debe actualizarse el manifiesto y la versión del corpus.
-
-## Hacer una consulta en la demostración
-
-![Pantalla de consulta](../results/figures/ui_desktop.png)
-
-La pantalla presenta la caja de pregunta, el modo de consulta, el botón Consultar y ejemplos. Escriba entre 3 y 600 caracteres. Un ejemplo rellena la caja para que pueda leerlo o modificarlo antes de consultar. El botón muestra progreso y se bloquea durante la operación.
-
-El modo Búsqueda local de pasajes funciona sin claves y utiliza BM25. Devuelve texto recuperado para revisión y lo identifica explícitamente como búsqueda sin generación. El modo Respuesta con IA del servicio del portal necesita que el equipo configure GLF_RAG_URL y GLF_RAG_KEY en el servidor. No escriba claves en el navegador ni las agregue a un cuaderno.
+![Modos de consulta del portal GLF](../results/live_v0762/portal_modos_v0762.jpg)
 
 ## Durante el procesamiento
 
@@ -85,6 +64,36 @@ Una pregunta sobre la aprobación de un proyecto particular o información que n
 
 ## Soporte y límites
 
-La recuperación local no genera respuestas; Qwen requiere la conexión remota configurada. La calidad con FAQ se medirá cuando existan pasajes revisados por un especialista. No publique expedientes ni claves en el repositorio.
+La recuperación local no genera respuestas; Qwen requiere la conexión remota configurada. La calidad normativa se contrasta con fuentes y revisión especializada; las pruebas funcionales no equivalen a una estimación de exactitud. No publique expedientes ni claves en el repositorio.
 
 Copiar datos del problema conserva método, código e identificador, sin la pregunta ni credenciales. Para solicitar soporte, adjunte esos datos en Issues del repositorio académico. La aplicación no envía reportes automáticamente. Las consultas normativas corresponden al especialista del GLF.
+
+## Instalación de la aplicación académica
+
+Abra una terminal en la raíz del repositorio. Utilice Python 3.12 y cree un entorno virtual antes de instalar dependencias.
+
+```text
+python -m venv .venv
+.venv\Scripts\activate
+python -m pip install -r requirements.txt
+python -m src.data_processing
+python -m src.train
+python -m app.app
+```
+
+En Linux o macOS active el entorno con source .venv/bin/activate. Abra http://127.0.0.1:8766. La preparación inicial requiere Internet para descargar los PDF oficiales. Si una URL cambia, el proceso falla de forma visible y debe actualizarse el manifiesto y la versión del corpus.
+
+## Hacer una consulta en la demostración
+
+![Pantalla de consulta](../results/figures/ui_desktop.png)
+
+La pantalla presenta la caja de pregunta, el modo de consulta, el botón Consultar y ejemplos. Escriba entre 3 y 600 caracteres. Un ejemplo rellena la caja para que pueda leerlo o modificarlo antes de consultar. El botón muestra progreso y se bloquea durante la operación.
+
+El modo Búsqueda local de pasajes funciona sin claves y utiliza BM25. Devuelve texto recuperado para revisión y lo identifica explícitamente como búsqueda sin generación. El modo Respuesta con IA del servicio del portal necesita que el equipo configure GLF_RAG_URL y GLF_RAG_KEY en el servidor. No escriba claves en el navegador ni las agregue a un cuaderno.
+
+
+## Lectura de la documentación académica
+
+El archivo index.html reúne los informes, el código y la evidencia de evaluación. En Documentación puede buscar por tema, elegir un informe y leerlo en pantalla. Cada informe ofrece su fuente en GitHub y sus versiones Word y PDF. El menú Portal GLF abre el acceso al asistente publicado; el índice no solicita ni almacena credenciales.
+
+El contenido audiovisual se organiza en un pitch de cinco minutos y un video de diez respuestas técnicas. Los enlaces de reproducción se muestran en el índice cuando están registrados en el catálogo de videos.

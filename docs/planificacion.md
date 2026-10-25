@@ -1,12 +1,12 @@
 # Planificación del asistente RAG de salvaguardas GLF
 
-Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Corte documental 23 de octubre de 2026
+Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Edición 24 de octubre de 2026
 
 ## Propósito y conclusión
 
-El proyecto desarrolla un asistente de consulta de evidencia normativa para apoyar a los especialistas del Galápagos Life Fund (GLF). El portal ya integra búsqueda documental y una ruta de generación con citas. La entrega académica reúne código, documentación y experimentos anteriores, y prepara una evaluación independiente sobre un corpus común. La utilidad institucional y el cumplimiento de las metas de calidad todavía requieren esa evaluación; una prueba funcional no demuestra impacto social.
+El proyecto implementa un asistente de consulta de evidencia normativa para especialistas del Galápagos Life Fund (GLF). Integra búsqueda documental, generación con citas y acceso a las fuentes originales. La entrega reúne el código reproducible, los experimentos de desarrollo, las comprobaciones funcionales y el protocolo de evaluación. Los resultados reportados describen ese alcance; no constituyen una estimación independiente de impacto institucional.
 
-Los documentos de las semanas 1 a 5 se preservan como antecedentes entregados. Este informe actualiza la presentación final a partir del código revisado y de la retroalimentación docente, sin reescribir esos antecedentes ni alterar el portal de producción.
+El informe presenta el problema, los objetivos, la organización del trabajo, los recursos y los controles de la solución. Los antecedentes de las semanas 1 a 5 se conservan en sus versiones entregadas.
 
 ## Problema y usuarios
 
@@ -33,37 +33,35 @@ Hit@5 mide si aparece al menos un pasaje correcto y no equivale a Recall@5. La e
 
 Se incluyen recuperación lexical BM25, consulta semántica E5, generación con evidencia, tratamiento de insuficiencia documental, fuentes con páginas y una interfaz conectada al portal. El repositorio incorpora una interfaz académica que permite reconstruir la búsqueda con documentos oficiales públicos, además de una copia de la integración real.
 
-Se excluyen aprobación automática, calificación jurídica vinculante, entrenamiento de un modelo de lenguaje con expedientes personales, clasificación demográfica y promesas de generalización no medidas. La fusión BM25 con E5 y el reranking constan como alternativas experimentales históricas; el código revisado no muestra que E5 alimente actualmente la generación de Qwen en el portal.
+Se excluyen aprobación automática, calificación jurídica vinculante, entrenamiento de un modelo de lenguaje con expedientes personales, clasificación demográfica y promesas de generalización no medidas. La fusión BM25 con E5 está disponible como comparación experimental en el núcleo académico. La generación del portal utiliza BM25 y Qwen; la búsqueda E5 opera por separado.
 
-## Cronograma previsto y situación documentada
+## Organización del trabajo
 
-| Periodo original | Trabajo previsto | Evidencia disponible al cierre documental |
+| Periodo | Etapa | Productos documentados |
 |---|---|---|
 | 19 al 25 de septiembre | Definición, fuentes y objetivos | Documentos de semana 1 y evaluación SMART |
 | 26 de septiembre al 2 de octubre | Corpus y baseline lexical | Inventario EDA y decisión técnica |
 | 3 al 16 de octubre | Recuperación semántica y RAG | Código E5, BM25, servicio Qwen e integración |
 | 17 al 23 de octubre | Piloto y entrega | Análisis ético, portal y preparación de este paquete |
-| Incorporación posterior del archivo FAQ | Anotación y evaluación independiente | El equipo prevé recibir el archivo el 26 de octubre |
 
-Estas fechas describen el plan y los materiales existentes. No se deducen horas ejecutadas, entrevistas ni participación individual a partir del nombre de un archivo.
+El cronograma organiza las etapas del proyecto. Los resultados y configuraciones se relacionan con los archivos y versiones que los documentan.
 
 ## Equipo y recursos
 
-La autoría confirmada corresponde a Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno. Los documentos iniciales proponían que Niko trabajara corpus, recuperación y evaluación, y Schubert integración web, permisos y flujos. Se conserva esa distribución como planificación histórica; no se presenta como un registro individual de horas o contribuciones confirmadas.
+El Grupo 10 está integrado por Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno. La planificación distribuye corpus, recuperación y evaluación en el frente de datos, e integración web, permisos y flujos en el frente de aplicación. La autoría de la entrega es conjunta.
 
 Los recursos son el portal Next.js en Vercel, Supabase para datos y búsqueda vectorial, servicios en Hugging Face, código Python y documentación normativa. El generador utiliza un proveedor de inferencia remoto; el modelo no se entrena dentro de Vercel. La entrega local utiliza un entorno Python aislado y versiones fijadas. Las credenciales y expedientes no forman parte del repositorio público.
 
 ## Riesgos de ejecución y respuesta
 
-| Riesgo | Consecuencia | Acción prevista |
+| Riesgo | Consecuencia | Control definido |
 |---|---|---|
-| Ausencia de gold independiente | Calidad no estimable de forma válida | Preparar anotación y esperar revisión identificada |
+| Evaluación con etiquetas no independientes | Estimación sesgada de calidad | Exigir revisión de pasajes por un especialista distinto del autor de preguntas |
 | Cambio de corpus o modelo | Resultados no comparables | Registrar huella, versión, fecha y configuración |
 | Fuente pública sin licencia de redistribución | Publicación indebida de documentos | Publicar enlaces y script de descarga local |
 | Servicio externo no disponible | Consulta sin respuesta | Error comprensible y consulta de fuentes |
 | Filtración de expedientes | Afectación a titulares | Corpus público separado, secretos solo en servidor |
-| Videos o enlaces incompletos | Entrega académica incompleta | Guion y matriz de cierre con evidencias reales |
 
 ## Control de cambios y aceptación
 
-Cada resultado nuevo debe registrar commit, entorno, corpus, preguntas, partición y fecha. Las mejoras se desarrollan con preguntas de desarrollo y validación; el test se congela antes de usarlo. Un cambio de corpus obliga a revisar los pasajes anotados. Se aceptará la evaluación empírica cuando estén disponibles las anotaciones independientes, los conteos por tema y la revisión de respuestas, sin sustituirlos por los resultados históricos.
+Cada resultado registra versión, entorno, corpus, preguntas, partición y fecha. Los parámetros se seleccionan con desarrollo y validación; el conjunto de prueba se reserva para la evaluación de la configuración fijada. Un cambio de corpus exige revisar los pasajes anotados. La evaluación independiente utiliza anotaciones identificadas, conteos por tema y revisión de afirmaciones; las mediciones históricas se presentan por separado.

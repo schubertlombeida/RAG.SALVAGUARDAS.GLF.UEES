@@ -1,6 +1,6 @@
 # Arquitectura e integración del asistente RAG GLF
 
-Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Actualización 24 de octubre de 2026
+Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Edición 24 de octubre de 2026
 
 ## Sistema entregado y límites
 
@@ -25,13 +25,13 @@ El contexto de revisión puede separar retrieval_query, orientada al riesgo conc
 
 El Space E5 es https://huggingface.co/spaces/Schubertlm/glf-e5-inference y su API de vectores es https://schubertlm-glf-e5-inference.hf.space/embed. La interfaz de Hugging Face mostró estado Running y modalidad protected en la revisión del 23 de octubre. Esa modalidad mantiene privado el repositorio del Space y permite acceder a su URL de aplicación; la API exige además su propia clave. No se publican esas claves.
 
-El servidor E5, copiado en integration/e5-inference, carga SentenceTransformer en CPU. Recibe de uno a ocho textos por solicitud, añade query: o passage: y genera vectores normalizados. Limita la consulta a 1500 caracteres y el pasaje a 12000. El modelo admite una longitud máxima de tokens que puede truncar textos largos; el límite de caracteres no demuestra que no haya truncamiento. Fijar la revisión de los pesos y comprobar tokens son medidas de reproducibilidad pendientes, no cambios aplicados al servicio.
+El servidor E5, copiado en integration/e5-inference, carga SentenceTransformer en CPU. Recibe de uno a ocho textos por solicitud, añade query: o passage: y genera vectores normalizados. Limita la consulta a 1500 caracteres y el pasaje a 12000. El modelo admite una longitud máxima de tokens que puede truncar textos largos; el límite de caracteres no demuestra que no haya truncamiento. La configuración identifica el modelo por nombre, sin fijar una revisión inmutable de sus pesos. Por ello la reproducción debe registrar también la revisión resuelta y la tokenización efectiva.
 
-El Space generativo es https://huggingface.co/spaces/Schubertlm/glf-rag-bm25-qwen y la consulta con progreso usa https://schubertlm-glf-rag-bm25-qwen.hf.space/api/ask-stream; /api/ask se conserva para clientes anteriores. También apareció Running. Una consulta pública sobre PGAS devolvió HTTP 200, respuesta generada, cinco pasajes y dos fuentes; pasó el contrato de citas. El tiempo total informado por el servicio fue 7.331 segundos para esa única consulta. Es una comprobación funcional, no un benchmark ni una evaluación de exactitud semántica.
+El Space generativo es https://huggingface.co/spaces/Schubertlm/glf-rag-bm25-qwen. Su ruta /api/ask-stream entrega etapas de procesamiento y resultado; /api/ask conserva compatibilidad con clientes anteriores. El adaptador documentado es la versión 1.7 y el portal la versión 0.7.62.
 
-Las lecturas de salud en la prueba del 23 de octubre encontraron un error de certificado desde el cliente Python. No se desactivó la verificación TLS. Una lectura anterior de healthz sí confirmó siete documentos y 271 fragmentos; la consulta autenticada posterior funcionó. El registro services_check.json conserva tanto los errores como la respuesta correcta. En esa revisión no se realizó una nueva inferencia E5 porque no se configuró su clave en el entorno académico. El 24 de octubre sí se comprobó E5 desde el portal autorizado: recuperó seis pasajes de Supabase en 2,7 segundos. Qwen respondió a «¿Qué es el PGAS?» con cinco pasajes y dos referencias citadas en 6,76 segundos medidos en el portal. Un primer fallo transitorio del proveedor mostró un aviso y conservó la pregunta. Son ensayos funcionales, no mediciones independientes de calidad ni un benchmark de latencia.
+La comprobación funcional del 24 de octubre registró consultas Qwen breves y ampliadas, recuperación E5 y manejo de indisponibilidad del proveedor. Una consulta ampliada respondió en 35.2 segundos y otra consulta E5 recuperó seis pasajes en 1.2 segundos. Son observaciones individuales, no un benchmark. Los registros completos y sus diferencias de configuración están en results/live_v0762 y results/reports/quality_verificacion_20261024.json.
 
-El README original de inference conserva notas antiguas de trabajo pendiente. Se mantiene íntegro como evidencia de procedencia, pero no se interpreta como estado actual del despliegue. Este informe diferencia esas notas, el código copiado y las comprobaciones actuales. La actualización del 24 de octubre modifica exclusivamente la experiencia RAG y sus contratos de progreso, junto con dependencias corregidas por el control de seguridad. No modifica los formularios de postulación ni requiere cambios de esquema en Supabase.
+Las instantáneas de integración conservan el código de origen y su procedencia. El manifiesto identifica las versiones utilizadas por este informe. Los registros históricos de conectividad se mantienen como evidencia de sus ejecuciones y no sustituyen la descripción de la configuración actual.
 
 ## Modelos y funciones
 
@@ -39,7 +39,7 @@ El README original de inference conserva notas antiguas de trabajo pendiente. Se
 |---|---|---|
 | Representación semántica | intfloat/multilingual-e5-small | Texto query o passage hacia vector de 384 dimensiones |
 | Recuperación lexical | BM25-heading-authority-v2 | Consulta hacia hasta cinco pasajes con fuente y página |
-| Generación configurada | Qwen/Qwen2.5-72B-Instruct:deepinfra | Contexto y pregunta hacia texto breve con identificadores de cita |
+| Generación configurada | Qwen/Qwen2.5-72B-Instruct:deepinfra | Contexto y pregunta hacia texto con identificadores de cita |
 | Validación de evidencia | Contrato Python y Zod del portal | Respuesta remota hacia resultado aceptado o error/abstención |
 | Datos y permisos | Supabase | Corpus y expedientes separados con controles de acceso |
 
@@ -63,7 +63,7 @@ Los reintentos de transporte y corrección de citas comparten un máximo total d
 
 El detalle de ejecución registra modo, política, modelo efectivo, IDs del contexto, huella SHA-256 del corpus público, intentos, tiempos y tokens que realmente reporta el proveedor. Un consumo ausente se identifica como no reportado; uno parcial no se transforma en costo cero. Los registros del servidor contienen metadatos operativos, sin guardar la pregunta ni el texto de los documentos.
 
-El Space continúa como coordinador en CPU Basic; los pesos de Qwen se ejecutan en DeepInfra mediante Hugging Face. No se solicita ampliar servidor, cambiar proveedor ni aumentar cuotas. Una respuesta más larga puede consumir más inferencia. La consulta extendida es optativa y el modo breve es el inicial.
+El Space continúa como coordinador en CPU Basic; los pesos de Qwen se ejecutan en DeepInfra mediante Hugging Face. La configuración mantiene el mismo nivel de infraestructura y proveedor. Una respuesta más larga puede consumir más inferencia. La consulta extendida es optativa y el modo breve es el inicial.
 
 ## Contratos y controles técnicos
 

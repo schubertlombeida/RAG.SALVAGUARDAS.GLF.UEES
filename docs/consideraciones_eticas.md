@@ -1,6 +1,6 @@
 # Consideraciones éticas y responsabilidad del asistente RAG GLF
 
-Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Corte documental 23 de octubre de 2026
+Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Edición 24 de octubre de 2026
 
 ## Alcance y conclusión
 
@@ -12,7 +12,7 @@ Se utiliza el marco de gestión de riesgos de inteligencia artificial de NIST co
 
 El corpus puede privilegiar documentos extensos, español, fuentes oficiales disponibles y términos exactos. Una traducción o guía derivada puede recuperar mejor que una disposición original sin tener la misma autoridad. El peso GLF mejora una preferencia editorial, pero no demuestra corrección jurídica.
 
-Mitigación técnica y documental: 1. Identificar documento, idioma, tipo de fuente y versión. 2. Mantener traducciones y normalizaciones identificadas. 3. Equilibrar preguntas por tema y registrar resultados desagregados. 4. Revisar errores donde una excepción quede fuera del fragmento. La estructura y procedencia están documentadas; la medición por tema sobre el nuevo gold está preparada y aún no ejecutada.
+Mitigación técnica y documental: 1. Identificar documento, idioma, tipo de fuente y versión. 2. Mantener traducciones y normalizaciones identificadas. 3. Equilibrar preguntas por tema y registrar resultados desagregados. 4. Revisar errores donde una excepción quede fuera del fragmento. La estructura y procedencia están documentadas. Los resultados incluidos no estiman diferencias por tema sobre una muestra independiente.
 
 ## Equidad y acceso
 
@@ -26,7 +26,7 @@ El repositorio público utiliza manifiestos de documentos oficiales y código. E
 
 Mitigación técnica y organizativa: 1. No introducir información identificable en consultas de demostración. 2. Mantener secretos en servidor y separar datos de postulaciones de los textos públicos. 3. Definir finalidad, base de legitimación, conservación y responsables antes de tratar datos personales con IA. 4. Revisar condiciones del proveedor, transferencias y procedimientos para derechos e incidentes. Los dos primeros puntos son controles de la entrega y del código; los documentos de gobernanza y su aplicación institucional no se acreditan como aprobados por este trabajo.
 
-La Ley Orgánica de Protección de Datos Personales, su Reglamento y la normativa aplicable de la Superintendencia de Protección de Datos Personales (SPDP) son referencias a verificar frente al tratamiento real. La página oficial de SPDP identifica la norma general sobre IA de 2026 y un enfoque de riesgos. Esta revisión no declara cumplimiento legal integral. Identificar una ley no sustituye un inventario de datos, una evaluación de riesgos, contratos ni evidencia de ejercicio de derechos.
+La Ley Orgánica de Protección de Datos Personales, su Reglamento y la normativa aplicable de la Superintendencia de Protección de Datos Personales (SPDP) constituyen referencias para la revisión institucional del tratamiento de datos. Esta revisión no declara cumplimiento legal integral. Identificar una ley no sustituye un inventario de datos, una evaluación de riesgos, contratos ni evidencia de ejercicio de derechos.
 
 | Requisito operativo a documentar | Cambio de diseño relacionado | Situación acreditada |
 |---|---|---|
@@ -34,13 +34,13 @@ La Ley Orgánica de Protección de Datos Personales, su Reglamento y la normativ
 | Seguridad y confidencialidad | Autenticación, claves en servidor y fuentes permitidas | Visible en el código revisado |
 | Información a usuarios y límites | Avisos de apoyo documental y revisión de citas | Incluido en interfaz y manual |
 | Conservación y derechos | Política y procedimiento institucional | No demostrado mediante este paquete |
-| Evaluación del proveedor y transferencias | Identificar ruta de inferencia y datos enviados | Flujo documentado; revisión institucional por realizar |
+| Evaluación del proveedor y transferencias | Identificar ruta de inferencia y datos enviados | Flujo documentado; valoración jurídica fuera del alcance académico |
 
 ## Transparencia y explicabilidad
 
 La interfaz muestra texto recuperado, fuente y página. Los puntajes de BM25 y E5 ordenan documentos; no son probabilidades de verdad. Los controles de citas verifican coherencia formal de identificadores, pero no garantizan que cada afirmación se desprenda del pasaje.
 
-Mitigación técnica y de evaluación: 1. Mostrar qué modo se ejecutó. 2. Distinguir búsqueda sin generación de respuesta con IA. 3. Conservar las citas y abrir la página original. 4. Revisar una muestra de afirmaciones y registrar soportadas, no soportadas y ambiguas. Los tres primeros puntos están en la entrega; la muestra independiente debe completarse con el gold.
+Mitigación técnica y de evaluación: 1. Mostrar qué modo se ejecutó. 2. Distinguir búsqueda sin generación de respuesta con IA. 3. Conservar las citas y abrir la página original. 4. Revisar una muestra de afirmaciones y registrar soportadas, no soportadas y ambiguas. Los tres primeros controles forman parte de la implementación. La revisión de afirmaciones constituye el procedimiento de evaluación semántica; sus resultados independientes no forman parte de las mediciones reportadas.
 
 ## Impacto social y ambiental
 
@@ -55,11 +55,11 @@ El equipo académico responde por describir y probar su implementación. La auto
 | Mecanismo | Responsable funcional | Evidencia y estado |
 |---|---|---|
 | Versionado y manifiestos | Equipo técnico | Commit y huellas incluidos |
-| Revisión normativa | Especialista de dominio | Requerida para las respuestas; gold independiente pendiente |
+| Revisión normativa | Especialista de dominio | Interpretación de respuestas y anotación de evidencia independiente |
 | Detección de errores técnicos | Equipo técnico | Pruebas automáticas y errores controlados |
 | Registro y corrección de resultados | Administración y especialista | Flujo del portal descrito; no se audita todo su uso institucional |
 | Incidentes y derechos | Responsable institucional del tratamiento | Procedimiento formal no acreditado aquí |
-| Reevaluación por cambio de corpus o modelo | Equipo técnico y especialista | Protocolo preparado, ejecución según nueva versión |
+| Reevaluación por cambio de corpus o modelo | Equipo técnico y especialista | Protocolo de reevaluación por versión |
 
 Mitigación organizativa: 1. Reportar el identificador de consulta y la fuente sin copiar datos sensibles. 2. Clasificar el error como recuperación, generación, fuente o acceso. 3. Corregir con desarrollo y validación. 4. Reevaluar antes de aplicar cambios a decisiones reales. Un responsable de cierre y una fecha deben acompañar cada incidente institucional.
 
@@ -73,7 +73,7 @@ Mitigación técnica: 1. Mantener listas de fuentes autorizadas y no ejecutar in
 
 Sí cambiaríamos el diseño respecto de una propuesta que mezclara corpus y tratara toda cita como prueba de exactitud. Congelaríamos un corpus común antes de comparar métodos, haríamos explícita la autoridad de cada fuente y exigiríamos anotación independiente. Mantendríamos la abstención visible y la decisión humana. No incorporaríamos un clasificador que obtiene alta exactitud prediciendo siempre la clase mayoritaria.
 
-El principal límite es empírico: los resultados históricos no sustituyen una batería independiente. La respuesta FAQ que se espera recibir requiere pasajes verificables y revisión por un especialista diferente al generador de preguntas. El estado pendiente se describe como una condición de la evidencia, no se transforma en una métrica igual a cero ni en éxito inferido.
+El principal límite es empírico: las mediciones históricas y las pruebas funcionales no sustituyen una batería independiente. La estimación de calidad normativa exige pasajes verificables y revisión por un especialista distinto de quien generó las preguntas. Los valores no estimados se identifican como tales, sin asignarles cero ni inferir éxito.
 
 ## Referencias
 
