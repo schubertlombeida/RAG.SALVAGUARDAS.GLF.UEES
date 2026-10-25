@@ -5,6 +5,10 @@
 
 Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno.
 
+[Abrir índice de lectura](https://schubertlombeida.github.io/RAG.SALVAGUARDAS.GLF.UEES/) · [Acceder al asistente GLF](https://glf-postulaciones.vercel.app/internal/evidence)
+
+El índice permite leer los informes en pantalla, abrirlos en GitHub y descargar versiones Word y PDF. Para consultar la implementación, utilice las credenciales facilitadas por el equipo a través del portal de la universidad.
+
 ## Contenido
 
 1. [Problema](#problema)
@@ -52,15 +56,14 @@ El recuento reconstruido se guarda en [public_eda.json](results/metrics/public_e
 ## Resultados
 
 Los resultados históricos de BM25 reportan Recall@5 de desarrollo de 68.9 % a 83.6 %.
-Corresponden a otro corpus y anotación; **no son la validación independiente final ni métricas del portal actual**.
+Corresponden al corpus histórico y su anotación de desarrollo; no estiman calidad independiente del portal actual.
 El benchmark anterior de Qwen 7B local no se transfiere al runtime 72B remoto.
 Los originales numéricos y sus límites se conservan en [históricos](results/metrics/historical/PROVENANCE.md).
 
 La actualización 0.7.62 añade respuestas breves y ampliadas, contexto sin recortes adicionales, control de salidas incompletas y diagnóstico de consumo reportado. El protocolo de comparación está en [evaluación](evaluation/README.md), con rejilla reproducible y revisión humana. La fusión BM25/E5 es experimental y no está activada en producción.
 
 Las pruebas de la interfaz del 24 de octubre se registran en [ux_verificacion_20261024.json](results/reports/ux_verificacion_20261024.json). La revisión previa permanece en [verificacion.json](results/reports/verificacion.json).
-El nuevo conjunto FAQ y sus pasajes revisados no se han recibido. La evaluación de calidad
-se ejecutará con corpus común y anotación independiente; no se rellenan métricas faltantes con ceros.
+El alcance empírico comprende evaluación histórica de desarrollo, 33 pruebas académicas y registros funcionales de la versión 0.7.62. No se reporta una estimación de calidad con preguntas y pasajes anotados de forma independiente. El protocolo conserva esa separación y registra valores no estimados como nulos.
 
 ## Instalación
 
@@ -92,7 +95,9 @@ propios. El progreso muestra etapas confirmadas por el servidor, modelo efectivo
 ## Estructura
 
 ```text
-docs/           Seis informes exigidos y guía de entrega
+index.html      Índice de lectura y acceso al portal GLF
+assets/         Diseño, búsqueda y catálogo audiovisual
+docs/           Seis informes y guía de revisión
 notebooks/      Cinco cuadernos ordenados y ejecutables
 src/            Preparación, modelos, índice, evaluación y utilidades
 app/            Interfaz Flask con ejemplos y progreso
@@ -102,7 +107,7 @@ models/         Configuración JSON del índice y explicación RAG
 integration/    Copias trazables del portal y servicio original
 evaluation/     Formatos de anotación, abstención, soporte y tiempos
 results/        Figuras, métricas históricas y verificaciones nuevas
-entregables/    Versiones Word de los informes
+entregables/    Informes en Word y PDF
 ```
 
 El requisito genérico de archivos pickle se adapta a un índice RAG con configuración JSON
@@ -116,7 +121,7 @@ y pesos de terceros identificados. No se crean modelos vacíos ni se declara fin
 - [Optimización](docs/optimizacion.md)
 - [Consideraciones éticas](docs/consideraciones_eticas.md)
 - [Manual de usuario](docs/manual_usuario.md)
-- [Guía de entrega, rúbrica y videos](docs/guia_entrega_y_videos.md)
+- [Guía de revisión y presentación](docs/guia_entrega_y_videos.md)
 
 Versiones editables en Word:
 
@@ -126,7 +131,7 @@ Versiones editables en Word:
 4. [Optimización](entregables/04_Optimizacion_RAG_GLF.docx)
 5. [Consideraciones éticas](entregables/05_Consideraciones_eticas_RAG_GLF.docx)
 6. [Manual de usuario](entregables/06_Manual_de_usuario_RAG_GLF.docx)
-7. [Guía de entrega y videos](entregables/07_Guia_de_entrega_y_videos_RAG_GLF.docx)
+7. [Guía de revisión y presentación](entregables/07_Guia_de_entrega_y_videos_RAG_GLF.docx)
 
 Los Word usan Arial, títulos 12 en negrita, texto 11 negro, tablas grises y gráficos a color. La visualización
 Markdown de GitHub usa las fuentes propias de GitHub; el formato solicitado se conserva en Word.
@@ -141,8 +146,7 @@ de personas. Las limitaciones y mitigaciones se documentan con su estado real.
 ## Equipo
 
 Autores: Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno, Grupo 10.
-La planificación inicial asignaba corpus y recuperación a Niko e integración web a Schubert.
-Es una distribución histórica propuesta, no un registro individual de horas confirmado.
+La entrega integra el frente de datos y recuperación con el frente de aplicación, permisos y flujos. La autoría es conjunta.
 
 ## Licencias
 
@@ -152,15 +156,19 @@ sus derechos y licencias. No se redistribuye el corpus privado ni se relicencian
 ## Fuentes y reconocimientos
 
 GLF aporta las fuentes normativas oficiales; el equipo académico es responsable de la
-implementación y de sus afirmaciones. No se declara aprobación institucional del sistema.
+implementación y de sus afirmaciones.
 Referencias técnicas: [BM25](https://doi.org/10.1561/1500000019),
 [Multilingual E5](https://arxiv.org/abs/2402.05672),
 [RAG](https://arxiv.org/abs/2005.11401) y [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework).
 
 ## Videos de entrega
 
-El pitch de máximo cinco minutos y el video de preguntas son requisitos distintos.
-Sus grabaciones y enlaces todavía no se han aportado. La [guía](docs/guia_entrega_y_videos.md)
-contiene el guion de 300 segundos y el procedimiento para incorporar las preguntas oficiales.
-Esta versión no se declara entrega académica completamente cerrada mientras falten esas
-evidencias y la evaluación independiente.
+La presentación consta de un pitch de cinco minutos y un video con las diez respuestas técnicas. El [índice de revisión](https://schubertlombeida.github.io/RAG.SALVAGUARDAS.GLF.UEES/) reúne los enlaces de reproducción registrados en el catálogo audiovisual.
+
+<!-- VIDEOS:START -->
+<!-- Los enlaces públicos se generan desde assets/videos.js. -->
+<!-- VIDEOS:END -->
+
+## Índice de revisión
+
+`index.html` permite leer los siete informes sin instalar la aplicación. Incluye búsqueda, enlaces Word/PDF/GitHub y acceso separado al portal GLF. Funciona en una carpeta local o como sitio estático de GitHub Pages. Para regenerarlo desde `docs` y sincronizar los enlaces de grabaciones del catálogo `assets/videos.js`, ejecute `python scripts/build_review_index.py`. Los documentos descargables se conservan en `entregables`.
