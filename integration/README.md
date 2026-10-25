@@ -17,8 +17,9 @@ No se incluyen claves, bases de datos ni datos de postulantes. La licencia MIT d
 cubre código del equipo y no cambia derechos de documentos GLF ni licencias de dependencias.
 
 `e5-inference` contiene el servidor FastAPI real de E5, Dockerfile y dependencias.
-Su README es una instantánea original con anotaciones históricas; consulte
-`docs/arquitectura.md` para el estado observado y los límites de la verificación.
+Su README documenta la integración y sus límites operativos. El manifiesto distingue
+la huella del documento académico actualizado de su huella de origen; el código
+conserva la instantánea original. Consulte `../docs/arquitectura.md` para el flujo completo.
 
 - E5: https://huggingface.co/spaces/Schubertlm/glf-e5-inference
 - BM25 y Qwen: https://huggingface.co/spaces/Schubertlm/glf-rag-bm25-qwen

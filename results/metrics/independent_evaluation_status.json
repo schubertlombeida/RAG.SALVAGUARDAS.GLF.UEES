@@ -1,5 +1,5 @@
 {
-  "status": "pending_independent_gold",
+  "status": "not_estimated",
   "quality_metrics": null,
-  "reason": "FAQ y pasajes revisados aún no recibidos"
+  "reason": "La entrega reporta evaluación de desarrollo y funcional; no contiene una estimación independiente con pasajes anotados por especialistas"
 }

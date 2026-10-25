@@ -11,7 +11,9 @@
     {
       "path": "integration/e5-inference/README.md",
       "upstream_path": "inference/README.md",
-      "sha256": "b2a5467bbefaf1a013fb919a011a18fdf1c7bf5f868a77aabacfba887736ad9f"
+      "sha256": "243be03d938b77b6e3dc633a9f81179d2f38f62ec4628e9b826fc4f8230f677b",
+      "upstream_sha256": "b2a5467bbefaf1a013fb919a011a18fdf1c7bf5f868a77aabacfba887736ad9f",
+      "documentation_revision": "2026-10-24: redacción académica actualizada; código de origen conservado"
     },
     {
       "path": "integration/e5-inference/app.py",

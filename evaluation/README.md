@@ -1,10 +1,10 @@
-# Protocolo de evaluación de la actualización RAG
+# Protocolo de evaluación del asistente RAG
 
 ## Datos y separación
 
 Las preguntas frecuentes orientan el conjunto, pero una respuesta FAQ no sustituye un pasaje correcto anotado. Complete annotation_template.jsonl con IDs del corpus, tema, autor, especialista independiente, fecha, nota y aprobación explícita. Use intent_group para agrupar reformulaciones antes de asignar development, validation o test. Congele el archivo del corpus y su SHA-256. El hash de un archivo académico y la huella canónica que emite el servicio son formatos distintos; no se intercambian ni permiten comparar dos corpus diferentes.
 
-Se proponen 40 a 60 preguntas, 10 a 15 no contestables. La anotación independiente aún no está disponible. No se generan métricas finales a partir de las fixtures de tests.
+Se proponen 40 a 60 preguntas, 10 a 15 no contestables. Las mediciones de esta entrega corresponden a desarrollo y funcionamiento. No se reportan métricas de una batería independiente ni se utilizan los casos sintéticos de pruebas como estimaciones de calidad GLF.
 
 ## Selección y comparación de recuperación
 
