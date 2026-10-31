@@ -12,3 +12,8 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -r requirements.txt
       - run: python -m pytest -q
+      - name: Pruebas del servicio RAG
+        working-directory: integration/rag-service
+        run: |
+          python -m unittest discover -p "test_*.py" -q
+          python -m public_demo.smoke_test
