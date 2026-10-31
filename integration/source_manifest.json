@@ -1,7 +1,7 @@
 {
   "portal_commit": "a5a7e5a3ec8703990c2f62ce559536ac0a1eba94",
   "source_repository": "https://github.com/soulkernel/Prototipo.Postulacion.Salvaguardas",
-  "snapshot_date": "2026-10-24",
+  "snapshot_date": "2026-10-30",
   "files": [
     {
       "path": "integration/e5-inference/Dockerfile",
@@ -13,7 +13,7 @@
       "upstream_path": "inference/README.md",
       "sha256": "243be03d938b77b6e3dc633a9f81179d2f38f62ec4628e9b826fc4f8230f677b",
       "upstream_sha256": "b2a5467bbefaf1a013fb919a011a18fdf1c7bf5f868a77aabacfba887736ad9f",
-      "documentation_revision": "2026-10-24: redacción académica actualizada; código de origen conservado"
+      "documentation_revision": "2026-10-24: redacciÃ³n acadÃ©mica actualizada; cÃ³digo de origen conservado"
     },
     {
       "path": "integration/e5-inference/app.py",
@@ -151,9 +151,20 @@
       "sha256": "160008f9f762a1c829dd5d9adc9a977914406bebbab86152400336c6ea37899d"
     },
     {
+      "path": "integration/rag-service/LICENSE",
+      "upstream_path": "rag-service/LICENSE",
+      "previous_snapshot_sha256": null,
+      "source_revision": "rag_service_revision",
+      "sha256": "d14db1c5c2ea1bba43f9120670115542024d0a8a42ef947cfc00dde3aa324acc"
+    },
+    {
       "path": "integration/rag-service/README.md",
       "upstream_path": "rag-service/README.md",
-      "sha256": "130731149daf32798cffdf2a584d643f3398f064abd4cf43ab75f92cd95de21c"
+      "sha256": "6579cb89e65f7bf3495fb0183cafa26ab60c8d25c3ace56c4d9fc6500921c0fc",
+      "previous_snapshot_sha256": "130731149daf32798cffdf2a584d643f3398f064abd4cf43ab75f92cd95de21c",
+      "source_revision": "rag_service_revision",
+      "upstream_sha256": "969b03a9cd96d71d10c7ad85c66dc5c68f51f2a37e34eafeb5efc3cc128f8b2d",
+      "documentation_revision": "2026-10-30: descripción académica de la política vigente y de sus pruebas"
     },
     {
       "path": "integration/rag-service/UPSTREAM.json",
@@ -163,7 +174,9 @@
     {
       "path": "integration/rag-service/answer_policy.py",
       "upstream_path": "rag-service/answer_policy.py",
-      "sha256": "66b6677eeefdada45d4779806e6998708008989a9c24ffa9557c2b196e330e94"
+      "sha256": "def3dea598d0386837f72feb8ef577323be913974eca7231f6466049ddb25c3e",
+      "previous_snapshot_sha256": "66b6677eeefdada45d4779806e6998708008989a9c24ffa9557c2b196e330e94",
+      "source_revision": "rag_service_revision"
     },
     {
       "path": "integration/rag-service/prepare_space.py",
@@ -193,7 +206,9 @@
     {
       "path": "integration/rag-service/runtime.py",
       "upstream_path": "rag-service/runtime.py",
-      "sha256": "5b23a559a006d4dc76219885b3a77fafcc3e7b0f40b6bce4e877e9abed470414"
+      "sha256": "56b11cee29efba33edaeb6a0073d1a62f1b32db9aafef47be8cce1d71af91124",
+      "previous_snapshot_sha256": "5b23a559a006d4dc76219885b3a77fafcc3e7b0f40b6bce4e877e9abed470414",
+      "source_revision": "rag_service_revision"
     },
     {
       "path": "integration/rag-service/src/__init__.py",
@@ -213,7 +228,9 @@
     {
       "path": "integration/rag-service/test_answer_policy.py",
       "upstream_path": "rag-service/test_answer_policy.py",
-      "sha256": "4e4b42768ded70ee1e9d8d62d1f096866f039c6d1eccf8fd4da2373610d6a5f2"
+      "sha256": "9d3da64d4475060d901b717a1b4f10100720ac32b803a6a6f7876ed4bdf5ecbb",
+      "previous_snapshot_sha256": "4e4b42768ded70ee1e9d8d62d1f096866f039c6d1eccf8fd4da2373610d6a5f2",
+      "source_revision": "rag_service_revision"
     },
     {
       "path": "integration/rag-service/test_progress.py",
@@ -221,11 +238,47 @@
       "sha256": "fc562f31813981665e63669a76e30ff3bb873d36f760767a6fceca90062a3d80"
     },
     {
+      "path": "integration/rag-service/test_provider_stream.py",
+      "upstream_path": "rag-service/test_provider_stream.py",
+      "previous_snapshot_sha256": null,
+      "source_revision": "rag_service_revision",
+      "sha256": "af80ac43971fe7e71b402126ad9f4a7bdade56ae56aaa16f48a6a6d4794fa091"
+    },
+    {
       "path": "integration/rag-service/test_runtime.py",
       "upstream_path": "rag-service/test_runtime.py",
       "sha256": "aa443a2c3d4578523d943a47dff1badee450a86ccc31edc243db9c0d1a772718"
+    },
+    {
+      "path": "integration/rag-service/test_source_labels.py",
+      "upstream_path": "rag-service/test_source_labels.py",
+      "previous_snapshot_sha256": null,
+      "source_revision": "rag_service_revision",
+      "sha256": "0603b527a1abd9c5582e6fed3cea13defa26cb88d14c43b41bc03f8134e55877"
+    },
+    {
+      "path": "integration/rag-service/test_structured_answer.py",
+      "upstream_path": "rag-service/test_structured_answer.py",
+      "previous_snapshot_sha256": null,
+      "source_revision": "rag_service_revision",
+      "sha256": "ddfa1e71b1ab91a20565130bc944e1bcfe88481a6504ff52167be5a1a56eca98"
+    },
+    {
+      "path": "integration/rag-service/test_transport_recovery.py",
+      "upstream_path": "rag-service/test_transport_recovery.py",
+      "previous_snapshot_sha256": null,
+      "source_revision": "rag_service_revision",
+      "sha256": "3cd6c70c12407a23104732d5b157f3075ab884f58df1a9d01326fbe1b55cd699"
     }
   ],
   "portal_version": "0.7.62",
-  "hf_runtime_commit": "ac3789aa1300a94b4689299562eaf63649474976"
+  "hf_runtime_commit": "ac3789aa1300a94b4689299562eaf63649474976",
+  "portal_snapshot_date": "2026-10-24",
+  "rag_service_revision": {
+    "policy": "glf-grounded-v3.1",
+    "source": "portal-app/rag-service; copia local respaldada por el registro de despliegue del 30 de octubre",
+    "huggingface_space": "https://huggingface.co/spaces/Schubertlm/glf-rag-bm25-qwen",
+    "deployment_record_commit": "952ccb964c3d63520fc1e53a568b21ad423043b8",
+    "verification": "49 pruebas unitarias y smoke test ejecutados sobre esta copia el 30 de octubre; el commit de Hugging Face procede del registro de despliegue, no de una descarga pública independiente."
+  }
 }

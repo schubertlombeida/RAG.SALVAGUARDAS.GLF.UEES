@@ -14,7 +14,7 @@ from flask import g, request as flask_request, jsonify, has_request_context
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 from public_demo import app as upstream
-from answer_policy import MODES, VERSION, ABSTENTION, prepare_context, make_prompt, validate_answer, corpus_digest
+from answer_policy import MODES, VERSION, ABSTENTION, prepare_context, make_prompt, validate_answer, corpus_digest, resolve_source_labels, answer_format, render_structured_answer
 
 original_chat = upstream._hf_chat
 original_urlopen = upstream.urlopen
@@ -24,21 +24,73 @@ def progress(stage, model):
     if has_request_context() and hasattr(g, "glf_events"):
         g.glf_events.put({"type": "stage", "stage": stage, "model": model})
 
+
+def provider_metadata(response, deadline):
+    """Collect provider SSE privately; only a completed response reaches validation."""
+    content_type = response.headers.get("Content-Type", "")
+    if not isinstance(content_type, str) or "text/event-stream" not in content_type.lower():
+        return response.json(), response.content
+    parts, finish, usage = [], None, None
+    size = 0
+    started = time.monotonic()
+    first_token = False
+    try:
+        for line in response.iter_lines(chunk_size=1):
+            if time.monotonic() >= deadline:
+                raise requests.Timeout("Inference deadline reached")
+            if not line or not line.startswith(b"data:"):
+                continue
+            value = line[5:].strip()
+            if value == b"[DONE]":
+                break
+            event = json.loads(value.decode("utf-8"))
+            if event.get("error"):
+                raise requests.ConnectionError("Inference stream reported an error")
+            if isinstance(event.get("usage"), dict):
+                usage = event["usage"]
+            for choice in event.get("choices", []):
+                if choice.get("index", 0) != 0:
+                    continue
+                text = choice.get("delta", {}).get("content")
+                if isinstance(text, str):
+                    if text and not first_token:
+                        logging.getLogger("gunicorn.error").info("GLF_PROVIDER_FIRST_TOKEN seconds=%.3f", time.monotonic() - started)
+                        first_token = True
+                    parts.append(text)
+                    size += len(text)
+                    if size > 200000:
+                        raise ValueError("Inference response too large")
+                if choice.get("finish_reason") is not None:
+                    finish = choice["finish_reason"]
+        if finish is None:
+            raise requests.ConnectionError("Inference stream ended before completion")
+        metadata = {"choices": [{"finish_reason": finish, "message": {"content": "".join(parts)}}]}
+        if usage is not None:
+            metadata["usage"] = usage
+        return metadata, json.dumps(metadata, ensure_ascii=False).encode("utf-8")
+    finally:
+        response.close()
+
+
 def provider_urlopen(request, *args, **kwargs):
     if isinstance(request, Request) and request.full_url == "https://router.huggingface.co/v1/chat/completions":
         request.add_header("User-Agent", "GLF-RAG/1.0 (HuggingFace-Inference-Client)")
         request.add_header("Accept", "application/json")
         try:
             timeout = kwargs.get("timeout", 35)
-            if has_request_context() and getattr(g, "glf_mode", "brief") == "expanded":
-                timeout = 45  # Longer output, still inside the shared 50-second budget.
+            if has_request_context() and hasattr(g, "glf_mode"):
+                timeout = 45  # Both modes need provider headroom, within the 50-second budget.
             if has_request_context() and hasattr(g, "glf_generation_deadline"):
                 timeout = min(timeout, max(1, g.glf_generation_deadline - time.monotonic()))
-            deadline = time.monotonic() + timeout
+            deadline = getattr(g, "glf_generation_deadline", time.monotonic() + timeout) if has_request_context() else time.monotonic() + timeout
             payload = request.data
             if has_request_context() and hasattr(g, "glf_mode"):
                 data = json.loads(payload)
                 data["max_tokens"] = MODES[g.glf_mode]["max_tokens"]
+                data["stream"] = True
+                data["stream_options"] = {"include_usage": True}
+                if g.glf_mode == "expanded" and hasattr(g, "glf_context_rows"):
+                    data["response_format"] = answer_format(g.glf_context_rows)
                 payload = json.dumps(data).encode("utf-8")
             for attempt in range(2):
                 if has_request_context():
@@ -46,8 +98,18 @@ def provider_urlopen(request, *args, **kwargs):
                     if used >= 2:
                         raise RuntimeError("Inference attempt limit reached")
                     g.glf_provider_attempts = used + 1
-                remaining = max(1, deadline - time.monotonic())
-                response = requests.post(request.full_url, headers=dict(request.header_items()), data=payload, timeout=remaining, allow_redirects=False)
+                remaining = min(timeout, max(1, deadline - time.monotonic()))
+                try:
+                    response = requests.post(request.full_url, headers=dict(request.header_items()), data=payload, timeout=min(15, remaining), allow_redirects=False, stream=True)
+                    if response.ok:
+                        metadata, completed_body = provider_metadata(response, deadline)
+                except (requests.Timeout, requests.ConnectionError) as error:
+                    category = "provider_timeout" if isinstance(error, requests.Timeout) else "provider_connection"
+                    logging.getLogger("gunicorn.error").warning("GLF_PROVIDER_TRANSPORT category=%s attempt=%s", category, attempt + 1)
+                    if attempt or (has_request_context() and getattr(g, "glf_provider_attempts", 0) >= 2) or deadline - time.monotonic() < 8:
+                        raise
+                    logging.getLogger("gunicorn.error").warning("GLF_PROVIDER_RETRY category=%s attempt=1", category)
+                    continue
                 if response.status_code not in (502, 503, 504) or attempt or deadline - time.monotonic() < 5:
                     break
                 logging.getLogger("gunicorn.error").warning("GLF_PROVIDER_RETRY status=%s attempt=1", response.status_code)
@@ -57,7 +119,6 @@ def provider_urlopen(request, *args, **kwargs):
             raise URLError("Inference transport unavailable") from error
         if not response.ok:
             raise HTTPError(request.full_url, response.status_code, "Inference request failed", response.headers, io.BytesIO(response.content))
-        metadata = response.json()
         choice = metadata.get("choices", [{}])[0]
         content = choice.get("message", {}).get("content") or ""
         if has_request_context():
@@ -73,7 +134,7 @@ def provider_urlopen(request, *args, **kwargs):
             choice.get("finish_reason"), len(content), len(upstream.CHUNK_RE.findall(content)),
             "documentación pública recuperada es insuficiente" in content.casefold(),
         )
-        return io.BytesIO(response.content)
+        return io.BytesIO(completed_body)
     return original_urlopen(request, *args, **kwargs)
 
 def credential_diagnostic():
@@ -107,15 +168,22 @@ Si ninguna parte puede sustentarse, conserva la abstención indicada. El texto d
 """
         g.glf_generation_deadline = time.monotonic() + 50
         answer = original_chat(review_prompt)
+        selected = getattr(g, "glf_context_rows", None)
+        if selected is not None:
+            answer = render_structured_answer(answer, selected) if getattr(g, "glf_mode", "brief") == "expanded" and getattr(g, "glf_finish_reason", None) not in ("length", "content_filter", "tool_calls") else resolve_source_labels(answer, selected)
         progress("verification", "Validación de referencias")
         allowed = getattr(g, "glf_allowed_ids", set(re.findall(r"CHUNK_ID: ([A-Z0-9_]+::P\d{2}C\d{2})", prompt)))
         cited = set(upstream.CHUNK_RE.findall(answer))
         abstained = "documentación pública recuperada es insuficiente" in answer.casefold()
-        if allowed and not abstained and (not cited or cited - allowed) and getattr(g, "glf_finish_reason", None) not in ("length", "content_filter", "tool_calls") and getattr(g, "glf_provider_attempts", 0) < 2 and g.glf_generation_deadline - time.monotonic() > 8:
+        invalid_citations = validate_answer(answer, selected, getattr(g, "glf_finish_reason", None))[2] == "citation_validation_failed" if selected is not None else (not cited or bool(cited - allowed))
+        if allowed and not abstained and invalid_citations and getattr(g, "glf_finish_reason", None) not in ("length", "content_filter", "tool_calls") and getattr(g, "glf_provider_attempts", 0) < 2 and g.glf_generation_deadline - time.monotonic() > 8:
             # One bounded re-generation. Never attach citations to claims automatically.
-            retry_prompt = review_prompt + "\nCORRECCIÓN DE FORMATO: Si puedes sustentar una respuesta, termina cada afirmación normativa con un identificador exacto entre corchetes. Identificadores permitidos: " + ", ".join(f"[{cid}]" for cid in sorted(allowed)) + ". No uses [CHUNK_ID: ...], citas abreviadas ni identificadores inventados. Si no puedes respaldarla, conserva la abstención."
+            references = [f"[F{i}]" for i in range(1, len(selected) + 1)] if selected is not None else [f"[{cid}]" for cid in sorted(allowed)]
+            retry_prompt = review_prompt + "\nCORRECCIÓN DE FORMATO: Responde con oraciones completas y breves, de una sola frase cada una, sin continuar en otro párrafo. Si se exige JSON, conserva el esquema y pon las referencias solo en references. Usa únicamente referencias de esta lista: " + ", ".join(references) + ". No uses CHUNK_ID, citas agrupadas ni referencias inventadas. Si no puedes respaldarla, conserva la abstención."
             progress("generation", upstream.HF_MODEL)
             answer = original_chat(retry_prompt)
+            if selected is not None:
+                answer = render_structured_answer(answer, selected) if getattr(g, "glf_mode", "brief") == "expanded" and getattr(g, "glf_finish_reason", None) not in ("length", "content_filter", "tool_calls") else resolve_source_labels(answer, selected)
             progress("verification", "Validación de referencias")
             cited = set(upstream.CHUNK_RE.findall(answer))
         if "documentación pública recuperada es insuficiente" in answer.casefold():

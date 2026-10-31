@@ -20,20 +20,23 @@ class AnswerPolicyTests(unittest.TestCase):
         return response
 
     def ask(self, mode="brief", provider=None, stream=False):
+        if provider is None and mode == "expanded":
+            provider = self.provider(answer=json.dumps({"abstain": False, "paragraphs": [{"text": "Criterio documental respaldado.", "references": ["F1"]}], "missing": ""}))
         with patch.dict(os.environ, {"HF_TOKEN":"synthetic-token"}), patch.object(runtime.requests, "post", return_value=provider or self.provider()) as post:
             response = runtime.app.test_client().post("/api/ask" + ("-stream" if stream else ""), json={"query":"riesgos ambientales", "answer_mode":mode}, headers={"X-Demo-Key":"smoke-secret"})
             data = response.get_json() if not stream else [json.loads(x) for x in response.get_data(as_text=True).splitlines()][-1]["result"]
             return response, data, post.call_args_list
 
     def test_modes_reach_provider_with_real_usage_and_context(self):
-        for mode, limit in [("brief",700),("expanded",1500)]:
+        for mode, limit in [("brief",700),("expanded",1000)]:
             self.setUp()
             response, data, calls = self.ask(mode)
             self.assertEqual(response.status_code,200)
             self.assertTrue(data["generated"])
             self.assertEqual(json.loads(calls[0].kwargs["data"])["max_tokens"],limit)
-            self.assertLessEqual(calls[0].kwargs["timeout"], 45 if mode == "expanded" else 35)
-            self.assertGreater(calls[0].kwargs["timeout"], 44 if mode == "expanded" else 34)
+            self.assertLessEqual(calls[0].kwargs["timeout"], 15)
+            self.assertGreater(calls[0].kwargs["timeout"], 14)
+            self.assertTrue(json.loads(calls[0].kwargs["data"])["stream"])
             self.assertEqual(data["answer_mode"],mode)
             self.assertEqual(data["diagnostics"]["input_tokens"],300)
             self.assertTrue(data["diagnostics"]["usage_complete"])
@@ -109,3 +112,5 @@ class AnswerPolicyTests(unittest.TestCase):
             self.assertEqual(runtime.FocusedReviewIndex(base).search("zzzzzz"),[])
 
 if __name__=="__main__": unittest.main()
+
+
