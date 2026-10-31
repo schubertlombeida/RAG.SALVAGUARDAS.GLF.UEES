@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-30",
+  "academic_tests": {
+    "count": 33,
+    "result": "passed",
+    "command": "python -m pytest -q",
+    "execution": "comprobación local del paquete académico"
+  },
+  "service_tests": {
+    "count": 49,
+    "result": "passed",
+    "command": "python -m unittest discover -p test_*.py -q",
+    "smoke_test": "passed",
+    "network_inference": false
+  },
+  "service_policy": "glf-grounded-v3.1",
+  "operational_record": {
+    "source": "Registro de reparación del 30 de octubre de 2026",
+    "deployment_commit": "952ccb964c3d63520fc1e53a568b21ad423043b8",
+    "provider": "featherless-ai",
+    "model": "Qwen/Qwen2.5-72B-Instruct",
+    "runs": [
+      {
+        "query": "¿Qué es el PGAS ?",
+        "mode": "expanded",
+        "seconds": 17.14,
+        "terminal": "result",
+        "error": null,
+        "generated": true,
+        "content_valid": true,
+        "content_words": 68,
+        "reason": "answered",
+        "finish": "stop",
+        "policy": "glf-grounded-v3.1",
+        "attempts": 1,
+        "tokens": 174,
+        "citations": 3
+      },
+      {
+        "query": "¿Qué es el PGAS ?",
+        "mode": "expanded",
+        "seconds": 6.23,
+        "terminal": "result",
+        "error": null,
+        "generated": true,
+        "content_valid": true,
+        "content_words": 68,
+        "reason": "answered",
+        "finish": "stop",
+        "policy": "glf-grounded-v3.1",
+        "attempts": 1,
+        "tokens": 171,
+        "citations": 2
+      },
+      {
+        "query": "¿Qué es el PGAS?",
+        "mode": "expanded",
+        "seconds": 5.09,
+        "terminal": "result",
+        "error": null,
+        "generated": true,
+        "content_valid": true,
+        "content_words": 68,
+        "reason": "answered",
+        "finish": "stop",
+        "policy": "glf-grounded-v3.1",
+        "attempts": 1,
+        "tokens": 171,
+        "citations": 2
+      },
+      {
+        "query": "¿Qué incluye un PGAS simplificado y cuándo se necesita uno más complejo?",
+        "mode": "expanded",
+        "seconds": 22.56,
+        "terminal": "result",
+        "error": null,
+        "generated": true,
+        "content_valid": true,
+        "content_words": 92,
+        "reason": "answered",
+        "finish": "stop",
+        "policy": "glf-grounded-v3.1",
+        "attempts": 1,
+        "tokens": 232,
+        "citations": 1
+      },
+      {
+        "query": "¿Qué significa PGAS según el Manual SGAS?",
+        "mode": "expanded",
+        "seconds": 5.34,
+        "terminal": "result",
+        "error": null,
+        "generated": true,
+        "content_valid": true,
+        "content_words": 57,
+        "reason": "answered",
+        "finish": "stop",
+        "policy": "glf-grounded-v3.1",
+        "attempts": 1,
+        "tokens": 167,
+        "citations": 1
+      },
+      {
+        "query": "¿Qué significa PGAS según el Manual SGAS?",
+        "mode": "brief",
+        "seconds": 6.75,
+        "terminal": "result",
+        "error": null,
+        "generated": true,
+        "content_valid": true,
+        "content_words": 145,
+        "reason": "answered",
+        "finish": "stop",
+        "policy": "glf-grounded-v3.1",
+        "attempts": 1,
+        "tokens": 236,
+        "citations": 1
+      }
+    ],
+    "scope": "Consultas funcionales conservadas del registro operativo; no repetidas como benchmark durante esta auditoría. No se presentan como una medida de exactitud normativa."
+  },
+  "qualitative_failure": {
+    "date": "2026-10-30",
+    "route": "Multilingual E5; recuperación sin generación",
+    "query": "¿Qué equipo ganó el partido de fútbol de ayer?",
+    "passages_returned": 6,
+    "observed_seconds": 2.0,
+    "observation": "Los pasajes no contestan la pregunta fuera del dominio. Se comprobó completo el primer fragmento.",
+    "scope": "Caso cualitativo; no es una tasa de error ni una alucinación de Qwen."
+  }
+}
