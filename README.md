@@ -56,14 +56,24 @@ El recuento reconstruido se guarda en [public_eda.json](results/metrics/public_e
 ## Resultados
 
 Los resultados históricos de BM25 reportan Recall@5 de desarrollo de 68.9 % a 83.6 %.
-Corresponden al corpus histórico y su anotación de desarrollo; no estiman calidad independiente del portal actual.
+Corresponden al corpus histórico y su anotación de desarrollo; describen la recuperación en esas consultas y no la exactitud de las respuestas del portal actual.
 El benchmark anterior de Qwen 7B local no se transfiere al runtime 72B remoto.
 Los originales numéricos y sus límites se conservan en [históricos](results/metrics/historical/PROVENANCE.md).
 
-La actualización 0.7.62 añade respuestas breves y ampliadas, contexto sin recortes adicionales, control de salidas incompletas y diagnóstico de consumo reportado. El protocolo de comparación está en [evaluación](evaluation/README.md), con rejilla reproducible y revisión humana. La fusión BM25/E5 es experimental y no está activada en producción.
+La actualización documentada el 30 de octubre incorpora la política glf-grounded-v3.1, respuesta ampliada estructurada, validación de integridad y referencias, transporte con reintentos acotados y configuración registrada de Featherless AI para Qwen2.5-72B. Los componentes del portal conservan su instantánea identificada por separado. El protocolo de comparación está en [evaluación](evaluation/README.md), con rejilla reproducible y revisión humana. La fusión BM25/E5 es experimental y no está activada en producción.
 
 Las pruebas de la interfaz del 24 de octubre se registran en [ux_verificacion_20261024.json](results/reports/ux_verificacion_20261024.json). La revisión previa permanece en [verificacion.json](results/reports/verificacion.json).
-El alcance empírico comprende evaluación histórica de desarrollo, 33 pruebas académicas y registros funcionales de la versión 0.7.62. No se reporta una estimación de calidad con preguntas y pasajes anotados de forma independiente. El protocolo conserva esa separación y registra valores no estimados como nulos.
+El alcance empírico comprende evaluación histórica de desarrollo, 33 pruebas académicas y 49 pruebas del servicio más su prueba de integración ejecutadas el 30 de octubre, junto con registros funcionales fechados. Las métricas y los ensayos funcionales se reportan por separado y con sus condiciones de ejecución.
+
+### Comparación histórica de recuperación
+
+| Configuración | Recall@5 de desarrollo |
+|---|---|
+| BM25 base | 68.9 % |
+| BM25 ajustado con k1 = 1.0 y b = 0.2 | 71.5 % |
+| BM25 con encabezados y prioridad GLF | 83.6 % |
+
+La diferencia base-final es 14.7 puntos porcentuales. Se conserva el corpus histórico y la anotación de desarrollo de ese experimento; estos valores no miden la calidad de las respuestas actuales de Qwen.
 
 ## Instalación
 
@@ -163,10 +173,11 @@ Referencias técnicas: [BM25](https://doi.org/10.1561/1500000019),
 
 ## Videos de entrega
 
-La presentación consta de un pitch de cinco minutos y un video con las diez respuestas técnicas. El [índice de revisión](https://schubertlombeida.github.io/RAG.SALVAGUARDAS.GLF.UEES/) reúne los enlaces de reproducción registrados en el catálogo audiovisual.
+La presentación consta de un pitch de 4 minutos y 4 segundos y un video de 12 minutos y 17 segundos con las diez respuestas técnicas. El [índice de revisión](https://schubertlombeida.github.io/RAG.SALVAGUARDAS.GLF.UEES/) y la carpeta [videos](videos/README.md) reúnen los enlaces de reproducción.
 
 <!-- VIDEOS:START -->
-<!-- Los enlaces públicos se generan desde assets/videos.js. -->
+- [Presentación del proyecto](https://youtu.be/2KtV_3Zup-0)
+- [Diez respuestas técnicas](https://youtu.be/U9d4S2_3eO8)
 <!-- VIDEOS:END -->
 
 ## Índice de revisión
