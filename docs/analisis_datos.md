@@ -1,6 +1,6 @@
 # Análisis de datos del asistente RAG de salvaguardas GLF
 
-Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Edición 24 de octubre de 2026
+Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Edición 30 de octubre de 2026
 
 ## Unidades de análisis y conclusión
 
@@ -65,12 +65,12 @@ Se rechazan identificadores duplicados, páginas no positivas, fuentes fuera del
 
 La fragmentación pequeña facilita citas legibles, pero puede separar una excepción de su regla. Por ello la interfaz abre el PDF en su página y exige revisión humana. Las versiones normalizadas o traducidas necesitan una indicación de autoridad antes de usarse para fundamentar una exigencia.
 
-## Muestreo de evaluación y prevención de fugas
+## Evaluación y prevención de fugas
 
-El protocolo propone entre 40 y 60 preguntas sobre un corpus congelado, equilibradas por tema, con 10 a 15 no contestables. Los pasajes correctos deben anotarlos especialistas ajenos a la generación de las preguntas. Las preguntas frecuentes pueden utilizarse como insumo de muestreo. Una respuesta sin páginas y sin revisión especializada no constituye por sí sola un conjunto de referencia independiente.
+Los experimentos históricos utilizan sus conjuntos de consultas y etiquetas de desarrollo. El análisis distingue esos resultados del corpus público reconstruido y de las comprobaciones del servicio. Los casos sintéticos de pruebas verifican comportamiento del código y no se incluyen como preguntas reales de evaluación.
 
-Se separan desarrollo, validación y test por intención de pregunta. Reformulaciones cercanas pertenecen a la misma partición. Las decisiones de parámetros se toman antes del test. BM25 y E5 reciben los mismos pasajes, identificadores y preguntas. Si cambian los PDF, se genera una nueva huella y se revisan las anotaciones afectadas.
+El código agrupa las reformulaciones por intención y separa desarrollo, validación y prueba. La selección de parámetros se realiza sin utilizar test. Las utilidades de comparación requieren los mismos pasajes, identificadores y preguntas para evitar atribuir una diferencia de corpus a una mejora de método.
 
 ## Derechos y limitaciones
 
-Los PDF públicos mantienen los derechos de sus titulares. El repositorio enlaza las fuentes y permite descargarlas localmente; no aplica MIT a documentos ajenos. Los expedientes, nombres de proponentes y credenciales quedan excluidos. La publicación se limita a fuentes enlazadas, código y agregados documentados. La evaluación incluida caracteriza la preparación del corpus y los experimentos de desarrollo; no aporta una estimación de calidad sobre preguntas anotadas de forma independiente.
+Los PDF públicos mantienen los derechos de sus titulares. El repositorio enlaza las fuentes y permite descargarlas localmente; no aplica MIT a documentos ajenos. Los expedientes, nombres de proponentes y credenciales quedan excluidos. La publicación se limita a fuentes enlazadas, código y agregados documentados. La evaluación incluida caracteriza la preparación del corpus y los experimentos de desarrollo; no estima la exactitud de todas las respuestas generadas en el portal.

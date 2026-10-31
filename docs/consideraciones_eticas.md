@@ -1,10 +1,10 @@
 # Consideraciones éticas y responsabilidad del asistente RAG GLF
 
-Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Edición 24 de octubre de 2026
+Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Edición 30 de octubre de 2026
 
 ## Alcance y conclusión
 
-El asistente recupera evidencia para una revisión ambiental y social humana. Su utilidad potencial depende de que localice disposiciones pertinentes, respete la confidencialidad y permita corregir errores. El funcionamiento de una consulta no prueba que mejore decisiones o beneficie a comunidades. El análisis distingue controles presentes en el código, medidas documentales incorporadas y verificaciones empíricas que requieren especialistas.
+El asistente recupera evidencia para una revisión ambiental y social humana. Su utilidad potencial depende de que localice disposiciones pertinentes, respete la confidencialidad y permita corregir errores. El funcionamiento de una consulta no prueba que mejore decisiones o beneficie a comunidades. El análisis distingue controles presentes en el código, medidas documentales incorporadas y el alcance de las mediciones reportadas.
 
 Se utiliza el marco de gestión de riesgos de inteligencia artificial de NIST como referencia de organización, no como certificación del sistema. Las categorías de probabilidad y severidad propuestas por el equipo son juicios para priorizar acciones y no frecuencias medidas de incidentes.
 
@@ -40,7 +40,7 @@ La Ley Orgánica de Protección de Datos Personales, su Reglamento y la normativ
 
 La interfaz muestra texto recuperado, fuente y página. Los puntajes de BM25 y E5 ordenan documentos; no son probabilidades de verdad. Los controles de citas verifican coherencia formal de identificadores, pero no garantizan que cada afirmación se desprenda del pasaje.
 
-Mitigación técnica y de evaluación: 1. Mostrar qué modo se ejecutó. 2. Distinguir búsqueda sin generación de respuesta con IA. 3. Conservar las citas y abrir la página original. 4. Revisar una muestra de afirmaciones y registrar soportadas, no soportadas y ambiguas. Los tres primeros controles forman parte de la implementación. La revisión de afirmaciones constituye el procedimiento de evaluación semántica; sus resultados independientes no forman parte de las mediciones reportadas.
+Mitigación técnica y de evaluación: 1. Mostrar qué modo se ejecutó. 2. Distinguir búsqueda sin generación de respuesta con IA. 3. Conservar las citas y abrir la página original. 4. Revisar una muestra de afirmaciones y registrar soportadas, no soportadas y ambiguas. Los tres primeros controles forman parte de la implementación. La presencia de una cita se comprueba automáticamente; su significado debe leerse en el contexto original.
 
 ## Impacto social y ambiental
 
@@ -50,12 +50,12 @@ Mitigación de proceso: 1. Registrar el riesgo o pregunta y el fundamento normat
 
 ## Responsabilidad y seguimiento
 
-El equipo académico responde por describir y probar su implementación. La autoridad técnica institucional mantiene la interpretación y decisión del expediente. La asignación inicial de tareas entre los dos autores es un plan histórico, no prueba de horas ni de revisión especializada independiente.
+El equipo académico responde por describir y probar su implementación. La autoridad técnica institucional mantiene la interpretación y decisión del expediente. La autoría de la implementación y de los informes corresponde a los dos integrantes del equipo.
 
 | Mecanismo | Responsable funcional | Evidencia y estado |
 |---|---|---|
 | Versionado y manifiestos | Equipo técnico | Commit y huellas incluidos |
-| Revisión normativa | Especialista de dominio | Interpretación de respuestas y anotación de evidencia independiente |
+| Revisión normativa | Especialista de dominio | Interpretación de respuestas en el contexto del proyecto |
 | Detección de errores técnicos | Equipo técnico | Pruebas automáticas y errores controlados |
 | Registro y corrección de resultados | Administración y especialista | Flujo del portal descrito; no se audita todo su uso institucional |
 | Incidentes y derechos | Responsable institucional del tratamiento | Procedimiento formal no acreditado aquí |
@@ -71,9 +71,9 @@ Mitigación técnica: 1. Mantener listas de fuentes autorizadas y no ejecutar in
 
 ## Límites y reflexión sobre el diseño
 
-Sí cambiaríamos el diseño respecto de una propuesta que mezclara corpus y tratara toda cita como prueba de exactitud. Congelaríamos un corpus común antes de comparar métodos, haríamos explícita la autoridad de cada fuente y exigiríamos anotación independiente. Mantendríamos la abstención visible y la decisión humana. No incorporaríamos un clasificador que obtiene alta exactitud prediciendo siempre la clase mayoritaria.
+Sí cambiaríamos el diseño respecto de una propuesta que mezclara corpus y tratara toda cita como prueba de exactitud. Congelaríamos un corpus común antes de comparar métodos, haríamos explícita la autoridad de cada fuente y mantendríamos separadas las preguntas de ajuste y prueba. Mantendríamos la abstención visible y la decisión humana. No incorporaríamos un clasificador que obtiene alta exactitud prediciendo siempre la clase mayoritaria.
 
-El principal límite es empírico: las mediciones históricas y las pruebas funcionales no sustituyen una batería independiente. La estimación de calidad normativa exige pasajes verificables y revisión por un especialista distinto de quien generó las preguntas. Los valores no estimados se identifican como tales, sin asignarles cero ni inferir éxito.
+El principal límite es empírico: las mediciones históricas describen el desarrollo y las pruebas funcionales verifican el software, sin estimar por sí solas exactitud normativa. Las métricas publicadas describen sus datos y condiciones de ejecución. Los valores no estimados se identifican como tales, sin asignarles cero ni inferir éxito.
 
 ## Referencias
 

@@ -1,6 +1,6 @@
 # Manual del asistente documental de salvaguardas GLF
 
-Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Edición 24 de octubre de 2026
+Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Edición 30 de octubre de 2026
 
 ## Para qué sirve
 
@@ -62,6 +62,33 @@ Una pregunta sobre la aprobación de un proyecto particular o información que n
 | Cita que no respalda la afirmación | Registre pregunta, pasaje y discrepancia para revisión técnica |
 | Fuente cambia o no abre | Revise el enlace oficial y regenere el corpus con una versión nueva |
 
+
+## Preguntas frecuentes de uso
+
+### Cuándo elegir respuesta con fuentes o búsqueda de fragmentos
+
+Use respuesta con fuentes si necesita una explicación redactada a partir de los documentos recuperados. Use búsqueda de fragmentos si prefiere leer directamente pasajes seleccionados por su significado. Son rutas diferentes; un resultado de búsqueda no es una respuesta redactada ni una decisión técnica.
+
+### Qué cambia entre respuesta breve y análisis ampliado
+
+La respuesta breve prioriza una consulta puntual. El análisis ampliado puede desarrollar hasta cuatro párrafos con referencias y aspectos no resueltos. Su extensión está acotada y puede variar según la evidencia; no garantiza más precisión. Los controles de integridad se aplican antes de mostrar el texto.
+
+### Por qué aparecen documentos que no responden la pregunta
+
+La búsqueda puede recuperar pasajes poco pertinentes, especialmente ante preguntas ajenas a salvaguardas. Compruebe su contenido antes de utilizarlos. Reformule la consulta dentro del dominio o consulte al especialista; una lista de fuentes no demuestra que exista respuesta.
+
+### Qué significa que la generación quedó incompleta
+
+El servicio no recibió o no validó una respuesta terminada. La pantalla retira el texto parcial y puede conservar los pasajes para revisión. Ajuste la pregunta o pruebe una respuesta breve; repetirla no garantiza que el proveedor esté disponible.
+
+### Si una respuesta tiene citas ya puedo utilizarla como conclusión
+
+No. Abra el documento, compruebe la página y lea las condiciones y excepciones. El sistema valida la existencia de referencias, pero la interpretación y la decisión siguen a cargo de la persona revisora.
+
+### Qué información puedo escribir
+
+Use preguntas sobre normativa pública. No incluya nombres, cédulas, contraseñas ni expedientes reservados. La consulta y los pasajes públicos de contexto pueden procesarse en servicios externos.
+
 ## Soporte y límites
 
 La recuperación local no genera respuestas; Qwen requiere la conexión remota configurada. La calidad normativa se contrasta con fuentes y revisión especializada; las pruebas funcionales no equivalen a una estimación de exactitud. No publique expedientes ni claves en el repositorio.
@@ -96,4 +123,4 @@ El modo Búsqueda local de pasajes funciona sin claves y utiliza BM25. Devuelve 
 
 El archivo index.html reúne los informes, el código y la evidencia de evaluación. En Documentación puede buscar por tema, elegir un informe y leerlo en pantalla. Cada informe ofrece su fuente en GitHub y sus versiones Word y PDF. El menú Portal GLF abre el acceso al asistente publicado; el índice no solicita ni almacena credenciales.
 
-El contenido audiovisual se organiza en un pitch de cinco minutos y un video de diez respuestas técnicas. Los enlaces de reproducción se muestran en el índice cuando están registrados en el catálogo de videos.
+El contenido audiovisual se organiza en un pitch de 4 minutos y 4 segundos y un video de diez respuestas técnicas. El catálogo audiovisual centraliza los enlaces de reproducción utilizados por el índice y el README.

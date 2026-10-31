@@ -1,37 +1,34 @@
-# Protocolo de evaluación del asistente RAG
+# Herramientas de evaluación del asistente RAG
 
-## Datos y separación
+## Evidencia de esta entrega
 
-Las preguntas frecuentes orientan el conjunto, pero una respuesta FAQ no sustituye un pasaje correcto anotado. Complete annotation_template.jsonl con IDs del corpus, tema, autor, especialista independiente, fecha, nota y aprobación explícita. Use intent_group para agrupar reformulaciones antes de asignar development, validation o test. Congele el archivo del corpus y su SHA-256. El hash de un archivo académico y la huella canónica que emite el servicio son formatos distintos; no se intercambian ni permiten comparar dos corpus diferentes.
+Los resultados numéricos de desarrollo se conservan en `results/metrics/historical`, con su procedencia. `docs/optimizacion.md` explica las métricas, la sensibilidad y el alcance de las comparaciones. Los registros funcionales se encuentran en `results/reports`; las pruebas sintéticas de `tests` verifican el comportamiento del código y no se cuentan como consultas reales.
 
-Se proponen 40 a 60 preguntas, 10 a 15 no contestables. Las mediciones de esta entrega corresponden a desarrollo y funcionamiento. No se reportan métricas de una batería independiente ni se utilizan los casos sintéticos de pruebas como estimaciones de calidad GLF.
+## Formatos y controles
 
-## Selección y comparación de recuperación
+Las plantillas de esta carpeta describen los datos que aceptan las utilidades de evaluación. No constituyen resultados adicionales. Cada anotación identifica pregunta, tema, pasajes relevantes, autor, revisor, nota, estado, partición y SHA-256 del corpus. El validador exige que autor y revisor sean distintos y rechaza registros sin aprobar; esto es un contrato del software, no una afirmación de revisión externa de la entrega. Los grupos de intención permiten mantener reformulaciones en la misma partición.
 
-Ejecute desde la raíz, con el mismo data/processed/chunks.jsonl. Configure GLF_E5_ENDPOINT y GLF_E5_API_KEY únicamente en el servidor para E5 y hybrid. BM25 y optimización local no requieren inferencia externa.
+La huella del archivo JSONL académico y la huella canónica del servicio tienen formatos diferentes. No se intercambian ni se usan para comparar corpus distintos. Las preguntas no contestables se separan de los denominadores de recuperación.
 
-```text
-python -m src.optimize --development evaluation/gold_development.jsonl --validation evaluation/gold_validation.jsonl --output results/metrics/optimization_reviewed
-python -m src.evaluate --labels evaluation/gold_test.jsonl --method bm25
-python -m src.evaluate --labels evaluation/gold_test.jsonl --method bm25-heading --configuration results/metrics/optimization_reviewed/optimization.json
-python -m src.evaluate --labels evaluation/gold_test.jsonl --method e5
-python -m src.evaluate --labels evaluation/gold_test.jsonl --method hybrid
-```
+## Métricas implementadas
 
-La selección usa validación; test se abre una vez fijados parámetros y criterios. El optimizador rechaza fugas explícitas de IDs, preguntas y grupos. La revisión humana debe detectar reformulaciones no marcadas. RRF utiliza 20 candidatos de cada recuperador y constante 60. No se suma coseno a puntajes BM25. Registre Hit@5, Recall@5, Precision@5 y MRR@5 por tema, con conteos. Una pregunta no contestable se evalúa aparte. Conserve cada versión de reportes antes de repetir una ejecución; no compare corpus ni métodos con preparaciones diferentes.
+- Hit@5: existencia de al menos un pasaje relevante entre los cinco primeros.
+- Recall@5: proporción de los pasajes relevantes recuperados.
+- Precision@5: proporción de pasajes relevantes entre los recuperados.
+- MRR@5: inverso de la posición del primer pasaje relevante dentro de los cinco primeros.
+- Revisión de respuestas: conteos de afirmaciones sustentadas, adecuación y abstención.
+- Tiempo: comparación pareada cuando se proporcionan mediciones manuales y asistidas.
 
-## Calidad de respuesta y utilidad
+`src/optimize.py` selecciona parámetros con desarrollo y validación, sin recibir test. `src/evaluate.py` permite BM25, BM25 ajustado, E5 y fusión RRF sobre registros compatibles. `src/answer_evaluation.py` resume las revisiones suministradas y conserva valores no estimados sin inventar porcentajes.
 
-Revise entre 20 y 30 respuestas de configuraciones congeladas. Cada registro de runs debe contener configuration, query_id, corpus_sha256 y generated (booleano), junto con la respuesta, fuentes, versión y tiempos conservados como evidencia. No comparta claves ni preguntas privadas. Cada registro de reviews debe identificar configuration, query_id, reviewer, review_date, review_status igual a approved, claims_total, claims_supported, answer_adequate, review_note y, cuando se midan, manual_seconds y assisted_seconds. Los CSV vacíos de esta carpeta muestran las columnas; conviértalos a JSONL conservando números y booleanos reales antes de ejecutar.
-
-El especialista anota cada afirmación y comprueba la cita y sus condiciones. En abstenciones, claims_total y claims_supported son cero. Alternar el orden manual/asistido reduce aprendizaje; ambos tiempos deben incluir comprobar fuentes. No confundir un fallo técnico con insuficiencia documental: regístrelo por separado y no elimine casos fallidos silenciosamente.
+## Reproducción del software
 
 ```text
-python -m src.answer_evaluation --labels evaluation/gold_test.jsonl --runs evaluation/answer_runs.jsonl --reviews evaluation/answer_reviews.jsonl --corpus data/processed/chunks.jsonl --output results/metrics/answers_reviewed.json
+python -m pytest -q
 ```
 
-El informe distingue ejecuciones sin revisión, adecuación, soporte de afirmaciones, abstención correcta e incorrecta, y ahorro mediano por pares. Un conjunto sin casos no produce una proporción cero ficticia. El cambio se decide por evidencia y costo/latencia medidos, no por una respuesta aislada más larga.
+El cuaderno `05_evaluacion.ipynb` verifica las fórmulas con ejemplos sintéticos identificados y utiliza etiquetas adicionales solo cuando se proporcionan. Los argumentos de las utilidades se consultan mediante `python -m src.evaluate --help`, `python -m src.optimize --help` y `python -m src.answer_evaluation --help`.
 
-## Producción y alcance
+## Servicio documentado
 
-Producción mantiene BM25 y E5 como rutas separadas. Qwen conserva el proveedor, hardware y cuotas. glf-grounded-v1 añade modos de hasta 700 o 1500 tokens y máximo dos intentos de inferencia; un texto truncado nunca se presenta como respuesta completa. La sintaxis de citas se valida automáticamente; su significado requiere revisión humana. Los ensayos de interfaz y contratos prueban funcionamiento, no precisión normativa.
+La política glf-grounded-v3.1 conserva BM25 para generación y E5 como ruta separada. Qwen2.5-72B se invoca mediante el proveedor remoto registrado Featherless AI. Los límites de salida son 700 tokens en modo breve y 1000 en ampliado, con dos intentos totales y un presupuesto compartido de 50 segundos. El modo ampliado valida contenido estructurado antes de mostrar la prosa. Las pruebas verifican errores, integridad y referencias; los puntajes de recuperación no son probabilidades de verdad.

@@ -1,6 +1,6 @@
 # Arquitectura e integración del asistente RAG GLF
 
-Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Edición 24 de octubre de 2026
+Grupo 10 · Schubert Lombeida Manjarrez y Niko Dimitri Jiménez Bruno · Edición 30 de octubre de 2026
 
 ## Sistema entregado y límites
 
@@ -27,7 +27,7 @@ El Space E5 es https://huggingface.co/spaces/Schubertlm/glf-e5-inference y su AP
 
 El servidor E5, copiado en integration/e5-inference, carga SentenceTransformer en CPU. Recibe de uno a ocho textos por solicitud, añade query: o passage: y genera vectores normalizados. Limita la consulta a 1500 caracteres y el pasaje a 12000. El modelo admite una longitud máxima de tokens que puede truncar textos largos; el límite de caracteres no demuestra que no haya truncamiento. La configuración identifica el modelo por nombre, sin fijar una revisión inmutable de sus pesos. Por ello la reproducción debe registrar también la revisión resuelta y la tokenización efectiva.
 
-El Space generativo es https://huggingface.co/spaces/Schubertlm/glf-rag-bm25-qwen. Su ruta /api/ask-stream entrega etapas de procesamiento y resultado; /api/ask conserva compatibilidad con clientes anteriores. El adaptador documentado es la versión 1.7 y el portal la versión 0.7.62.
+El Space generativo es https://huggingface.co/spaces/Schubertlm/glf-rag-bm25-qwen. Su ruta /api/ask-stream entrega etapas de procesamiento y resultado; /api/ask conserva compatibilidad con clientes anteriores. La interfaz copiada conserva la referencia 0.7.62; el servicio se actualiza de forma independiente a la política glf-grounded-v3.1. El registro del portal del 30 de octubre muestra versión 0.7.63. La procedencia de ambas capas se identifica por separado en el manifiesto.
 
 La comprobación funcional del 24 de octubre registró consultas Qwen breves y ampliadas, recuperación E5 y manejo de indisponibilidad del proveedor. Una consulta ampliada respondió en 35.2 segundos y otra consulta E5 recuperó seis pasajes en 1.2 segundos. Son observaciones individuales, no un benchmark. Los registros completos y sus diferencias de configuración están en results/live_v0762 y results/reports/quality_verificacion_20261024.json.
 
@@ -39,7 +39,7 @@ Las instantáneas de integración conservan el código de origen y su procedenci
 |---|---|---|
 | Representación semántica | intfloat/multilingual-e5-small | Texto query o passage hacia vector de 384 dimensiones |
 | Recuperación lexical | BM25-heading-authority-v2 | Consulta hacia hasta cinco pasajes con fuente y página |
-| Generación configurada | Qwen/Qwen2.5-72B-Instruct:deepinfra | Contexto y pregunta hacia texto con identificadores de cita |
+| Generación configurada | Qwen/Qwen2.5-72B-Instruct:featherless-ai | Contexto y pregunta hacia texto con identificadores de cita |
 | Validación de evidencia | Contrato Python y Zod del portal | Respuesta remota hacia resultado aceptado o error/abstención |
 | Datos y permisos | Supabase | Corpus y expedientes separados con controles de acceso |
 
@@ -51,19 +51,25 @@ En la configuración documentada de despliegue, Qwen se invoca a través del rou
 
 El recuperador histórico normaliza acentos, tokeniza y calcula BM25 para cuerpo y encabezados. La configuración congelada combina cuerpo con k1 igual a 0.8 y b igual a 0.2, encabezados con k1 igual a 1.2 y b igual a 0.3, peso 0.30 de encabezados y 0.15 de prioridad GLF. Es una prioridad editorial limitada, no una medida de certeza. Una priorización puede recuperar fuentes aun con coincidencia escasa; la abstención debe medirse de extremo a extremo.
 
-El código upstream se conserva como procedencia. El adaptador 1.7 aplica glf-grounded-v1: selecciona hasta cinco pasajes sin volver a recortar su texto, elimina duplicados y conserva identificador, página y fuente. No altera la fragmentación original. La pregunta y los documentos se delimitan como datos; el prompt distingue requisitos, definiciones, condiciones, fases y aspectos sin evidencia. Cada afirmación documental debe citar un identificador del contexto. La comprobación formal de citas no prueba su soporte semántico.
+El código upstream se conserva como procedencia. El adaptador documentado aplica glf-grounded-v3.1: selecciona hasta cinco pasajes sin volver a recortar su texto, elimina duplicados y conserva identificador, página y fuente. No altera la fragmentación original. La pregunta y los documentos se delimitan como datos; el prompt distingue requisitos, definiciones, condiciones, fases y aspectos sin evidencia. Cada afirmación documental debe citar un identificador del contexto. La comprobación formal de citas no prueba su soporte semántico.
 
 E5 y Qwen son rutas independientes en la integración revisada. El documento de arquitectura propuesto en una semana anterior incluía fusión y reranker, pero no se presenta esa propuesta como una característica ya desplegada. Los resultados del corpus normativo de 585 fragmentos tampoco se transfieren al corpus público de siete PDF.
 
 ## Respuesta breve y análisis ampliado
 
-El modo breve usa un límite de 700 tokens de salida y una orientación de 200 palabras. El ampliado usa 1500 tokens y una orientación de 450 palabras. Son límites de generación, no compromisos de longitud ni medidas de exactitud. El contexto admite hasta 12000 o 18000 caracteres, respectivamente; no son tokens exactos y puede contener menos de cinco pasajes.
+El modo breve usa un límite de 700 tokens de salida y una orientación de 200 palabras. El ampliado usa 1000 tokens y una orientación de 300 palabras. Son límites de generación, no compromisos de longitud ni medidas de exactitud. El contexto admite hasta 12000 o 18000 caracteres, respectivamente; no son tokens exactos y puede contener menos de cinco pasajes.
 
 Los reintentos de transporte y corrección de citas comparten un máximo total de dos solicitudes al proveedor y un presupuesto de 50 segundos. Si el proveedor informa fin por longitud o salida incompleta, la respuesta parcial no se publica como resultado válido. Se conservan los pasajes para revisión. Cuando no hay evidencia suficiente se mantiene la abstención.
 
 El detalle de ejecución registra modo, política, modelo efectivo, IDs del contexto, huella SHA-256 del corpus público, intentos, tiempos y tokens que realmente reporta el proveedor. Un consumo ausente se identifica como no reportado; uno parcial no se transforma en costo cero. Los registros del servidor contienen metadatos operativos, sin guardar la pregunta ni el texto de los documentos.
 
-El Space continúa como coordinador en CPU Basic; los pesos de Qwen se ejecutan en DeepInfra mediante Hugging Face. La configuración mantiene el mismo nivel de infraestructura y proveedor. Una respuesta más larga puede consumir más inferencia. La consulta extendida es optativa y el modo breve es el inicial.
+El Space continúa como coordinador en CPU Basic. El registro de despliegue del 30 de octubre identifica Featherless AI mediante Hugging Face, tras incidencias de espera con DeepInfra; los pesos de Qwen se ejecutan en ese proveedor remoto. No se modifica el nivel de hardware del Space. Una respuesta más larga puede consumir más inferencia. La consulta extendida es optativa y el modo breve es el inicial.
+
+## Validación de la respuesta ampliada
+
+La política glf-grounded-v3.1 solicita un objeto JSON con decisión de abstención, hasta cuatro párrafos y referencias F1 a F5 limitadas a los pasajes presentes. Cada párrafo admite de 20 a 700 caracteres. El servidor comprueba la estructura completa, la presencia de texto, la terminación de las frases y las referencias seleccionadas antes de componer la prosa. Une una frase que continúa en el párrafo siguiente conservando sus palabras y referencias; rechaza una frase final incompleta. Una cita formalmente válida no acredita por sí sola respaldo semántico.
+
+El transporte SSE, eventos enviados por el servidor, se acumula internamente hasta disponer del resultado completo. La pantalla recibe las etapas de procesamiento, pero no una respuesta parcial presentada como terminada. La normalización de espacios de puntuación se limita al prompt; la consulta original se conserva.
 
 ## Contratos y controles técnicos
 
@@ -87,6 +93,6 @@ requirements.txt fija las dependencias académicas; environment_lock.txt captura
 
 ## Interpretabilidad y límites operativos
 
-La evidencia observable es el pasaje, la fuente, la página, el identificador y el tiempo. No se muestra un porcentaje de confianza fabricado a partir del puntaje de BM25 o del coseno de E5. La verificación de formato previene citas inexistentes, pero no detecta todas las contradicciones, omisiones o interpretaciones erróneas. La revisión independiente de afirmaciones es necesaria para medir ese problema.
+La evidencia observable es el pasaje, la fuente, la página, el identificador y el tiempo. No se muestra un porcentaje de confianza fabricado a partir del puntaje de BM25 o del coseno de E5. La verificación de formato previene citas inexistentes, pero no detecta todas las contradicciones, omisiones o interpretaciones erróneas. Por eso la interpretación documental permanece bajo revisión humana.
 
 Fuentes técnicas: Robertson y Zaragoza, BM25 and Beyond, https://doi.org/10.1561/1500000019; Wang y colaboradores, Multilingual E5 Text Embeddings, https://arxiv.org/abs/2402.05672; tarjeta E5, https://huggingface.co/intfloat/multilingual-e5-small; Lewis y colaboradores, Retrieval Augmented Generation, https://arxiv.org/abs/2005.11401.
