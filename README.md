@@ -173,11 +173,11 @@ Referencias técnicas: [BM25](https://doi.org/10.1561/1500000019),
 
 ## Videos de entrega
 
-La presentación consta de un pitch de 4 minutos y 4 segundos y un video de 12 minutos y 17 segundos con las diez respuestas técnicas. El [índice de revisión](https://schubertlombeida.github.io/RAG.SALVAGUARDAS.GLF.UEES/) y la carpeta [videos](videos/README.md) reúnen los enlaces de reproducción.
+La presentación consta de un pitch de 4 minutos y 4 segundos y un video de 12 minutos y 17 segundos con las diez respuestas técnicas. El [índice de revisión](https://schubertlombeida.github.io/RAG.SALVAGUARDAS.GLF.UEES/) y la carpeta [videos](videos/README.md) reúnen los enlaces de reproducción y descarga de los archivos MP4.
 
 <!-- VIDEOS:START -->
-- [Presentación del proyecto](https://youtu.be/2KtV_3Zup-0)
-- [Diez respuestas técnicas](https://youtu.be/U9d4S2_3eO8)
+- [Presentación del proyecto: ver en línea](https://youtu.be/2KtV_3Zup-0) · [Descargar desde GitHub (MP4 · 720p · 76 MB)](https://github.com/schubertlombeida/RAG.SALVAGUARDAS.GLF.UEES/releases/download/VIDEOS-FINALES/RAG_GLF_PITCH.720.SUBS.mp4)
+- [Diez respuestas técnicas: ver en línea](https://youtu.be/U9d4S2_3eO8) · [Descargar desde GitHub (MP4 · 1080p · 186 MB)](https://github.com/schubertlombeida/RAG.SALVAGUARDAS.GLF.UEES/releases/download/VIDEOS-FINALES/RAG_GLF_RESPUESTAS_1080_P08.mp4)
 <!-- VIDEOS:END -->
 
 ## Índice de revisión
