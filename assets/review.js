@@ -23,6 +23,10 @@
     const hash = location.hash.slice(1);
     const doc = hash.startsWith("informe=") ? catalog.find(item => item.id === hash.slice(8)) : null;
     const name = doc ? "reader" : hash === "portal" ? "portal" : "documentacion";
+    if (name !== "documentacion" && !views.documentacion.hidden) {
+      document.querySelectorAll(".video-player").forEach(player => { player.src = player.src; });
+      document.querySelectorAll(".video-card video").forEach(player => player.pause());
+    }
     Object.entries(views).forEach(([key, element]) => element.hidden = key !== name);
     document.querySelectorAll("[data-main]").forEach(link => {
       if (link.dataset.main === (name === "reader" ? "documentacion" : name)) link.setAttribute("aria-current", "page"); else link.removeAttribute("aria-current");
@@ -40,8 +44,11 @@
       next.textContent = position < catalog.length-1 ? `${catalog[position+1].title} →` : "Explorar el portal GLF →";
     }
     if (moveFocus) {
-      const target = doc ? document.querySelector(`#report-${doc.id} h2`) : views[name].querySelector("h1");
-      target.setAttribute("tabindex", "-1"); target.focus({ preventScroll: true }); window.scrollTo({ top: 0, behavior: "instant" });
+      const videoTarget = hash === "videos" && !document.getElementById("video-section").hidden;
+      const target = videoTarget ? document.getElementById("video-title") : doc ? document.querySelector(`#report-${doc.id} h2`) : views[name].querySelector("h1");
+      target.setAttribute("tabindex", "-1"); target.focus({ preventScroll: true });
+      if (videoTarget) target.scrollIntoView({ behavior: "instant", block: "start" });
+      else window.scrollTo({ top: 0, behavior: "instant" });
     }
   }
   window.addEventListener("hashchange", () => route());
@@ -59,15 +66,43 @@
     document.getElementById("video-section").hidden = false;
     const container = document.getElementById("video-cards");
     videos.forEach(item => {
-      const url = videoURL(item.url), card = document.createElement("article"), title = document.createElement("h3"), desc = document.createElement("p"), link = document.createElement("a");
+      const url = videoURL(item.url), card = document.createElement("article"), title = document.createElement("h3"), desc = document.createElement("p"), link = document.createElement("a"), actions = document.createElement("div");
       card.className = "video-card"; title.textContent = item.title; desc.textContent = item.description;
-      link.href = url.href; link.className = "read-link"; link.target = "_blank"; link.rel = "noopener noreferrer"; link.textContent = `Ver video${item.duration ? " · " + item.duration : ""} ↗`;
-      card.append(title, desc, link);
+      const youtubeId = url.hostname === "youtu.be" ? url.pathname.slice(1) : ["youtube.com", "www.youtube.com"].includes(url.hostname) ? url.searchParams.get("v") : null;
+      const isYouTube = /^[\w-]{11}$/.test(youtubeId || "");
+      link.href = url.href; link.className = "button secondary"; link.target = "_blank"; link.rel = "noopener noreferrer"; link.textContent = `${isYouTube ? "Ver en YouTube" : "Ver video"}${item.duration ? " · " + item.duration : ""} ↗`;
+      link.setAttribute("aria-label", `${link.textContent}: ${item.title}`);
+      actions.className = "video-actions";
+      card.append(title, desc);
+      if (isYouTube) {
+        const player = document.createElement("iframe");
+        player.className = "video-player";
+        player.src = `https://www.youtube-nocookie.com/embed/${youtubeId}`;
+        player.title = `Reproducir ${item.title}`;
+        player.loading = "lazy";
+        player.referrerPolicy = "strict-origin-when-cross-origin";
+        player.allow = "encrypted-media; picture-in-picture; fullscreen";
+        player.allowFullscreen = true;
+        card.append(player);
+      }
       if (/\.mp4$/i.test(url.pathname)) {
         const video = document.createElement("video"); video.controls = true; video.preload = "none"; video.src = url.href; video.setAttribute("aria-label", item.title); video.textContent = "Utilice el enlace Ver video para abrir la grabación."; card.append(video);
       }
+      actions.append(link);
+      const downloadURL = videoURL(item.downloadUrl);
+      if (downloadURL) {
+        const download = document.createElement("a"), detail = document.createElement("small");
+        download.href = downloadURL.href;
+        download.className = "button primary video-download";
+        download.textContent = "Descargar desde GitHub";
+        download.setAttribute("aria-label", `Descargar ${item.title} desde GitHub${item.downloadLabel ? ": " + item.downloadLabel : ""}`);
+        detail.textContent = item.downloadLabel || "Archivo MP4";
+        download.append(detail);
+        actions.append(download);
+      }
+      card.append(actions);
       container.append(card);
     });
   }
-  route(false);
+  route(location.hash === "#videos");
 })();
